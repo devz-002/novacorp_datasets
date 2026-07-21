@@ -1,0 +1,1401 @@
+employee_id,exit_date,exit_type,stated_exit_reason,notice_period_served,regrettable_flag,performance_band_at_exit,salary_at_exit,manager_id_at_exit,pathway
+E00005,2024-12-24,voluntary,Relocation,True,False,Meets Expectations,132400.0,E12337,push
+E00006,2025-04-17,voluntary,Work-life balance,True,False,Below Expectations,120600.0,E00218,push
+E00008,2024-02-19,voluntary,Career advancement,True,False,Meets Expectations,117800.0,E00249,push
+E00021,2024-05-24,voluntary,Career advancement,True,False,Meets Expectations,125500.0,E08861,push
+E00023,2025-07-04,voluntary,Career advancement,False,False,Outstanding,175400.0,E09824,pull
+E00027,2025-04-30,voluntary,Better opportunity,True,False,High Performer,172700.0,E09174,pull
+E00036,2025-09-29,voluntary,Study/career change,True,False,Unsatisfactory,130000.0,E02132,push
+E00046,2025-04-29,voluntary,Career advancement,True,False,Meets Expectations,127800.0,E10271,push
+E00053,2024-05-01,voluntary,Better opportunity,True,False,Meets Expectations,132700.0,E00523,pull
+E00071,2024-09-30,voluntary,Career advancement,True,False,Below Expectations,123400.0,E04453,push
+E00072,2025-05-18,voluntary,Compensation,True,False,Meets Expectations,132800.0,E01982,push
+E00074,2025-08-29,voluntary,Compensation,True,False,Unsatisfactory,130700.0,E01790,push
+E00077,2024-08-30,involuntary,Involuntary - restructure,True,False,Meets Expectations,132200.0,E00271,push
+E00078,2024-06-28,voluntary,Career advancement,True,False,Unsatisfactory,182200.0,E08854,push
+E00082,2025-03-14,voluntary,Career advancement,True,False,Meets Expectations,124500.0,E08751,pull
+E00095,2024-12-22,involuntary,Involuntary - performance,True,False,Below Expectations,122800.0,E00583,push
+E00099,2024-09-27,voluntary,Career advancement,True,False,Below Expectations,142600.0,E00164,push
+E00102,2025-06-18,voluntary,Better opportunity,False,False,Unsatisfactory,180700.0,E06617,push
+E00106,2024-05-31,voluntary,Better opportunity,True,False,Outstanding,132200.0,E11480,pull
+E00115,2024-03-15,voluntary,Career advancement,False,False,Below Expectations,137200.0,E05469,push
+E00146,2024-06-28,involuntary,Involuntary - performance,False,False,Unsatisfactory,115600.0,E10143,push
+E00149,2025-03-31,voluntary,Better opportunity,True,False,High Performer,265200.0,E06846,pull
+E00156,2024-03-15,voluntary,Better opportunity,False,True,Meets Expectations,185700.0,E00273,pull
+E00160,2025-02-02,voluntary,Better opportunity,True,False,Below Expectations,125200.0,E10143,pull
+E00190,2024-04-30,voluntary,Career advancement,False,False,Meets Expectations,140200.0,E00880,pull
+E00200,2025-08-10,voluntary,Career advancement,True,True,Outstanding,143000.0,E07060,pull
+E00206,2025-06-19,voluntary,Career advancement,True,False,Below Expectations,126000.0,E12811,push
+E00207,2024-10-31,voluntary,Career advancement,True,False,Meets Expectations,123200.0,E09414,push
+E00210,2025-05-02,voluntary,Career advancement,True,False,Below Expectations,129800.0,E01498,push
+E00211,2025-02-28,voluntary,Career advancement,True,False,Meets Expectations,117600.0,E06218,push
+E00231,2024-10-26,involuntary,Involuntary - performance,True,False,High Performer,131900.0,E07606,push
+E00239,2025-05-13,voluntary,Career advancement,True,False,High Performer,129400.0,E03544,pull
+E00273,2024-03-25,voluntary,Career advancement,False,True,High Performer,258500.0,E08830,pull
+E00276,2024-05-31,voluntary,Career advancement,True,False,Meets Expectations,135900.0,E00087,push
+E00284,2025-09-05,voluntary,Career advancement,True,False,Meets Expectations,175500.0,E13928,push
+E00294,2025-01-24,involuntary,Involuntary - performance,True,False,Below Expectations,184500.0,E12110,push
+E00309,2024-03-29,voluntary,Better opportunity,True,False,Meets Expectations,190900.0,E09447,push
+E00325,2024-02-29,voluntary,Career advancement,True,False,Meets Expectations,179900.0,E10710,push
+E00395,2024-05-17,involuntary,Involuntary - performance,False,False,Unsatisfactory,123600.0,E08101,push
+E00402,2025-11-11,voluntary,Career advancement,True,True,Outstanding,134500.0,E03948,pull
+E00407,2025-06-20,involuntary,Involuntary - performance,True,False,Below Expectations,121000.0,E01225,push
+E00459,2024-03-20,voluntary,Career advancement,False,False,Meets Expectations,126300.0,E02577,push
+E00465,2024-10-08,voluntary,Career advancement,True,False,High Performer,129500.0,E02562,pull
+E00483,2025-05-07,voluntary,Career advancement,False,False,Meets Expectations,129300.0,E01657,pull
+E00490,2024-04-30,voluntary,Better opportunity,True,False,Outstanding,175400.0,E11855,pull
+E00537,2024-08-30,involuntary,Involuntary - performance,True,False,Below Expectations,175400.0,E04420,push
+E00538,2024-02-05,voluntary,Career advancement,True,False,Meets Expectations,125700.0,E00271,push
+E00551,2024-06-21,voluntary,Career advancement,True,False,Meets Expectations,182200.0,E06513,pull
+E00558,2024-08-28,voluntary,Career advancement,True,False,Outstanding,173200.0,E12796,push
+E00565,2025-01-19,voluntary,Career advancement,True,False,High Performer,121900.0,E11739,pull
+E00573,2024-05-20,voluntary,Career advancement,False,False,Meets Expectations,118500.0,E00312,push
+E00578,2024-06-08,voluntary,Career advancement,True,False,Meets Expectations,210200.0,E11584,push
+E00588,2024-03-22,voluntary,Better opportunity,True,False,High Performer,121200.0,E00333,pull
+E00591,2024-05-31,voluntary,Study/career change,True,False,Meets Expectations,129100.0,E01107,push
+E00603,2024-02-02,voluntary,Compensation,True,False,Meets Expectations,130600.0,E00193,push
+E00616,2025-09-30,voluntary,Career advancement,True,False,High Performer,136700.0,E01135,push
+E00639,2025-04-28,involuntary,Involuntary - performance,True,False,Below Expectations,122200.0,E08590,push
+E00648,2024-03-27,voluntary,Compensation,True,False,Unsatisfactory,170300.0,E02887,push
+E00654,2025-07-31,involuntary,Involuntary - performance,True,False,Below Expectations,117600.0,E09166,push
+E00660,2024-08-10,voluntary,Better opportunity,True,False,High Performer,126600.0,E08688,pull
+E00661,2025-07-29,involuntary,Involuntary - performance,True,False,Meets Expectations,115400.0,E00003,push
+E00669,2025-03-15,voluntary,Personal reasons,True,False,Meets Expectations,121700.0,E01123,push
+E00675,2024-06-17,voluntary,Career advancement,True,False,Below Expectations,131100.0,E13940,push
+E00681,2025-01-31,voluntary,Work-life balance,True,False,High Performer,132500.0,E00832,push
+E00687,2024-10-11,voluntary,Career advancement,True,False,Meets Expectations,187400.0,E10847,push
+E00696,2024-08-23,involuntary,Involuntary - restructure,False,False,Meets Expectations,171400.0,E06609,push
+E00707,2024-04-29,involuntary,Involuntary - performance,True,False,Below Expectations,121100.0,E00223,push
+E00713,2025-01-19,voluntary,Career advancement,True,False,Meets Expectations,128900.0,E00446,push
+E00734,2024-09-06,voluntary,Career advancement,True,False,Meets Expectations,121500.0,E05067,pull
+E00735,2024-07-09,involuntary,Involuntary - performance,True,False,Below Expectations,127300.0,E00704,push
+E00744,2024-03-01,voluntary,Career advancement,True,False,High Performer,221300.0,E00645,push
+E00785,2024-06-10,voluntary,Career advancement,True,False,Below Expectations,116800.0,E00332,push
+E00791,2025-08-15,involuntary,Involuntary - restructure,False,False,Meets Expectations,186700.0,E10094,push
+E00794,2024-03-22,involuntary,Involuntary - performance,True,False,Below Expectations,130200.0,E00552,push
+E00795,2024-12-31,voluntary,Career advancement,True,False,High Performer,119400.0,E00586,push
+E00796,2024-05-23,voluntary,Role uncertainty / unclear future,False,False,Meets Expectations,173000.0,E11308,push
+E00806,2025-03-31,involuntary,Involuntary - performance,False,False,Below Expectations,123800.0,E13889,push
+E00807,2024-12-31,voluntary,Better opportunity,True,False,High Performer,173200.0,E07539,pull
+E00810,2025-10-31,voluntary,Career advancement,True,False,Below Expectations,183200.0,E10628,push
+E00811,2024-02-29,voluntary,Career advancement,True,False,Unsatisfactory,187800.0,E07084,push
+E00815,2024-09-30,voluntary,Career advancement,True,False,Unsatisfactory,188600.0,E10053,push
+E00819,2024-03-15,voluntary,Work-life balance,True,False,Meets Expectations,205800.0,E10847,push
+E00829,2025-03-29,voluntary,Career advancement,False,True,Outstanding,175400.0,E09938,pull
+E00834,2024-12-20,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,180900.0,E06226,push
+E00835,2024-05-26,involuntary,Involuntary - conduct,False,False,Meets Expectations,183600.0,E06695,push
+E00836,2024-02-15,voluntary,Better opportunity,True,False,Below Expectations,126400.0,E00774,push
+E00849,2024-12-13,voluntary,Career advancement,False,False,High Performer,127400.0,E13072,pull
+E00861,2024-03-26,voluntary,Better opportunity,False,True,Outstanding,120600.0,E01502,pull
+E00868,2024-11-06,voluntary,Better opportunity,True,False,High Performer,121300.0,E05282,pull
+E00874,2024-11-29,voluntary,Career advancement,True,True,Outstanding,139300.0,E03511,pull
+E00875,2025-10-31,voluntary,Better opportunity,False,False,Meets Expectations,135300.0,E01657,pull
+E00891,2024-03-09,voluntary,Career advancement,False,True,Outstanding,141100.0,E14118,pull
+E00902,2024-08-28,voluntary,Work-life balance,True,False,Meets Expectations,132900.0,E05341,push
+E00915,2025-09-22,involuntary,Involuntary - performance,True,False,Unsatisfactory,125700.0,E04908,push
+E00923,2025-04-14,voluntary,Career advancement,True,False,High Performer,140200.0,E07425,pull
+E00936,2024-01-31,voluntary,Compensation,True,False,High Performer,130600.0,E08454,push
+E00938,2025-09-18,involuntary,Involuntary - performance,False,False,Unsatisfactory,177900.0,E09860,push
+E00953,2025-07-16,involuntary,Involuntary - performance,False,False,Unsatisfactory,128100.0,E09918,push
+E00973,2025-03-31,voluntary,Career advancement,True,False,Unsatisfactory,186900.0,E12162,push
+E00977,2024-07-12,voluntary,Career advancement,True,False,Below Expectations,128800.0,E02456,push
+E01024,2024-02-12,voluntary,Career advancement,True,False,High Performer,174900.0,E11918,pull
+E01025,2025-01-27,involuntary,Involuntary - performance,False,False,Below Expectations,121000.0,E00487,push
+E01033,2024-10-11,voluntary,Career advancement,True,False,Unsatisfactory,126400.0,E14091,push
+E01059,2025-01-24,voluntary,Career advancement,True,False,Unsatisfactory,171100.0,E07800,push
+E01067,2024-06-14,involuntary,Involuntary - performance,False,False,Unsatisfactory,119500.0,E05775,push
+E01078,2025-11-19,voluntary,Career advancement,False,False,Meets Expectations,131200.0,E00983,push
+E01140,2025-11-28,voluntary,Better opportunity,True,True,Outstanding,120000.0,E01600,pull
+E01152,2024-12-31,voluntary,Better opportunity,True,False,Below Expectations,138100.0,E00730,pull
+E01154,2025-01-31,involuntary,Involuntary - performance,True,False,Unsatisfactory,130200.0,E12811,push
+E01156,2025-07-29,voluntary,Career advancement,True,False,Meets Expectations,120800.0,E02099,push
+E01169,2025-03-28,involuntary,Involuntary - performance,False,False,Below Expectations,141800.0,E10173,push
+E01170,2025-03-25,voluntary,Better opportunity,False,False,Below Expectations,188300.0,E09934,push
+E01175,2025-07-25,voluntary,Work-life balance,True,False,Meets Expectations,117600.0,E01260,push
+E01183,2024-08-23,voluntary,Career advancement,True,False,Meets Expectations,116800.0,E13072,push
+E01187,2025-06-27,voluntary,Career advancement,True,False,Meets Expectations,122700.0,E00733,push
+E01193,2024-12-29,involuntary,Involuntary - performance,True,False,Unsatisfactory,123200.0,E06460,push
+E01221,2024-04-26,voluntary,Work-life balance,True,False,Below Expectations,135300.0,E14238,push
+E01222,2024-02-02,voluntary,Compensation,True,False,Meets Expectations,129600.0,E05639,push
+E01227,2024-03-29,voluntary,Career advancement,True,False,Meets Expectations,136000.0,E10164,pull
+E01231,2024-05-31,involuntary,Involuntary - performance,False,False,Below Expectations,182700.0,E10156,push
+E01244,2024-06-21,voluntary,Compensation,True,False,High Performer,125400.0,E02008,push
+E01249,2024-08-19,voluntary,Better opportunity,True,True,Outstanding,187100.0,E05144,pull
+E01293,2025-04-11,voluntary,Career advancement,False,False,Meets Expectations,119500.0,E03672,push
+E01302,2024-08-29,voluntary,Career advancement,False,True,Outstanding,131300.0,E01000,pull
+E01304,2024-08-30,voluntary,Career advancement,True,False,Unsatisfactory,115000.0,E02425,push
+E01309,2025-04-30,involuntary,Involuntary - conduct,True,False,Meets Expectations,132300.0,E11603,push
+E01322,2024-03-15,voluntary,Personal reasons,True,False,Meets Expectations,131200.0,E01374,push
+E01349,2025-09-30,voluntary,Career advancement,True,False,Meets Expectations,129300.0,E14346,push
+E01365,2025-03-25,voluntary,Better opportunity,True,True,Below Expectations,187600.0,E06153,pull
+E01382,2024-12-11,voluntary,Career advancement,True,False,Meets Expectations,135600.0,E12308,pull
+E01488,2025-04-25,involuntary,Involuntary - performance,True,False,Below Expectations,126400.0,E12413,push
+E01489,2024-07-27,voluntary,Personal reasons,True,False,High Performer,118300.0,E04338,push
+E01504,2025-01-24,voluntary,Career advancement,True,False,Below Expectations,122500.0,E12471,push
+E01508,2025-11-28,involuntary,Involuntary - performance,False,False,Below Expectations,118300.0,E08267,push
+E01511,2024-12-31,voluntary,Better opportunity,False,False,Meets Expectations,115400.0,E01209,push
+E01522,2025-10-17,voluntary,Career advancement,True,True,Outstanding,142300.0,E07892,push
+E01524,2025-09-30,voluntary,Compensation,True,False,Meets Expectations,123100.0,E07580,push
+E01531,2025-03-06,voluntary,Career advancement,True,False,Meets Expectations,124300.0,E03672,pull
+E01535,2024-04-09,voluntary,Better opportunity,False,True,Outstanding,128200.0,E01474,pull
+E01555,2025-08-18,voluntary,Relocation,True,False,Below Expectations,125600.0,E06406,push
+E01563,2025-10-31,voluntary,Career advancement,True,False,Meets Expectations,138800.0,E02635,push
+E01565,2025-09-05,voluntary,Better opportunity,True,False,High Performer,183200.0,E07560,pull
+E01569,2024-08-27,involuntary,Involuntary - performance,True,False,Unsatisfactory,117400.0,E07509,push
+E01596,2025-04-04,voluntary,Career advancement,True,False,Below Expectations,130300.0,E06688,push
+E01605,2024-10-04,involuntary,Involuntary - performance,False,False,Below Expectations,172600.0,E12162,push
+E01612,2024-03-15,involuntary,Involuntary - performance,False,False,Below Expectations,117400.0,E10171,push
+E01634,2025-01-09,involuntary,Involuntary - performance,False,False,Below Expectations,122500.0,E09166,push
+E01652,2024-12-25,voluntary,Compensation,True,False,Meets Expectations,128800.0,E12779,push
+E01662,2024-07-15,voluntary,Career advancement,True,False,Meets Expectations,141800.0,E09750,push
+E01672,2025-09-26,voluntary,Compensation,True,False,High Performer,133900.0,E08787,push
+E01684,2025-08-20,voluntary,Career advancement,True,False,Meets Expectations,118500.0,E13088,push
+E01686,2025-07-27,voluntary,Career advancement,True,True,High Performer,173700.0,E02048,pull
+E01689,2025-03-16,voluntary,Better opportunity,True,False,High Performer,118900.0,E01170,pull
+E01719,2025-02-07,voluntary,Career advancement,True,False,High Performer,130700.0,E10272,pull
+E01730,2025-10-13,voluntary,Career advancement,True,True,High Performer,182100.0,E02897,pull
+E01739,2025-03-03,voluntary,Personal reasons,False,False,Below Expectations,129700.0,E01853,push
+E01742,2024-08-30,voluntary,Better opportunity,False,False,Outstanding,191700.0,E04294,pull
+E01746,2024-08-26,voluntary,Career advancement,True,False,Meets Expectations,123300.0,E07243,push
+E01765,2024-02-14,voluntary,Compensation,True,False,High Performer,250800.0,E09879,push
+E01779,2024-07-12,voluntary,Career advancement,True,False,High Performer,232300.0,E08605,push
+E01788,2025-06-24,voluntary,Better opportunity,True,True,Outstanding,172700.0,E04361,pull
+E01809,2025-08-03,voluntary,Better opportunity,True,False,High Performer,124200.0,E10865,pull
+E01818,2025-09-19,voluntary,Career advancement,False,False,Below Expectations,140100.0,E02790,push
+E01824,2024-04-19,voluntary,Work-life balance,False,False,Below Expectations,123400.0,E11836,push
+E01825,2024-07-31,voluntary,Better opportunity,False,False,High Performer,139600.0,E02532,pull
+E01859,2025-03-01,voluntary,Career advancement,True,False,Meets Expectations,139600.0,E13002,push
+E01861,2024-05-24,involuntary,Involuntary - performance,True,False,Meets Expectations,176700.0,E13158,push
+E01873,2024-08-30,voluntary,Better opportunity,True,False,Meets Expectations,185700.0,E13366,pull
+E01880,2024-05-29,involuntary,Involuntary - performance,True,False,Below Expectations,118100.0,E06137,push
+E01907,2024-07-28,voluntary,Career advancement,False,False,Meets Expectations,128200.0,E01898,push
+E01910,2024-07-17,voluntary,Better opportunity,True,True,Meets Expectations,179400.0,E11918,pull
+E01912,2024-09-09,voluntary,Compensation,True,False,Meets Expectations,121500.0,E03558,push
+E01914,2024-03-27,voluntary,Career advancement,True,False,Below Expectations,186700.0,E02013,pull
+E01916,2025-01-31,voluntary,Career advancement,True,False,Meets Expectations,116000.0,E10836,push
+E01923,2024-06-14,voluntary,Relocation,True,False,Meets Expectations,134700.0,E14422,push
+E01936,2024-03-22,voluntary,Career advancement,True,False,High Performer,125400.0,E01673,pull
+E01938,2024-07-31,voluntary,Career advancement,True,False,High Performer,128300.0,E01953,pull
+E01943,2025-01-26,involuntary,Involuntary - performance,True,False,Meets Expectations,135400.0,E10861,push
+E01944,2025-06-29,involuntary,Involuntary - performance,False,False,Unsatisfactory,135300.0,E03222,push
+E01945,2025-06-05,involuntary,Involuntary - performance,False,False,Below Expectations,584100.0,E05512,push
+E01958,2025-09-03,voluntary,Career advancement,True,False,Meets Expectations,136600.0,E08907,push
+E01969,2025-08-01,voluntary,Better opportunity,True,False,Meets Expectations,120200.0,E01843,pull
+E01970,2025-08-08,voluntary,Personal reasons,True,False,Meets Expectations,129100.0,E08966,push
+E01973,2024-09-08,voluntary,Career advancement,True,False,Below Expectations,124100.0,E00786,push
+E01993,2024-10-25,voluntary,Better opportunity,True,False,Meets Expectations,228600.0,E13366,push
+E01997,2025-07-31,voluntary,Career advancement,True,True,Below Expectations,129300.0,E07676,pull
+E01999,2024-12-16,voluntary,Career advancement,True,False,Meets Expectations,117100.0,E14091,push
+E02000,2024-12-17,voluntary,Better opportunity,True,False,Outstanding,123000.0,E01366,pull
+E02008,2024-07-29,voluntary,Study/career change,True,False,Meets Expectations,222600.0,E02909,push
+E02025,2024-02-07,voluntary,Compensation,True,False,High Performer,118700.0,E02132,push
+E02050,2025-07-31,involuntary,Involuntary - performance,True,False,Below Expectations,123900.0,E00094,push
+E02051,2025-10-24,voluntary,Career advancement,True,True,Outstanding,122100.0,E14091,push
+E02054,2024-02-06,voluntary,Career advancement,True,False,Meets Expectations,117900.0,E13940,push
+E02071,2025-11-28,voluntary,Better opportunity,True,True,High Performer,127200.0,E01644,pull
+E02088,2025-05-15,voluntary,Career advancement,False,False,High Performer,127900.0,E00791,pull
+E02092,2024-03-08,voluntary,Career advancement,True,False,Meets Expectations,128900.0,E10464,pull
+E02096,2024-03-29,voluntary,Career advancement,True,False,Meets Expectations,123700.0,E04052,pull
+E02103,2024-05-24,involuntary,Involuntary - performance,False,False,Meets Expectations,138000.0,E04415,push
+E02105,2024-04-30,voluntary,Career advancement,True,False,Below Expectations,116900.0,E07901,push
+E02117,2025-05-01,involuntary,Involuntary - performance,False,False,Unsatisfactory,126300.0,E12245,push
+E02145,2024-12-28,voluntary,Career advancement,True,False,Below Expectations,134300.0,E10317,pull
+E02153,2025-06-05,voluntary,Compensation,False,False,Below Expectations,127400.0,E11512,push
+E02159,2025-03-14,voluntary,Career advancement,True,False,Meets Expectations,157700.0,E03773,push
+E02177,2024-06-21,voluntary,Personal reasons,True,False,Below Expectations,133500.0,E01095,push
+E02183,2025-10-10,voluntary,Better opportunity,False,True,Meets Expectations,124300.0,E01281,pull
+E02205,2025-01-31,voluntary,Career advancement,False,False,Meets Expectations,143400.0,E04635,push
+E02226,2025-05-09,involuntary,Involuntary - performance,False,False,Unsatisfactory,120900.0,E03243,push
+E02229,2025-08-04,involuntary,Involuntary - performance,False,False,Below Expectations,123900.0,E06557,push
+E02234,2025-09-05,voluntary,Career advancement,True,False,Meets Expectations,130000.0,E13517,push
+E02249,2024-11-29,voluntary,Career advancement,True,False,Meets Expectations,129300.0,E02001,push
+E02253,2024-08-02,voluntary,Career advancement,True,False,High Performer,139300.0,E02155,push
+E02256,2025-01-31,voluntary,Better opportunity,True,False,High Performer,124200.0,E01942,pull
+E02270,2024-02-28,voluntary,Compensation,True,False,Meets Expectations,142900.0,E00094,push
+E02286,2024-08-23,voluntary,Better opportunity,False,False,High Performer,128200.0,E01170,pull
+E02293,2025-10-07,involuntary,Involuntary - restructure,True,False,Meets Expectations,135700.0,E10173,push
+E02296,2025-05-30,voluntary,Career advancement,True,False,High Performer,135900.0,E01095,push
+E02305,2025-02-28,voluntary,Work-life balance,True,False,Meets Expectations,135600.0,E02316,push
+E02311,2025-10-31,voluntary,Better opportunity,False,False,High Performer,127600.0,E04053,pull
+E02320,2025-10-16,voluntary,Career advancement,True,False,Meets Expectations,177600.0,E14493,push
+E02324,2024-12-31,involuntary,Involuntary - restructure,False,False,Meets Expectations,145300.0,E06044,push
+E02336,2024-12-27,involuntary,Involuntary - restructure,True,False,High Performer,119600.0,E08733,push
+E02343,2025-03-12,voluntary,Career advancement,False,False,Meets Expectations,135500.0,E01243,push
+E02347,2025-11-08,involuntary,Involuntary - performance,False,False,Below Expectations,128100.0,E00187,push
+E02362,2024-09-05,voluntary,Career advancement,True,False,Meets Expectations,303300.0,E05945,push
+E02388,2024-04-30,voluntary,Role uncertainty / unclear future,True,True,Outstanding,138000.0,E01230,push
+E02393,2024-03-10,voluntary,Career advancement,True,False,Below Expectations,132700.0,E01909,push
+E02410,2024-02-02,voluntary,Better opportunity,True,False,Outstanding,121400.0,E01069,pull
+E02414,2024-02-05,voluntary,Career advancement,True,False,Meets Expectations,124700.0,E13314,push
+E02422,2024-10-31,voluntary,Career advancement,False,False,High Performer,132000.0,E00490,pull
+E02430,2024-11-15,involuntary,Involuntary - performance,True,False,Below Expectations,128300.0,E00490,push
+E02464,2024-07-12,voluntary,Career advancement,True,False,Below Expectations,127500.0,E09001,push
+E02477,2025-10-07,voluntary,Work-life balance,True,False,Below Expectations,115000.0,E09352,push
+E02478,2024-07-12,voluntary,Career advancement,True,False,Meets Expectations,127400.0,E01069,push
+E02487,2024-10-31,involuntary,Involuntary - performance,True,False,Below Expectations,134300.0,E13709,push
+E02504,2025-02-12,voluntary,Career advancement,True,False,Below Expectations,181300.0,E14236,push
+E02535,2024-08-16,involuntary,Involuntary - performance,True,False,Below Expectations,174900.0,E12716,push
+E02536,2024-10-27,voluntary,Relocation,True,False,Meets Expectations,119600.0,E00598,push
+E02544,2024-04-12,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,174200.0,E07967,push
+E02545,2024-03-09,involuntary,Involuntary - restructure,False,False,Meets Expectations,120500.0,E09068,push
+E02548,2024-08-03,voluntary,Career advancement,True,False,High Performer,134600.0,E02467,pull
+E02556,2025-08-29,voluntary,Role uncertainty / unclear future,True,False,High Performer,120900.0,E04695,push
+E02562,2025-02-28,voluntary,Career advancement,True,False,High Performer,190700.0,E00607,push
+E02565,2025-10-29,voluntary,Study/career change,True,False,Below Expectations,170100.0,E11603,push
+E02568,2024-02-23,involuntary,Involuntary - performance,False,False,Below Expectations,120500.0,E11596,push
+E02572,2025-07-02,voluntary,Career advancement,True,False,Meets Expectations,199100.0,E04166,push
+E02578,2025-10-03,voluntary,Career advancement,True,False,High Performer,121900.0,E07314,push
+E02581,2025-10-24,voluntary,Better opportunity,True,False,High Performer,116500.0,E06460,push
+E02597,2024-07-31,involuntary,Involuntary - performance,True,False,Unsatisfactory,115500.0,E06379,push
+E02605,2024-08-14,voluntary,Career advancement,True,False,Meets Expectations,120100.0,E06981,push
+E02617,2025-06-15,voluntary,Career advancement,True,False,High Performer,129100.0,E10458,pull
+E02624,2024-08-23,involuntary,Involuntary - conduct,False,False,Meets Expectations,135800.0,E00462,push
+E02631,2024-05-16,voluntary,Better opportunity,True,True,Outstanding,134400.0,E12716,pull
+E02638,2025-05-29,involuntary,Involuntary - performance,True,False,Below Expectations,128300.0,E00248,push
+E02658,2025-09-30,voluntary,Work-life balance,True,False,High Performer,135800.0,E01556,push
+E02663,2025-03-28,voluntary,Better opportunity,True,True,Unsatisfactory,127100.0,E11587,pull
+E02664,2024-08-09,voluntary,Career advancement,False,False,Below Expectations,138900.0,E07302,push
+E02679,2024-04-09,voluntary,Compensation,True,False,Below Expectations,117200.0,E02613,push
+E02684,2024-12-10,voluntary,Career advancement,False,False,Below Expectations,135200.0,E01366,push
+E02688,2024-08-09,voluntary,Career advancement,True,True,Outstanding,133000.0,E03615,push
+E02692,2024-10-11,involuntary,Involuntary - performance,False,False,Meets Expectations,273000.0,E08605,push
+E02714,2025-02-28,involuntary,Involuntary - performance,True,False,Meets Expectations,232600.0,E05727,push
+E02716,2025-10-03,voluntary,Personal reasons,True,False,Meets Expectations,123200.0,E09482,push
+E02720,2024-05-31,voluntary,Career advancement,True,False,Meets Expectations,125700.0,E06375,push
+E02738,2025-05-02,voluntary,Better opportunity,True,False,Meets Expectations,122900.0,E12803,pull
+E02770,2024-12-21,involuntary,Involuntary - restructure,True,False,High Performer,126800.0,E00308,push
+E02805,2024-03-11,voluntary,Career advancement,True,True,Outstanding,115600.0,E05666,pull
+E02810,2025-01-24,voluntary,Career advancement,True,False,High Performer,140600.0,E01120,push
+E02850,2024-07-08,voluntary,Career advancement,False,True,Outstanding,324500.0,E11957,pull
+E02861,2024-10-08,involuntary,Involuntary - performance,True,False,Unsatisfactory,307100.0,E00209,push
+E02863,2024-04-19,voluntary,Personal reasons,True,False,Meets Expectations,126000.0,E13889,push
+E02883,2024-08-30,voluntary,Personal reasons,True,False,Meets Expectations,132300.0,E12488,push
+E02891,2025-01-07,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,130800.0,E06406,push
+E02892,2024-09-06,voluntary,Better opportunity,True,False,Below Expectations,134900.0,E06471,push
+E02893,2025-11-14,voluntary,Career advancement,True,False,Meets Expectations,119400.0,E00655,push
+E02912,2024-03-29,voluntary,Better opportunity,True,False,High Performer,129900.0,E01219,pull
+E02918,2025-07-05,voluntary,Role uncertainty / unclear future,False,False,Meets Expectations,122400.0,E11140,push
+E02924,2025-08-29,voluntary,Career advancement,True,False,Meets Expectations,116200.0,E06688,push
+E02944,2024-10-25,voluntary,Career advancement,True,False,High Performer,121800.0,E01372,push
+E02949,2025-08-01,voluntary,Career advancement,True,False,Meets Expectations,128600.0,E00829,push
+E02977,2025-09-10,involuntary,Involuntary - restructure,False,False,Meets Expectations,119500.0,E04695,push
+E02980,2024-02-25,voluntary,Career advancement,True,True,Unsatisfactory,235700.0,E02692,pull
+E02981,2025-09-05,voluntary,Better opportunity,True,False,Meets Expectations,135400.0,E03529,pull
+E02984,2024-06-27,voluntary,Career advancement,True,False,High Performer,134700.0,E01764,pull
+E02986,2025-08-07,voluntary,Career advancement,True,False,Below Expectations,133400.0,E00583,push
+E02998,2024-05-16,voluntary,Career advancement,True,False,Outstanding,129200.0,E13571,pull
+E03000,2024-09-22,voluntary,Better opportunity,True,False,High Performer,215700.0,E07945,pull
+E03003,2024-07-01,voluntary,Career advancement,True,False,High Performer,125000.0,E02425,pull
+E03010,2025-10-24,voluntary,Better opportunity,True,False,Meets Expectations,130500.0,E03706,pull
+E03012,2025-02-09,voluntary,Career advancement,True,False,High Performer,119000.0,E05229,pull
+E03021,2024-12-14,voluntary,Career advancement,True,False,Meets Expectations,117500.0,E01618,push
+E03024,2024-04-13,involuntary,Involuntary - performance,False,False,Unsatisfactory,120300.0,E10171,push
+E03025,2025-01-28,voluntary,Career advancement,False,False,Outstanding,142600.0,E00843,pull
+E03029,2024-02-02,voluntary,Study/career change,False,False,Meets Expectations,140300.0,E02619,push
+E03037,2025-01-31,voluntary,Better opportunity,True,False,High Performer,178800.0,E03782,pull
+E03040,2024-10-31,voluntary,Career advancement,True,True,Outstanding,134200.0,E12311,push
+E03064,2024-09-13,involuntary,Involuntary - performance,False,False,Unsatisfactory,125600.0,E02701,push
+E03071,2024-02-29,involuntary,Involuntary - performance,False,False,Unsatisfactory,123200.0,E00728,push
+E03090,2024-12-04,involuntary,Involuntary - restructure,False,False,Meets Expectations,201200.0,E00270,push
+E03098,2024-03-29,voluntary,Career advancement,False,False,Below Expectations,165600.0,E10688,pull
+E03101,2024-10-11,voluntary,Better opportunity,True,True,High Performer,168400.0,E00587,pull
+E03102,2024-09-06,voluntary,Career advancement,True,False,Meets Expectations,118500.0,E01243,push
+E03107,2024-06-28,voluntary,Career advancement,True,False,High Performer,116600.0,E01442,push
+E03121,2025-02-14,voluntary,Career advancement,True,False,Below Expectations,132200.0,E01878,push
+E03128,2024-07-27,voluntary,Career advancement,True,False,Meets Expectations,133100.0,E00744,push
+E03133,2024-04-24,voluntary,Career advancement,False,False,Meets Expectations,125800.0,E00728,push
+E03150,2024-05-31,voluntary,Career advancement,True,False,Meets Expectations,134800.0,E02077,push
+E03171,2025-02-28,voluntary,Career advancement,True,False,Meets Expectations,123800.0,E07606,push
+E03172,2025-08-29,voluntary,Work-life balance,False,False,Meets Expectations,121200.0,E04453,push
+E03183,2024-06-14,voluntary,Career advancement,True,False,High Performer,130500.0,E12826,push
+E03189,2024-11-29,voluntary,Career advancement,True,False,Meets Expectations,127800.0,E11372,push
+E03199,2025-02-04,voluntary,Better opportunity,True,False,Meets Expectations,127900.0,E01434,pull
+E03205,2024-05-26,involuntary,Involuntary - performance,False,False,Below Expectations,132600.0,E02328,push
+E03207,2025-02-21,voluntary,Career advancement,True,False,Below Expectations,129500.0,E00135,push
+E03214,2024-11-28,voluntary,Career advancement,True,True,Outstanding,126900.0,E00029,push
+E03216,2024-04-05,voluntary,Career advancement,False,False,High Performer,123100.0,E04635,push
+E03239,2025-04-07,voluntary,Career advancement,True,False,Below Expectations,152000.0,E00932,push
+E03242,2025-02-25,voluntary,Career advancement,True,True,Outstanding,115300.0,E07777,pull
+E03243,2025-10-17,voluntary,Better opportunity,False,True,High Performer,193600.0,E07291,pull
+E03277,2025-03-25,voluntary,Career advancement,True,False,Meets Expectations,128200.0,E07967,push
+E03318,2025-03-05,voluntary,Better opportunity,True,False,High Performer,132400.0,E10006,pull
+E03322,2025-06-08,involuntary,Involuntary - performance,True,False,Below Expectations,151900.0,E04052,push
+E03327,2025-10-04,involuntary,Involuntary - conduct,True,False,High Performer,141800.0,E01057,push
+E03332,2024-08-06,voluntary,Better opportunity,True,True,Outstanding,176500.0,E12277,pull
+E03336,2024-12-20,involuntary,Involuntary - performance,True,False,Below Expectations,238800.0,E07285,push
+E03357,2024-03-13,involuntary,Involuntary - restructure,False,False,Meets Expectations,168400.0,E02260,push
+E03372,2025-08-14,voluntary,Career advancement,True,False,Below Expectations,133100.0,E08921,push
+E03375,2024-06-28,voluntary,Better opportunity,True,True,Outstanding,137300.0,E00597,pull
+E03381,2025-03-31,voluntary,Career advancement,True,False,High Performer,174200.0,E00774,push
+E03393,2024-03-29,voluntary,Career advancement,False,False,High Performer,120400.0,E13079,push
+E03404,2024-10-24,voluntary,Career advancement,True,False,Meets Expectations,91000.0,E00896,push
+E03414,2024-11-17,involuntary,Involuntary - performance,True,False,Unsatisfactory,147400.0,E11616,push
+E03421,2024-05-17,involuntary,Involuntary - performance,False,False,Unsatisfactory,61700.0,E00322,push
+E03433,2024-12-31,voluntary,Career advancement,True,False,High Performer,247300.0,E00096,pull
+E03438,2025-07-17,voluntary,Better opportunity,True,False,Below Expectations,121800.0,E02970,pull
+E03439,2024-02-29,voluntary,Career advancement,False,False,High Performer,161600.0,E01137,pull
+E03440,2025-11-28,voluntary,Work-life balance,True,False,Meets Expectations,141400.0,E11218,push
+E03442,2025-03-30,voluntary,Career advancement,True,False,High Performer,183500.0,E12716,pull
+E03447,2025-01-17,voluntary,Relocation,True,False,Meets Expectations,122700.0,E05706,push
+E03453,2025-04-11,voluntary,Study/career change,True,False,High Performer,88600.0,E03104,push
+E03463,2025-10-31,involuntary,Involuntary - performance,True,False,Meets Expectations,73800.0,E04217,push
+E03499,2024-07-14,voluntary,Compensation,True,False,Meets Expectations,130300.0,E01822,push
+E03516,2024-10-31,involuntary,Involuntary - performance,False,False,Unsatisfactory,228200.0,E11584,push
+E03526,2025-06-29,voluntary,Career advancement,True,False,Meets Expectations,112200.0,E01006,push
+E03540,2024-03-02,voluntary,Career advancement,True,False,Meets Expectations,110400.0,E02725,push
+E03553,2025-02-17,voluntary,Personal reasons,True,False,Below Expectations,55000.0,E02216,push
+E03556,2024-09-06,involuntary,Involuntary - performance,False,False,Below Expectations,82500.0,E02427,push
+E03563,2025-08-15,voluntary,Career advancement,True,False,Below Expectations,133500.0,E03094,push
+E03571,2024-10-29,involuntary,Involuntary - performance,False,False,Below Expectations,141900.0,E05808,push
+E03575,2024-10-25,voluntary,Career advancement,False,False,Below Expectations,102500.0,E00178,push
+E03580,2025-03-30,voluntary,Career advancement,True,True,Outstanding,85200.0,E02432,pull
+E03581,2024-11-26,voluntary,Career advancement,True,True,Outstanding,142600.0,E10879,push
+E03586,2024-08-23,voluntary,Relocation,True,False,Meets Expectations,84700.0,E09707,push
+E03599,2024-04-30,voluntary,Career advancement,True,False,Meets Expectations,101100.0,E04740,push
+E03600,2025-04-30,voluntary,Better opportunity,True,False,Meets Expectations,84400.0,E02658,pull
+E03601,2025-05-30,voluntary,Career advancement,True,False,Meets Expectations,66100.0,E00706,push
+E03602,2025-09-17,voluntary,Relocation,True,False,Meets Expectations,109200.0,E04187,push
+E03605,2024-09-27,involuntary,Involuntary - restructure,False,False,Meets Expectations,89600.0,E04920,push
+E03608,2025-02-28,voluntary,Career advancement,False,False,High Performer,129100.0,E08209,push
+E03617,2024-02-02,involuntary,Involuntary - conduct,False,False,Meets Expectations,214900.0,E09391,push
+E03619,2024-11-30,voluntary,Career advancement,True,False,Meets Expectations,359600.0,E00132,push
+E03638,2024-03-29,voluntary,Career advancement,True,False,Meets Expectations,112900.0,E00953,push
+E03642,2025-04-09,voluntary,Work-life balance,True,False,High Performer,136600.0,E06558,push
+E03643,2024-04-19,voluntary,Career advancement,True,False,High Performer,140700.0,E11603,pull
+E03653,2025-05-09,voluntary,Career advancement,True,True,High Performer,80400.0,E09355,pull
+E03680,2024-12-27,voluntary,Career advancement,False,False,Meets Expectations,112400.0,E02597,pull
+E03682,2025-03-14,voluntary,Career advancement,True,False,Meets Expectations,141500.0,E08836,push
+E03700,2025-02-21,voluntary,Career advancement,False,True,Outstanding,112400.0,E01208,pull
+E03703,2025-03-31,involuntary,Involuntary - performance,False,False,Unsatisfactory,110200.0,E02625,push
+E03708,2024-03-29,involuntary,Involuntary - performance,True,False,Below Expectations,93900.0,E03484,push
+E03718,2024-02-23,voluntary,Relocation,True,False,Meets Expectations,110200.0,E06335,push
+E03743,2024-04-18,voluntary,Work-life balance,True,False,Meets Expectations,95600.0,E04659,push
+E03770,2025-01-31,voluntary,Career advancement,True,False,Meets Expectations,129200.0,E01316,push
+E03775,2025-07-31,involuntary,Involuntary - restructure,True,False,Meets Expectations,128200.0,E01665,push
+E03778,2024-03-10,voluntary,Better opportunity,True,False,Meets Expectations,159400.0,E00931,pull
+E03781,2024-05-31,involuntary,Involuntary - performance,False,False,Below Expectations,130400.0,E03020,push
+E03802,2024-08-30,voluntary,Career advancement,True,False,Meets Expectations,89400.0,E03349,push
+E03807,2024-11-12,voluntary,Work-life balance,True,False,High Performer,128100.0,E13542,push
+E03811,2024-10-20,voluntary,Career advancement,False,False,High Performer,227000.0,E04294,pull
+E03822,2025-11-24,voluntary,Relocation,True,False,Meets Expectations,95000.0,E00661,push
+E03823,2024-04-30,voluntary,Career advancement,True,False,Meets Expectations,136500.0,E03290,push
+E03838,2024-05-10,involuntary,Involuntary - performance,True,False,Unsatisfactory,130700.0,E02133,push
+E03839,2024-08-09,involuntary,Involuntary - performance,True,False,Unsatisfactory,138300.0,E00115,push
+E03892,2025-10-19,involuntary,Involuntary - performance,False,False,Below Expectations,170200.0,E08008,push
+E03920,2025-02-28,voluntary,Career advancement,True,False,Unsatisfactory,140400.0,E01628,push
+E03945,2025-06-16,voluntary,Career advancement,True,False,Meets Expectations,145700.0,E09364,push
+E03950,2025-04-30,voluntary,Better opportunity,False,False,High Performer,69900.0,E00953,push
+E03970,2024-11-16,voluntary,Better opportunity,True,False,High Performer,63400.0,E12220,pull
+E03974,2024-10-18,involuntary,Involuntary - performance,False,False,Unsatisfactory,136800.0,E10892,push
+E03982,2024-10-15,involuntary,Involuntary - performance,False,False,Below Expectations,140200.0,E12941,push
+E03985,2024-07-02,voluntary,Better opportunity,True,False,High Performer,110300.0,E00188,pull
+E03988,2024-06-28,voluntary,Career advancement,True,False,High Performer,132900.0,E02309,push
+E03998,2025-10-28,voluntary,Better opportunity,True,False,Meets Expectations,136700.0,E00790,pull
+E04028,2025-05-12,voluntary,Work-life balance,True,False,Below Expectations,298400.0,E08605,push
+E04048,2024-10-02,voluntary,Better opportunity,False,False,Meets Expectations,107200.0,E02194,pull
+E04062,2024-08-23,voluntary,Better opportunity,True,False,Below Expectations,67800.0,E02308,push
+E04086,2025-01-14,voluntary,Better opportunity,True,False,High Performer,61200.0,E03603,pull
+E04087,2024-06-24,voluntary,Career advancement,False,True,Outstanding,78100.0,E01432,pull
+E04088,2024-09-01,voluntary,Career advancement,True,False,High Performer,98300.0,E01902,push
+E04099,2025-01-24,voluntary,Career advancement,True,True,High Performer,100300.0,E04153,pull
+E04107,2024-06-14,voluntary,Study/career change,True,False,High Performer,130900.0,E13040,push
+E04122,2024-07-26,voluntary,Career advancement,True,True,Outstanding,66800.0,E02448,push
+E04127,2025-05-30,voluntary,Career advancement,True,False,Meets Expectations,112700.0,E00927,push
+E04147,2025-08-08,voluntary,Career advancement,True,False,High Performer,95700.0,E03123,pull
+E04160,2025-01-31,involuntary,Involuntary - restructure,False,False,Outstanding,130800.0,E09619,push
+E04195,2025-07-25,involuntary,Involuntary - conduct,True,False,Meets Expectations,104000.0,E02975,push
+E04200,2025-05-30,voluntary,Better opportunity,True,False,High Performer,129700.0,E09269,pull
+E04223,2024-11-22,voluntary,Career advancement,True,True,Outstanding,106900.0,E03199,pull
+E04228,2024-03-15,voluntary,Better opportunity,True,False,High Performer,91400.0,E05685,pull
+E04229,2025-05-30,involuntary,Involuntary - performance,False,False,Below Expectations,319000.0,E01001,push
+E04247,2024-08-09,voluntary,Career advancement,True,False,Below Expectations,181800.0,E10182,push
+E04251,2024-02-28,voluntary,Relocation,False,False,High Performer,79400.0,E02874,push
+E04285,2024-03-18,voluntary,Career advancement,False,False,Meets Expectations,115700.0,E07221,pull
+E04290,2024-03-22,voluntary,Career advancement,False,False,Meets Expectations,155400.0,E07717,push
+E04295,2024-03-29,voluntary,Better opportunity,True,False,High Performer,107300.0,E01913,pull
+E04297,2025-04-12,involuntary,Involuntary - performance,False,False,Unsatisfactory,79400.0,E01233,push
+E04303,2024-09-30,voluntary,Relocation,False,False,Meets Expectations,94900.0,E03225,push
+E04327,2025-05-27,voluntary,Work-life balance,True,False,High Performer,91900.0,E00438,push
+E04347,2024-10-20,voluntary,Career advancement,False,False,High Performer,129600.0,E11256,pull
+E04365,2025-05-17,voluntary,Career advancement,True,False,High Performer,133900.0,E14396,pull
+E04370,2024-11-29,involuntary,Involuntary - restructure,True,False,Meets Expectations,187300.0,E02861,push
+E04374,2024-07-11,voluntary,Better opportunity,True,False,High Performer,170500.0,E01796,pull
+E04377,2024-12-28,voluntary,Career advancement,True,False,Below Expectations,93300.0,E05342,push
+E04391,2025-05-30,voluntary,Career advancement,True,False,Meets Expectations,131100.0,E02278,push
+E04392,2024-03-03,involuntary,Involuntary - performance,True,False,Unsatisfactory,80000.0,E06233,push
+E04408,2025-10-08,involuntary,Involuntary - performance,True,False,Unsatisfactory,177600.0,E07084,push
+E04410,2025-06-30,voluntary,Better opportunity,True,True,Outstanding,157700.0,E11777,pull
+E04412,2024-03-22,voluntary,Career advancement,True,True,Outstanding,71000.0,E03096,pull
+E04465,2025-05-12,involuntary,Involuntary - performance,False,False,Below Expectations,109600.0,E03297,push
+E04484,2025-08-29,voluntary,Career advancement,True,False,Meets Expectations,289800.0,E06846,push
+E04497,2024-02-02,involuntary,Involuntary - performance,True,False,Below Expectations,91900.0,E02732,push
+E04509,2025-08-23,involuntary,Involuntary - performance,True,False,High Performer,125900.0,E01763,push
+E04544,2025-05-02,voluntary,Better opportunity,True,True,Outstanding,103300.0,E04911,pull
+E04554,2024-03-21,voluntary,Career advancement,True,True,Outstanding,90500.0,E14012,pull
+E04559,2024-08-30,voluntary,Career advancement,True,False,Meets Expectations,123800.0,E03350,pull
+E04569,2025-01-03,involuntary,Involuntary - performance,True,False,Below Expectations,108300.0,E14232,push
+E04596,2024-08-17,voluntary,Better opportunity,False,False,High Performer,218300.0,E11932,pull
+E04638,2024-10-31,voluntary,Career advancement,True,False,Meets Expectations,130000.0,E00915,pull
+E04647,2025-06-27,involuntary,Involuntary - conduct,False,False,High Performer,60600.0,E01902,push
+E04674,2025-10-14,voluntary,Better opportunity,True,False,Outstanding,92400.0,E11069,pull
+E04680,2024-02-16,voluntary,Better opportunity,True,True,Outstanding,216700.0,E10303,pull
+E04682,2024-02-09,voluntary,Career advancement,True,False,Meets Expectations,141700.0,E00322,push
+E04689,2025-05-16,involuntary,Involuntary - conduct,False,False,High Performer,77300.0,E00429,push
+E04701,2024-04-30,voluntary,Better opportunity,True,False,High Performer,100400.0,E13310,push
+E04705,2025-02-27,involuntary,Involuntary - performance,False,False,Below Expectations,128200.0,E00957,push
+E04711,2024-09-11,voluntary,Career advancement,True,False,Below Expectations,136000.0,E03288,push
+E04716,2025-03-28,voluntary,Better opportunity,True,False,Meets Expectations,120600.0,E08731,pull
+E04722,2024-05-25,voluntary,Better opportunity,True,False,High Performer,113300.0,E08595,pull
+E04725,2024-09-06,voluntary,Career advancement,True,True,Outstanding,78200.0,E03029,pull
+E04735,2025-10-31,voluntary,Better opportunity,True,True,Outstanding,132000.0,E00494,push
+E04740,2025-08-29,voluntary,Better opportunity,True,False,High Performer,128900.0,E01843,pull
+E04769,2024-06-28,voluntary,Career advancement,False,False,Meets Expectations,109400.0,E03045,push
+E04793,2024-06-21,voluntary,Better opportunity,False,False,High Performer,76500.0,E13086,pull
+E04809,2025-02-14,voluntary,Career advancement,True,False,Meets Expectations,55000.0,E01776,push
+E04835,2024-10-28,voluntary,Better opportunity,True,False,High Performer,104700.0,E02040,pull
+E04852,2024-10-07,voluntary,Better opportunity,True,False,Meets Expectations,114000.0,E03284,pull
+E04862,2024-07-31,involuntary,Involuntary - conduct,False,False,Outstanding,126500.0,E12904,push
+E04865,2024-03-16,voluntary,Better opportunity,True,True,Outstanding,62500.0,E10049,pull
+E04876,2025-02-16,voluntary,Work-life balance,True,False,Meets Expectations,56300.0,E03271,push
+E04884,2025-09-21,voluntary,Career advancement,True,False,Meets Expectations,73800.0,E02321,push
+E04893,2024-12-08,voluntary,Career advancement,True,False,High Performer,94100.0,E05360,push
+E04905,2024-07-31,voluntary,Career advancement,True,True,Below Expectations,108100.0,E05551,pull
+E04921,2025-05-20,voluntary,Career advancement,False,False,Unsatisfactory,113300.0,E00286,push
+E04941,2024-05-31,voluntary,Career advancement,True,False,Outstanding,93600.0,E00656,pull
+E04944,2024-02-29,voluntary,Role uncertainty / unclear future,True,False,High Performer,116600.0,E07355,push
+E04953,2025-09-09,voluntary,Career advancement,False,False,High Performer,234200.0,E11593,pull
+E04977,2025-08-29,voluntary,Career advancement,True,False,High Performer,74700.0,E01649,push
+E04996,2024-05-31,voluntary,Better opportunity,True,False,High Performer,509000.0,E05512,pull
+E05010,2025-01-08,voluntary,Better opportunity,False,True,Meets Expectations,315500.0,E03057,pull
+E05014,2025-10-24,involuntary,Involuntary - restructure,False,False,Meets Expectations,70500.0,E09343,push
+E05030,2025-09-06,voluntary,Career advancement,True,False,High Performer,64300.0,E11073,pull
+E05036,2025-06-14,involuntary,Involuntary - restructure,False,False,Meets Expectations,114500.0,E00647,push
+E05038,2025-08-31,involuntary,Involuntary - performance,True,False,Below Expectations,123600.0,E12490,push
+E05045,2025-04-18,voluntary,Better opportunity,True,False,Below Expectations,75200.0,E00453,pull
+E05048,2025-11-07,voluntary,Compensation,True,True,Outstanding,84100.0,E00633,push
+E05055,2024-04-19,involuntary,Involuntary - performance,False,False,Unsatisfactory,60200.0,E01445,push
+E05056,2025-05-18,voluntary,Career advancement,True,False,High Performer,117700.0,E01682,push
+E05058,2025-11-14,voluntary,Career advancement,True,False,Meets Expectations,57200.0,E01748,pull
+E05063,2024-09-14,voluntary,Career advancement,False,True,Outstanding,242500.0,E01602,push
+E05064,2025-04-27,voluntary,Career advancement,True,False,High Performer,132300.0,E01974,push
+E05085,2024-08-23,voluntary,Better opportunity,True,False,High Performer,80700.0,E02232,pull
+E05104,2025-02-28,voluntary,Career advancement,True,False,High Performer,137100.0,E00943,push
+E05115,2024-11-01,voluntary,Career advancement,True,False,High Performer,135200.0,E00564,pull
+E05152,2025-01-31,voluntary,Better opportunity,True,False,High Performer,128600.0,E01477,pull
+E05183,2024-06-01,voluntary,Career advancement,True,False,Meets Expectations,135900.0,E01179,push
+E05194,2024-05-13,voluntary,Personal reasons,True,False,Meets Expectations,136300.0,E03872,push
+E05215,2024-04-30,voluntary,Career advancement,True,False,High Performer,82500.0,E11883,pull
+E05234,2024-08-16,voluntary,Career advancement,True,False,High Performer,111600.0,E02773,pull
+E05236,2025-06-30,voluntary,Career advancement,True,False,Meets Expectations,111500.0,E02083,push
+E05242,2025-10-28,voluntary,Career advancement,True,False,Meets Expectations,191400.0,E02559,push
+E05265,2025-04-04,voluntary,Career advancement,True,False,Meets Expectations,112400.0,E09160,push
+E05267,2024-09-30,involuntary,Involuntary - restructure,True,False,Outstanding,65600.0,E03305,push
+E05272,2025-09-30,voluntary,Career advancement,True,False,Meets Expectations,106000.0,E10292,pull
+E05274,2024-11-25,voluntary,Better opportunity,True,False,High Performer,428200.0,E09249,pull
+E05276,2025-11-24,involuntary,Involuntary - restructure,True,False,Meets Expectations,74900.0,E01797,push
+E05279,2025-11-07,voluntary,Career advancement,False,False,Below Expectations,174600.0,E07304,push
+E05292,2025-10-23,voluntary,Career advancement,True,False,Meets Expectations,65800.0,E01941,pull
+E05318,2025-01-31,voluntary,Career advancement,True,False,Meets Expectations,127000.0,E13427,push
+E05326,2025-02-11,voluntary,Better opportunity,True,False,Meets Expectations,105500.0,E13725,push
+E05340,2025-08-29,involuntary,Involuntary - performance,False,False,Unsatisfactory,103800.0,E13416,push
+E05368,2024-06-04,voluntary,Career advancement,True,False,Meets Expectations,86900.0,E02558,push
+E05371,2025-04-27,voluntary,Relocation,True,False,Below Expectations,93900.0,E00962,push
+E05373,2024-02-29,voluntary,Career advancement,True,True,Outstanding,110400.0,E07521,push
+E05400,2024-06-12,involuntary,Involuntary - performance,True,False,Below Expectations,82600.0,E00489,push
+E05402,2024-09-27,voluntary,Career advancement,True,False,High Performer,185000.0,E00205,push
+E05409,2025-01-31,voluntary,Career advancement,True,False,High Performer,58500.0,E01508,pull
+E05420,2025-05-19,voluntary,Career advancement,True,False,Meets Expectations,137600.0,E03283,push
+E05435,2025-09-12,voluntary,Career advancement,False,False,High Performer,170000.0,E02890,push
+E05436,2025-08-29,voluntary,Role uncertainty / unclear future,True,False,Below Expectations,56500.0,E03035,push
+E05439,2025-07-31,involuntary,Involuntary - performance,False,False,Below Expectations,72400.0,E00041,push
+E05459,2025-03-02,voluntary,Better opportunity,True,False,High Performer,123000.0,E01556,pull
+E05472,2025-08-20,voluntary,Personal reasons,True,False,Meets Expectations,177900.0,E05771,push
+E05479,2025-06-28,voluntary,Better opportunity,True,False,Meets Expectations,124100.0,E01801,pull
+E05497,2025-10-10,voluntary,Better opportunity,True,False,Meets Expectations,127100.0,E06176,push
+E05518,2025-01-25,voluntary,Career advancement,True,False,Meets Expectations,84900.0,E00401,push
+E05519,2024-05-10,voluntary,Career advancement,True,False,Outstanding,93500.0,E00188,pull
+E05545,2024-05-10,voluntary,Career advancement,True,False,Below Expectations,141300.0,E09502,push
+E05562,2024-04-27,voluntary,Career advancement,True,False,Below Expectations,74200.0,E03365,push
+E05564,2025-02-28,voluntary,Personal reasons,True,False,Meets Expectations,100600.0,E06004,push
+E05566,2024-03-29,voluntary,Career advancement,False,False,Meets Expectations,95200.0,E03302,push
+E05602,2025-07-21,voluntary,Career advancement,True,False,Unsatisfactory,127300.0,E00626,push
+E05607,2025-11-07,voluntary,Better opportunity,True,False,High Performer,243200.0,E08542,pull
+E05621,2024-02-15,voluntary,Career advancement,True,False,High Performer,115000.0,E00019,pull
+E05633,2025-07-31,voluntary,Career advancement,True,True,Outstanding,94800.0,E10810,push
+E05656,2024-08-14,voluntary,Better opportunity,True,False,Outstanding,72900.0,E11861,pull
+E05663,2025-04-07,voluntary,Career advancement,True,False,High Performer,60600.0,E04393,push
+E05665,2024-11-22,voluntary,Career advancement,True,False,High Performer,98200.0,E13081,push
+E05677,2025-05-02,voluntary,Better opportunity,True,False,High Performer,82800.0,E03214,pull
+E05684,2025-05-03,voluntary,Better opportunity,True,False,High Performer,129300.0,E09602,pull
+E05691,2025-05-30,voluntary,Career advancement,True,False,High Performer,101700.0,E00929,push
+E05701,2025-11-28,voluntary,Better opportunity,True,True,Meets Expectations,188800.0,E02881,pull
+E05714,2024-11-16,voluntary,Career advancement,True,True,High Performer,88100.0,E00839,pull
+E05716,2024-05-03,voluntary,Better opportunity,True,False,Outstanding,56000.0,E14103,pull
+E05728,2024-05-31,involuntary,Involuntary - performance,False,False,Meets Expectations,118900.0,E01657,push
+E05734,2024-03-15,voluntary,Career advancement,False,False,Meets Expectations,105800.0,E03274,push
+E05737,2024-05-17,voluntary,Career advancement,False,False,High Performer,103100.0,E02340,pull
+E05763,2025-07-23,voluntary,Better opportunity,True,False,Meets Expectations,101200.0,E00918,push
+E05774,2024-07-26,voluntary,Compensation,True,False,Meets Expectations,116300.0,E07841,push
+E05802,2024-07-16,voluntary,Personal reasons,True,True,Outstanding,198200.0,E03131,push
+E05824,2025-09-26,voluntary,Better opportunity,True,False,Meets Expectations,64300.0,E01149,push
+E05862,2024-09-20,involuntary,Involuntary - performance,False,False,Unsatisfactory,230100.0,E09906,push
+E05867,2024-03-29,voluntary,Career advancement,True,False,Meets Expectations,170400.0,E05057,push
+E05879,2025-02-14,voluntary,Career advancement,True,False,High Performer,87900.0,E11086,pull
+E05885,2025-01-10,voluntary,Better opportunity,True,False,Outstanding,120500.0,E05804,push
+E05891,2025-07-24,voluntary,Career advancement,True,True,Outstanding,138700.0,E02883,pull
+E05901,2025-07-18,voluntary,Career advancement,False,False,Meets Expectations,100700.0,E02009,pull
+E05906,2024-06-14,voluntary,Career advancement,True,False,Meets Expectations,101400.0,E02053,pull
+E05919,2025-10-31,voluntary,Career advancement,True,False,Meets Expectations,193600.0,E05653,pull
+E05923,2025-03-14,voluntary,Career advancement,True,False,High Performer,127200.0,E01984,pull
+E05931,2025-04-23,voluntary,Better opportunity,True,False,Meets Expectations,106500.0,E09655,pull
+E05944,2024-09-30,voluntary,Career advancement,True,False,Meets Expectations,135500.0,E03168,push
+E05958,2024-04-17,voluntary,Career advancement,True,False,Meets Expectations,60600.0,E02188,push
+E06031,2025-01-31,voluntary,Career advancement,True,False,High Performer,88700.0,E02277,push
+E06033,2024-02-06,voluntary,Career advancement,True,False,High Performer,136300.0,E01443,pull
+E06037,2025-05-12,voluntary,Career advancement,True,False,High Performer,135100.0,E02787,pull
+E06043,2025-02-06,involuntary,Involuntary - restructure,False,False,Meets Expectations,63800.0,E01802,push
+E06045,2024-05-31,involuntary,Involuntary - performance,False,False,Below Expectations,60600.0,E01447,push
+E06048,2024-02-02,involuntary,Involuntary - performance,False,False,Unsatisfactory,123100.0,E11077,push
+E06075,2025-09-28,involuntary,Involuntary - performance,True,False,Below Expectations,71100.0,E02939,push
+E06076,2025-03-26,voluntary,Better opportunity,False,False,Outstanding,75600.0,E02070,pull
+E06079,2025-04-18,voluntary,Personal reasons,True,False,Outstanding,96900.0,E02863,push
+E06081,2025-08-14,involuntary,Involuntary - conduct,False,False,High Performer,89800.0,E02224,push
+E06098,2024-05-25,voluntary,Better opportunity,True,False,High Performer,145100.0,E01452,pull
+E06132,2025-08-11,voluntary,Better opportunity,True,False,Below Expectations,120900.0,E00602,pull
+E06133,2025-02-22,voluntary,Relocation,True,False,Meets Expectations,70200.0,E05414,push
+E06137,2025-08-29,involuntary,Involuntary - performance,False,False,Below Expectations,170800.0,E00321,push
+E06141,2024-04-05,involuntary,Involuntary - performance,False,False,Below Expectations,125800.0,E02143,push
+E06150,2024-02-23,voluntary,Better opportunity,True,False,Outstanding,216300.0,E04361,pull
+E06154,2025-03-21,involuntary,Involuntary - restructure,True,False,Meets Expectations,147700.0,E01062,push
+E06155,2024-02-16,voluntary,Career advancement,True,True,Outstanding,119000.0,E13519,pull
+E06169,2024-11-15,voluntary,Better opportunity,True,False,Meets Expectations,117800.0,E11798,pull
+E06182,2024-03-26,voluntary,Role uncertainty / unclear future,True,False,Below Expectations,86700.0,E11782,push
+E06184,2024-11-26,voluntary,Better opportunity,True,True,Outstanding,135600.0,E02199,pull
+E06191,2024-08-09,voluntary,Better opportunity,True,False,Meets Expectations,118500.0,E10900,push
+E06200,2024-07-03,voluntary,Career advancement,True,False,Below Expectations,62500.0,E00668,push
+E06210,2025-08-13,voluntary,Better opportunity,False,False,Below Expectations,157500.0,E13967,push
+E06215,2024-03-08,involuntary,Involuntary - performance,False,False,Below Expectations,123600.0,E02235,push
+E06231,2024-06-21,voluntary,Relocation,True,False,Below Expectations,115000.0,E01739,push
+E06240,2025-03-01,involuntary,Involuntary - performance,True,False,Below Expectations,75200.0,E02176,push
+E06251,2025-05-29,voluntary,Career advancement,True,False,Meets Expectations,99900.0,E02202,push
+E06262,2024-02-02,voluntary,Career advancement,True,False,High Performer,130600.0,E13827,pull
+E06289,2025-03-16,voluntary,Study/career change,True,False,High Performer,99700.0,E00816,push
+E06294,2025-07-31,voluntary,Career advancement,True,False,High Performer,111300.0,E02402,pull
+E06295,2025-11-05,voluntary,Career advancement,True,False,Meets Expectations,55000.0,E02299,push
+E06315,2025-04-06,voluntary,Better opportunity,True,False,Meets Expectations,96500.0,E03542,pull
+E06327,2024-11-22,voluntary,Career advancement,True,False,Meets Expectations,100800.0,E05262,push
+E06336,2024-08-14,voluntary,Career advancement,True,False,High Performer,141800.0,E11867,push
+E06338,2025-07-11,voluntary,Better opportunity,True,True,Outstanding,60400.0,E13955,pull
+E06342,2025-09-23,voluntary,Career advancement,True,False,Meets Expectations,123600.0,E08327,push
+E06352,2025-03-31,involuntary,Involuntary - restructure,False,False,Meets Expectations,116900.0,E00347,push
+E06362,2024-08-16,voluntary,Better opportunity,True,False,Meets Expectations,96500.0,E03248,push
+E06366,2025-02-04,voluntary,Career advancement,True,False,High Performer,122400.0,E02944,push
+E06375,2025-11-07,voluntary,Career advancement,True,False,High Performer,235500.0,E04229,push
+E06377,2024-11-23,voluntary,Better opportunity,True,False,Meets Expectations,142400.0,E02301,pull
+E06396,2025-10-10,voluntary,Better opportunity,True,False,Below Expectations,89700.0,E04814,pull
+E06400,2025-10-23,voluntary,Better opportunity,True,False,High Performer,75200.0,E00971,pull
+E06402,2025-09-19,voluntary,Better opportunity,True,False,Outstanding,116200.0,E02848,pull
+E06405,2025-03-31,involuntary,Involuntary - performance,True,False,Unsatisfactory,131100.0,E12195,push
+E06409,2025-10-09,voluntary,Better opportunity,True,False,Meets Expectations,81700.0,E01771,pull
+E06411,2024-08-23,voluntary,Career advancement,True,False,High Performer,101400.0,E01489,pull
+E06428,2025-01-31,voluntary,Personal reasons,True,False,Meets Expectations,171100.0,E06147,push
+E06439,2025-08-01,voluntary,Career advancement,True,False,Below Expectations,169900.0,E01853,push
+E06442,2025-05-02,voluntary,Career advancement,True,False,High Performer,146300.0,E00299,push
+E06448,2024-07-30,involuntary,Involuntary - restructure,True,False,Meets Expectations,68300.0,E05279,push
+E06461,2024-10-31,voluntary,Better opportunity,True,False,High Performer,115000.0,E00720,pull
+E06472,2025-02-21,voluntary,Personal reasons,False,False,Meets Expectations,81100.0,E13119,push
+E06489,2025-07-31,voluntary,Career advancement,True,False,Outstanding,78000.0,E14119,push
+E06500,2024-04-28,voluntary,Career advancement,False,False,Meets Expectations,59400.0,E00151,push
+E06503,2024-09-30,voluntary,Career advancement,True,False,Meets Expectations,133600.0,E03694,push
+E06524,2024-10-21,voluntary,Better opportunity,True,False,Unsatisfactory,136200.0,E02648,push
+E06534,2025-04-30,voluntary,Better opportunity,False,True,Unsatisfactory,75900.0,E03349,pull
+E06547,2024-11-29,voluntary,Career advancement,False,False,High Performer,115700.0,E00709,push
+E06550,2024-04-30,voluntary,Study/career change,True,False,High Performer,148800.0,E10022,push
+E06554,2025-06-19,voluntary,Career advancement,True,False,High Performer,106400.0,E07191,pull
+E06560,2024-06-13,voluntary,Better opportunity,True,False,High Performer,115600.0,E00920,pull
+E06567,2025-06-13,voluntary,Career advancement,True,False,High Performer,78100.0,E01362,push
+E06580,2025-05-20,voluntary,Career advancement,True,False,Meets Expectations,93600.0,E00509,push
+E06606,2024-03-04,voluntary,Career advancement,True,False,Meets Expectations,146400.0,E00098,push
+E06617,2025-08-22,voluntary,Compensation,True,False,Meets Expectations,322200.0,E05945,push
+E06618,2025-02-28,voluntary,Career advancement,True,True,Outstanding,120100.0,E14258,push
+E06629,2024-04-03,voluntary,Career advancement,True,False,Below Expectations,207000.0,E08585,push
+E06636,2024-05-31,voluntary,Career advancement,True,False,Meets Expectations,134100.0,E03297,push
+E06651,2024-05-14,voluntary,Better opportunity,True,False,Meets Expectations,72500.0,E03111,pull
+E06658,2024-05-19,involuntary,Involuntary - performance,False,False,Unsatisfactory,59800.0,E03542,push
+E06669,2024-02-02,voluntary,Better opportunity,True,True,High Performer,134800.0,E10672,pull
+E06695,2024-10-31,voluntary,Career advancement,True,False,High Performer,230000.0,E05287,push
+E06697,2024-07-31,involuntary,Involuntary - performance,True,False,Below Expectations,184000.0,E13516,push
+E06722,2024-04-05,voluntary,Career advancement,True,True,Outstanding,135300.0,E00130,pull
+E06749,2025-10-31,voluntary,Better opportunity,False,False,Meets Expectations,62300.0,E12561,pull
+E06753,2025-05-30,voluntary,Study/career change,True,False,High Performer,155100.0,E00462,push
+E06764,2024-02-29,voluntary,Career advancement,True,False,Outstanding,123100.0,E00454,pull
+E06780,2024-04-20,voluntary,Career advancement,True,True,Outstanding,116800.0,E01615,pull
+E06793,2025-01-31,voluntary,Career advancement,True,False,Below Expectations,121800.0,E10828,push
+E06796,2024-06-27,voluntary,Personal reasons,True,False,High Performer,62800.0,E01728,push
+E06801,2024-04-25,voluntary,Career advancement,True,False,High Performer,116600.0,E02496,pull
+E06819,2025-10-18,voluntary,Better opportunity,True,False,High Performer,119600.0,E00721,pull
+E06820,2024-10-18,involuntary,Involuntary - performance,True,False,Below Expectations,60800.0,E02908,push
+E06823,2025-04-11,voluntary,Career advancement,True,False,High Performer,110500.0,E08312,pull
+E06825,2024-06-21,voluntary,Career advancement,True,False,Meets Expectations,87200.0,E03209,push
+E06828,2024-12-26,voluntary,Compensation,True,False,Meets Expectations,85700.0,E03192,push
+E06841,2025-08-17,voluntary,Career advancement,True,False,Outstanding,139600.0,E02625,pull
+E06842,2025-06-27,involuntary,Involuntary - performance,True,False,Unsatisfactory,138100.0,E08429,push
+E06843,2024-04-30,voluntary,Career advancement,True,False,Below Expectations,126000.0,E03089,push
+E06845,2024-12-31,voluntary,Better opportunity,True,False,High Performer,141300.0,E09160,pull
+E06857,2025-11-10,voluntary,Career advancement,False,False,High Performer,136900.0,E10688,push
+E06868,2024-10-01,voluntary,Career advancement,True,False,Unsatisfactory,101800.0,E00439,push
+E06890,2025-01-31,involuntary,Involuntary - performance,True,False,Below Expectations,107000.0,E02893,push
+E06932,2025-02-11,voluntary,Role uncertainty / unclear future,True,False,High Performer,103100.0,E02280,push
+E06941,2025-02-17,involuntary,Involuntary - performance,True,False,Below Expectations,102300.0,E09181,push
+E06961,2025-03-31,voluntary,Career advancement,True,False,Below Expectations,97300.0,E09572,push
+E06966,2025-03-27,involuntary,Involuntary - performance,False,False,Below Expectations,129600.0,E00950,push
+E06969,2025-10-25,voluntary,Career advancement,True,True,Below Expectations,56400.0,E03290,pull
+E06973,2024-09-27,voluntary,Relocation,False,False,High Performer,140400.0,E00965,push
+E06995,2025-05-28,voluntary,Career advancement,True,False,Outstanding,104700.0,E02228,pull
+E06998,2024-05-31,voluntary,Career advancement,True,False,Meets Expectations,119200.0,E03570,push
+E07000,2025-08-28,involuntary,Involuntary - performance,False,False,Unsatisfactory,80800.0,E10169,push
+E07011,2025-03-18,voluntary,Career advancement,True,False,Below Expectations,63500.0,E02608,push
+E07022,2025-05-09,involuntary,Involuntary - restructure,True,False,Outstanding,103500.0,E07267,push
+E07028,2025-03-31,voluntary,Career advancement,True,False,Meets Expectations,102900.0,E02729,push
+E07045,2025-05-02,voluntary,Role uncertainty / unclear future,True,True,Outstanding,81000.0,E02164,push
+E07050,2025-09-19,voluntary,Career advancement,True,False,Below Expectations,62600.0,E00673,push
+E07070,2024-06-14,involuntary,Involuntary - restructure,False,False,Meets Expectations,162500.0,E11309,push
+E07074,2025-03-12,voluntary,Work-life balance,True,False,High Performer,140800.0,E08472,push
+E07087,2024-08-17,involuntary,Involuntary - restructure,False,False,Meets Expectations,131400.0,E00658,push
+E07109,2025-08-04,voluntary,Career advancement,True,False,High Performer,125000.0,E07764,push
+E07118,2024-10-12,voluntary,Work-life balance,False,False,High Performer,141400.0,E01917,push
+E07123,2025-02-07,voluntary,Career advancement,True,False,Outstanding,102100.0,E02826,pull
+E07126,2024-05-31,voluntary,Career advancement,True,True,Meets Expectations,65400.0,E04875,pull
+E07128,2024-12-13,voluntary,Career advancement,True,True,High Performer,72000.0,E01712,pull
+E07131,2025-03-31,voluntary,Better opportunity,True,False,Meets Expectations,55100.0,E09655,pull
+E07158,2024-11-29,voluntary,Career advancement,False,False,High Performer,67600.0,E02121,push
+E07188,2024-12-28,voluntary,Career advancement,True,False,Meets Expectations,70500.0,E13309,pull
+E07197,2024-03-18,involuntary,Involuntary - conduct,False,False,Meets Expectations,58400.0,E02925,push
+E07216,2024-07-31,involuntary,Involuntary - performance,True,False,Below Expectations,124800.0,E08155,push
+E07217,2025-05-30,voluntary,Better opportunity,True,False,High Performer,81300.0,E09582,pull
+E07230,2025-07-13,voluntary,Better opportunity,True,True,Meets Expectations,101600.0,E00697,push
+E07237,2024-07-12,voluntary,Career advancement,True,False,High Performer,75500.0,E11503,pull
+E07257,2025-07-31,involuntary,Involuntary - performance,True,False,Unsatisfactory,55000.0,E01597,push
+E07277,2025-11-07,voluntary,Work-life balance,False,False,Below Expectations,70200.0,E02519,push
+E07296,2024-06-26,voluntary,Career advancement,True,False,High Performer,77600.0,E03142,pull
+E07309,2024-04-19,voluntary,Career advancement,True,False,High Performer,234000.0,E05222,pull
+E07310,2024-05-28,voluntary,Career advancement,True,False,Meets Expectations,78000.0,E02471,push
+E07327,2024-04-19,voluntary,Career advancement,True,False,High Performer,116000.0,E05486,push
+E07340,2025-01-24,voluntary,Career advancement,True,False,High Performer,244400.0,E00132,pull
+E07345,2025-03-21,voluntary,Better opportunity,True,False,Below Expectations,181800.0,E01396,push
+E07357,2024-11-29,voluntary,Career advancement,True,False,Meets Expectations,94800.0,E00544,push
+E07365,2025-08-29,voluntary,Study/career change,True,False,Meets Expectations,79200.0,E01974,push
+E07366,2024-11-01,voluntary,Career advancement,True,False,Meets Expectations,66500.0,E02135,push
+E07373,2024-07-12,voluntary,Career advancement,True,False,Meets Expectations,152500.0,E09585,push
+E07382,2025-02-06,voluntary,Career advancement,True,True,Outstanding,100400.0,E01741,pull
+E07386,2024-11-02,voluntary,Career advancement,True,False,High Performer,93500.0,E02138,pull
+E07420,2024-02-08,voluntary,Career advancement,True,True,Outstanding,58400.0,E03427,pull
+E07422,2025-02-19,voluntary,Career advancement,True,True,Outstanding,124700.0,E06782,pull
+E07428,2024-09-27,voluntary,Better opportunity,True,False,Outstanding,55300.0,E02177,pull
+E07435,2024-10-11,voluntary,Career advancement,True,False,High Performer,133900.0,E09136,pull
+E07437,2024-11-16,voluntary,Career advancement,True,False,High Performer,136700.0,E00620,push
+E07449,2025-03-21,voluntary,Better opportunity,True,False,High Performer,97000.0,E03071,pull
+E07450,2024-07-31,involuntary,Involuntary - performance,True,False,Unsatisfactory,144500.0,E01160,push
+E07456,2025-06-03,involuntary,Involuntary - restructure,False,False,High Performer,134200.0,E12493,push
+E07460,2024-04-30,involuntary,Involuntary - performance,False,False,Meets Expectations,132000.0,E10576,push
+E07463,2025-11-12,voluntary,Better opportunity,True,False,High Performer,120300.0,E10466,pull
+E07474,2024-02-24,voluntary,Career advancement,True,False,High Performer,56900.0,E02138,pull
+E07482,2024-07-29,voluntary,Compensation,True,False,High Performer,67200.0,E02773,push
+E07487,2025-05-30,involuntary,Involuntary - conduct,True,False,Meets Expectations,125600.0,E13584,push
+E07489,2025-03-31,voluntary,Career advancement,True,True,Outstanding,108900.0,E04174,pull
+E07491,2025-02-28,voluntary,Career advancement,True,False,Meets Expectations,78200.0,E07772,pull
+E07499,2025-04-20,voluntary,Career advancement,True,False,Meets Expectations,91500.0,E04703,pull
+E07500,2024-07-31,voluntary,Better opportunity,True,False,Meets Expectations,124100.0,E02726,push
+E07516,2024-08-04,voluntary,Career advancement,True,False,Below Expectations,74200.0,E01413,push
+E07517,2025-05-16,involuntary,Involuntary - restructure,True,False,Meets Expectations,149400.0,E07776,push
+E07540,2025-10-05,voluntary,Career advancement,True,False,High Performer,55000.0,E02756,pull
+E07556,2025-04-11,voluntary,Career advancement,True,False,Below Expectations,73300.0,E10329,push
+E07595,2024-10-31,voluntary,Better opportunity,True,True,Outstanding,84300.0,E03363,pull
+E07607,2024-01-31,voluntary,Work-life balance,True,False,Meets Expectations,115600.0,E02665,push
+E07625,2025-04-21,voluntary,Career advancement,True,True,Outstanding,252000.0,E06357,pull
+E07636,2024-05-14,involuntary,Involuntary - performance,True,False,Unsatisfactory,61600.0,E00290,push
+E07644,2024-10-24,involuntary,Involuntary - performance,True,False,Below Expectations,89200.0,E02722,push
+E07661,2025-10-10,voluntary,Better opportunity,True,False,High Performer,95400.0,E00373,pull
+E07663,2025-08-25,involuntary,Involuntary - restructure,False,False,High Performer,121800.0,E02259,push
+E07678,2025-01-10,voluntary,Career advancement,True,False,High Performer,55000.0,E01064,pull
+E07686,2025-06-27,voluntary,Career advancement,True,False,Below Expectations,104900.0,E14312,push
+E07698,2024-12-13,voluntary,Career advancement,True,True,Outstanding,155300.0,E13314,push
+E07709,2025-08-01,involuntary,Involuntary - performance,False,False,Unsatisfactory,72200.0,E00181,push
+E07711,2024-06-07,voluntary,Relocation,False,False,Meets Expectations,118900.0,E01477,push
+E07735,2025-07-25,voluntary,Career advancement,True,False,Meets Expectations,147800.0,E14217,push
+E07757,2024-03-23,voluntary,Career advancement,True,False,Meets Expectations,66500.0,E10337,push
+E07775,2024-02-27,voluntary,Better opportunity,True,False,Meets Expectations,74700.0,E02978,pull
+E07791,2024-12-07,voluntary,Career advancement,True,True,Outstanding,110000.0,E01417,pull
+E07798,2025-05-23,voluntary,Career advancement,True,False,High Performer,62100.0,E02864,pull
+E07820,2024-05-06,involuntary,Involuntary - performance,False,False,Meets Expectations,85000.0,E02760,push
+E07834,2025-11-07,involuntary,Involuntary - performance,False,False,Unsatisfactory,97900.0,E13148,push
+E07838,2024-03-29,voluntary,Better opportunity,True,True,Outstanding,91300.0,E01194,pull
+E07850,2024-08-25,voluntary,Career advancement,True,False,Meets Expectations,104100.0,E11029,pull
+E07865,2024-03-16,voluntary,Career advancement,True,False,Outstanding,104000.0,E14259,pull
+E07880,2025-03-05,voluntary,Career advancement,True,False,Meets Expectations,88700.0,E02962,push
+E07884,2024-03-29,voluntary,Better opportunity,True,True,High Performer,60600.0,E01300,pull
+E07893,2025-06-25,voluntary,Better opportunity,True,False,Meets Expectations,104100.0,E05696,pull
+E07906,2025-10-11,voluntary,Better opportunity,True,False,Meets Expectations,155800.0,E00423,push
+E07910,2024-06-28,involuntary,Involuntary - performance,False,False,Unsatisfactory,112400.0,E14150,push
+E07914,2024-06-02,involuntary,Involuntary - performance,False,False,Below Expectations,75400.0,E02159,push
+E07921,2025-08-29,voluntary,Career advancement,True,False,Meets Expectations,156300.0,E07509,push
+E07940,2024-06-28,voluntary,Work-life balance,True,False,Unsatisfactory,81800.0,E03066,push
+E07967,2025-01-23,involuntary,Involuntary - restructure,True,False,Meets Expectations,211400.0,E07493,push
+E07985,2024-05-31,voluntary,Career advancement,True,False,Below Expectations,131100.0,E00562,push
+E07993,2024-04-19,voluntary,Career advancement,True,False,Meets Expectations,83100.0,E00040,push
+E07995,2024-09-09,voluntary,Career advancement,True,False,Outstanding,110600.0,E01164,push
+E08000,2025-06-13,voluntary,Better opportunity,True,True,Meets Expectations,108800.0,E05579,pull
+E08024,2025-02-07,voluntary,Compensation,True,False,Meets Expectations,93400.0,E10958,push
+E08029,2025-10-31,voluntary,Compensation,True,False,Below Expectations,127400.0,E02781,push
+E08042,2024-08-30,voluntary,Career advancement,True,False,Meets Expectations,111200.0,E13099,push
+E08054,2025-02-28,voluntary,Career advancement,True,False,Below Expectations,106300.0,E08076,push
+E08061,2024-11-15,voluntary,Career advancement,True,True,Outstanding,142400.0,E02100,pull
+E08063,2025-09-30,voluntary,Career advancement,True,False,Meets Expectations,233000.0,E07693,push
+E08069,2025-01-10,involuntary,Involuntary - restructure,False,False,High Performer,134100.0,E06940,push
+E08072,2024-05-17,involuntary,Involuntary - performance,True,False,Below Expectations,155500.0,E12449,push
+E08079,2025-02-21,involuntary,Involuntary - conduct,False,False,High Performer,161400.0,E10850,push
+E08082,2025-05-31,voluntary,Career advancement,True,False,Meets Expectations,90600.0,E03328,push
+E08107,2025-10-31,involuntary,Involuntary - performance,False,False,Unsatisfactory,130500.0,E02862,push
+E08115,2025-03-29,voluntary,Better opportunity,True,False,Meets Expectations,129700.0,E09646,pull
+E08118,2024-11-12,voluntary,Career advancement,True,False,High Performer,67400.0,E00798,push
+E08119,2025-11-28,voluntary,Better opportunity,True,False,High Performer,111400.0,E01806,pull
+E08132,2024-06-21,voluntary,Career advancement,True,False,Below Expectations,144800.0,E09244,push
+E08152,2024-08-30,voluntary,Career advancement,True,False,High Performer,190700.0,E09066,push
+E08155,2025-02-21,involuntary,Involuntary - restructure,True,False,High Performer,158700.0,E00857,push
+E08170,2025-04-21,voluntary,Career advancement,True,False,Meets Expectations,136600.0,E06078,push
+E08208,2024-11-29,voluntary,Career advancement,True,False,Meets Expectations,67100.0,E00850,push
+E08211,2024-04-18,voluntary,Career advancement,True,False,Meets Expectations,117800.0,E02677,push
+E08218,2024-09-06,voluntary,Career advancement,True,False,High Performer,69300.0,E04885,push
+E08233,2024-02-26,voluntary,Career advancement,True,False,High Performer,128400.0,E02084,push
+E08234,2025-05-16,voluntary,Career advancement,True,False,High Performer,92900.0,E05878,push
+E08235,2024-02-29,involuntary,Involuntary - performance,True,False,Unsatisfactory,115300.0,E00846,push
+E08256,2024-08-30,voluntary,Career advancement,True,False,High Performer,147200.0,E01057,push
+E08276,2025-05-09,voluntary,Career advancement,True,False,Below Expectations,168200.0,E00175,push
+E08277,2024-12-27,voluntary,Career advancement,True,False,Meets Expectations,111600.0,E06573,push
+E08285,2024-11-03,voluntary,Career advancement,True,False,Meets Expectations,58200.0,E00285,push
+E08293,2024-11-02,voluntary,Better opportunity,True,True,High Performer,64700.0,E02109,pull
+E08294,2025-01-18,voluntary,Career advancement,True,False,High Performer,56200.0,E06286,pull
+E08295,2025-02-08,involuntary,Involuntary - restructure,False,False,Meets Expectations,75700.0,E02454,push
+E08300,2024-09-20,involuntary,Involuntary - restructure,True,False,Meets Expectations,205000.0,E02636,push
+E08316,2025-10-30,voluntary,Personal reasons,False,False,Meets Expectations,60900.0,E07696,push
+E08317,2025-03-07,involuntary,Involuntary - performance,True,False,Meets Expectations,85600.0,E11186,push
+E08330,2024-09-21,voluntary,Career advancement,True,False,Meets Expectations,77500.0,E01037,push
+E08333,2024-09-30,voluntary,Career advancement,True,False,Meets Expectations,176200.0,E05799,pull
+E08362,2024-03-01,voluntary,Career advancement,True,False,High Performer,123500.0,E00693,push
+E08384,2025-10-17,voluntary,Better opportunity,True,False,Meets Expectations,136400.0,E00010,pull
+E08395,2024-07-01,voluntary,Career advancement,True,False,Meets Expectations,117900.0,E02959,push
+E08400,2025-07-04,involuntary,Involuntary - conduct,True,False,High Performer,59700.0,E03735,push
+E08401,2024-09-13,voluntary,Better opportunity,True,False,High Performer,167000.0,E03996,pull
+E08410,2024-09-17,voluntary,Better opportunity,True,False,Meets Expectations,73200.0,E04371,pull
+E08412,2024-09-20,voluntary,Career advancement,True,False,Outstanding,71200.0,E08155,pull
+E08455,2025-08-01,voluntary,Personal reasons,True,False,Meets Expectations,139600.0,E01357,push
+E08463,2024-05-25,voluntary,Better opportunity,True,False,High Performer,152400.0,E10861,pull
+E08466,2025-05-05,involuntary,Involuntary - performance,False,False,Meets Expectations,60800.0,E01893,push
+E08479,2025-10-21,voluntary,Career advancement,True,False,High Performer,122000.0,E00548,push
+E08481,2024-06-28,involuntary,Involuntary - performance,False,False,Below Expectations,101600.0,E00742,push
+E08486,2024-12-27,voluntary,Personal reasons,False,False,High Performer,142200.0,E01815,push
+E08508,2025-08-01,voluntary,Relocation,True,False,High Performer,132600.0,E07459,push
+E08525,2024-08-30,voluntary,Compensation,True,False,High Performer,197600.0,E13928,push
+E08536,2024-04-07,voluntary,Career advancement,True,False,High Performer,126000.0,E12521,pull
+E08541,2025-08-29,voluntary,Career advancement,True,False,Below Expectations,499400.0,E09267,push
+E08546,2024-06-07,voluntary,Career advancement,True,False,Meets Expectations,146100.0,E03570,push
+E08547,2024-06-07,voluntary,Personal reasons,True,False,Below Expectations,100100.0,E03008,push
+E08553,2024-03-25,involuntary,Involuntary - performance,False,False,Below Expectations,148300.0,E02721,push
+E08569,2025-06-07,voluntary,Better opportunity,False,True,Outstanding,56400.0,E00453,pull
+E08594,2024-11-23,involuntary,Involuntary - performance,False,False,Unsatisfactory,116000.0,E02061,push
+E08609,2024-04-21,voluntary,Better opportunity,True,False,High Performer,164400.0,E11798,pull
+E08621,2024-12-27,voluntary,Better opportunity,True,False,Outstanding,143200.0,E04612,pull
+E08622,2024-04-12,voluntary,Better opportunity,True,True,Outstanding,138200.0,E11414,push
+E08625,2024-06-28,voluntary,Career advancement,True,False,Meets Expectations,87400.0,E01118,push
+E08629,2025-05-04,involuntary,Involuntary - performance,False,False,Unsatisfactory,126300.0,E01923,push
+E08646,2024-03-15,involuntary,Involuntary - restructure,True,False,Meets Expectations,127100.0,E05766,push
+E08647,2024-10-25,involuntary,Involuntary - performance,True,False,Below Expectations,108100.0,E04714,push
+E08684,2025-10-09,voluntary,Role uncertainty / unclear future,True,False,Below Expectations,148600.0,E01473,push
+E08691,2025-03-21,voluntary,Career advancement,True,False,High Performer,111400.0,E14184,push
+E08693,2025-01-02,voluntary,Better opportunity,True,False,High Performer,320500.0,E04996,pull
+E08697,2024-11-07,voluntary,Career advancement,True,False,High Performer,100400.0,E03313,pull
+E08717,2025-06-11,voluntary,Career advancement,True,False,Meets Expectations,93300.0,E03735,push
+E08727,2024-05-03,voluntary,Compensation,True,False,Meets Expectations,121700.0,E10828,push
+E08732,2025-01-31,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,72700.0,E02925,push
+E08756,2025-04-30,involuntary,Involuntary - performance,False,False,Meets Expectations,136300.0,E03059,push
+E08758,2024-05-09,voluntary,Career advancement,True,False,Meets Expectations,134900.0,E13083,push
+E08759,2024-09-10,voluntary,Better opportunity,True,False,High Performer,61800.0,E02821,pull
+E08761,2025-07-25,involuntary,Involuntary - performance,False,False,Below Expectations,133800.0,E08263,push
+E08799,2025-06-30,voluntary,Career advancement,True,False,Meets Expectations,86700.0,E14013,push
+E08809,2025-11-21,voluntary,Better opportunity,False,True,High Performer,70200.0,E02163,pull
+E08820,2024-07-12,voluntary,Better opportunity,True,False,Unsatisfactory,133400.0,E12490,push
+E08828,2025-04-30,voluntary,Better opportunity,True,False,High Performer,125600.0,E01900,pull
+E08839,2025-07-04,voluntary,Career advancement,True,False,High Performer,145400.0,E07835,pull
+E08846,2024-06-21,voluntary,Career advancement,True,True,High Performer,115500.0,E05735,pull
+E08881,2024-03-29,voluntary,Career advancement,True,False,Meets Expectations,95500.0,E02541,push
+E08883,2025-04-29,voluntary,Career advancement,True,False,High Performer,80700.0,E05526,push
+E08886,2024-04-05,voluntary,Personal reasons,True,False,Meets Expectations,128300.0,E01870,push
+E08890,2024-10-11,voluntary,Career advancement,False,True,Outstanding,93400.0,E01351,push
+E08894,2024-07-04,voluntary,Career advancement,False,False,Meets Expectations,120300.0,E02592,push
+E08896,2025-04-12,voluntary,Better opportunity,True,False,Outstanding,57600.0,E02068,pull
+E08899,2024-05-31,voluntary,Better opportunity,True,False,Meets Expectations,123600.0,E00917,push
+E08912,2025-01-10,voluntary,Study/career change,True,False,High Performer,137900.0,E02820,push
+E08919,2024-11-29,involuntary,Involuntary - restructure,True,False,Meets Expectations,63100.0,E00965,push
+E08921,2025-09-19,voluntary,Career advancement,True,False,Meets Expectations,118000.0,E01588,push
+E08928,2024-09-20,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,73000.0,E07680,push
+E08953,2024-08-30,voluntary,Career advancement,True,False,Meets Expectations,88100.0,E02175,pull
+E08959,2024-06-24,voluntary,Better opportunity,True,False,High Performer,105100.0,E00767,pull
+E08972,2024-04-19,involuntary,Involuntary - performance,False,False,Below Expectations,63100.0,E02458,push
+E09015,2025-06-08,voluntary,Personal reasons,True,False,Below Expectations,100600.0,E09834,push
+E09031,2024-04-12,involuntary,Involuntary - performance,False,False,Unsatisfactory,130800.0,E06405,push
+E09049,2024-09-30,voluntary,Compensation,True,False,High Performer,116600.0,E06573,push
+E09132,2024-07-12,voluntary,Better opportunity,True,False,Below Expectations,119400.0,E06116,pull
+E09151,2024-12-23,voluntary,Career advancement,True,False,High Performer,328300.0,E12885,push
+E09168,2025-06-13,voluntary,Career advancement,True,False,Below Expectations,123800.0,E10896,push
+E09172,2024-11-18,involuntary,Involuntary - restructure,True,False,Meets Expectations,108100.0,E00591,push
+E09181,2024-03-15,voluntary,Career advancement,True,False,Outstanding,132300.0,E11836,pull
+E09227,2025-07-11,voluntary,Work-life balance,True,False,Below Expectations,118500.0,E13941,push
+E09269,2024-05-07,voluntary,Better opportunity,True,False,Outstanding,164100.0,E08578,pull
+E09304,2024-08-01,voluntary,Career advancement,True,False,Meets Expectations,227700.0,E05010,push
+E09324,2025-06-17,voluntary,Career advancement,True,False,Meets Expectations,76300.0,E14226,push
+E09346,2024-05-25,voluntary,Career advancement,False,False,Meets Expectations,130900.0,E04475,pull
+E09347,2025-05-16,involuntary,Involuntary - conduct,True,False,Meets Expectations,85600.0,E12896,push
+E09353,2024-07-26,voluntary,Career advancement,True,True,Outstanding,73400.0,E01394,pull
+E09368,2025-02-28,voluntary,Career advancement,True,False,High Performer,65000.0,E10487,pull
+E09374,2024-10-14,voluntary,Better opportunity,False,False,High Performer,55000.0,E06427,pull
+E09403,2024-10-01,voluntary,Work-life balance,True,False,Meets Expectations,80000.0,E00240,push
+E09444,2024-12-31,voluntary,Career advancement,True,False,High Performer,113900.0,E02395,push
+E09450,2025-03-18,voluntary,Career advancement,False,False,Meets Expectations,94000.0,E00236,push
+E09452,2024-02-16,voluntary,Better opportunity,True,False,High Performer,56600.0,E02684,pull
+E09453,2025-06-30,voluntary,Career advancement,True,False,Meets Expectations,132600.0,E00017,push
+E09456,2025-06-02,voluntary,Career advancement,True,True,Meets Expectations,98200.0,E01596,push
+E09461,2024-05-16,voluntary,Better opportunity,True,False,High Performer,102900.0,E03011,pull
+E09471,2024-06-28,voluntary,Career advancement,True,True,Outstanding,123800.0,E02085,pull
+E09498,2025-09-26,voluntary,Better opportunity,True,True,Outstanding,181300.0,E07814,pull
+E09508,2024-08-03,voluntary,Better opportunity,True,False,Outstanding,146000.0,E11695,pull
+E09603,2024-02-01,voluntary,Career advancement,True,False,High Performer,124500.0,E01076,push
+E09606,2024-08-30,voluntary,Career advancement,True,False,Meets Expectations,86100.0,E07675,push
+E09624,2024-03-06,voluntary,Career advancement,True,False,Below Expectations,133400.0,E02231,push
+E09635,2025-03-22,voluntary,Relocation,True,True,Outstanding,196700.0,E02377,push
+E09646,2024-07-19,voluntary,Work-life balance,True,False,Unsatisfactory,134500.0,E05673,push
+E09677,2024-10-05,voluntary,Career advancement,True,False,Meets Expectations,86000.0,E02665,push
+E09687,2025-11-21,voluntary,Career advancement,True,False,High Performer,117500.0,E03237,pull
+E09689,2025-05-16,voluntary,Better opportunity,True,False,Meets Expectations,141500.0,E02810,pull
+E09691,2024-03-16,voluntary,Career advancement,True,False,Meets Expectations,127200.0,E02007,pull
+E09710,2024-06-19,involuntary,Involuntary - performance,True,False,Below Expectations,110100.0,E07680,push
+E09730,2024-06-21,voluntary,Career advancement,True,False,Meets Expectations,114300.0,E02932,push
+E09751,2025-02-28,voluntary,Work-life balance,True,False,Unsatisfactory,67000.0,E02138,push
+E09760,2024-03-22,voluntary,Career advancement,True,False,Meets Expectations,122400.0,E02199,push
+E09766,2025-06-06,voluntary,Better opportunity,False,False,High Performer,102500.0,E00675,pull
+E09790,2025-02-24,voluntary,Career advancement,True,False,Below Expectations,144200.0,E03222,push
+E09809,2024-02-29,voluntary,Career advancement,True,False,Below Expectations,55000.0,E02828,push
+E09811,2025-05-30,involuntary,Involuntary - performance,True,False,Unsatisfactory,126500.0,E02260,push
+E09834,2025-10-28,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,119400.0,E10323,push
+E09843,2025-06-03,voluntary,Career advancement,False,False,Below Expectations,59300.0,E01361,push
+E09849,2024-09-24,voluntary,Study/career change,True,False,Meets Expectations,119700.0,E08076,push
+E09866,2024-02-09,voluntary,Career advancement,True,False,High Performer,153800.0,E11736,push
+E09875,2025-07-11,voluntary,Career advancement,True,False,Below Expectations,102500.0,E05545,push
+E09885,2024-05-31,voluntary,Career advancement,True,False,Below Expectations,156700.0,E00029,push
+E09897,2025-05-02,voluntary,Career advancement,True,False,High Performer,57400.0,E13430,pull
+E09923,2024-10-11,involuntary,Involuntary - performance,True,False,Unsatisfactory,159700.0,E00204,push
+E09924,2024-10-04,voluntary,Better opportunity,True,False,Outstanding,125100.0,E00014,pull
+E09967,2025-08-08,voluntary,Career advancement,True,False,Below Expectations,105800.0,E00139,push
+E09974,2024-08-23,voluntary,Career advancement,False,False,Below Expectations,56200.0,E11272,push
+E09979,2024-04-05,voluntary,Career advancement,True,False,Meets Expectations,55000.0,E00639,pull
+E10010,2025-08-24,voluntary,Career advancement,True,False,Meets Expectations,104400.0,E03196,push
+E10027,2025-03-31,voluntary,Better opportunity,False,False,Outstanding,135500.0,E01430,pull
+E10031,2025-02-28,involuntary,Involuntary - performance,False,False,Below Expectations,142700.0,E05384,push
+E10061,2024-12-30,voluntary,Relocation,True,False,Meets Expectations,192500.0,E01206,push
+E10072,2024-07-30,voluntary,Career advancement,True,False,High Performer,112500.0,E07594,pull
+E10076,2025-01-31,voluntary,Work-life balance,False,False,Meets Expectations,255700.0,E01001,push
+E10077,2024-06-14,voluntary,Better opportunity,True,False,Below Expectations,61300.0,E02960,push
+E10080,2024-11-22,voluntary,Career advancement,False,False,Meets Expectations,70200.0,E04875,push
+E10127,2025-10-10,voluntary,Better opportunity,True,False,High Performer,81700.0,E00435,push
+E10130,2024-07-26,voluntary,Career advancement,True,False,Meets Expectations,80600.0,E02153,push
+E10138,2025-11-01,voluntary,Study/career change,True,False,High Performer,124100.0,E02857,push
+E10150,2024-05-10,involuntary,Involuntary - performance,True,False,Below Expectations,119100.0,E02634,push
+E10159,2025-07-05,voluntary,Career advancement,True,False,High Performer,74800.0,E10620,push
+E10164,2025-04-04,involuntary,Involuntary - performance,False,False,Unsatisfactory,196300.0,E13776,push
+E10167,2024-10-11,voluntary,Better opportunity,True,False,High Performer,118300.0,E07533,pull
+E10171,2024-10-29,voluntary,Better opportunity,True,False,Meets Expectations,215100.0,E13532,pull
+E10173,2024-11-01,voluntary,Better opportunity,True,True,Outstanding,216900.0,E04998,pull
+E10181,2024-04-08,voluntary,Better opportunity,True,False,High Performer,162000.0,E03455,push
+E10188,2025-11-29,voluntary,Better opportunity,True,False,High Performer,120100.0,E04889,pull
+E10195,2024-11-29,voluntary,Career advancement,False,False,High Performer,209000.0,E10995,push
+E10197,2025-08-08,voluntary,Better opportunity,True,True,High Performer,71600.0,E03257,pull
+E10219,2025-04-17,involuntary,Involuntary - conduct,True,False,Meets Expectations,108300.0,E00909,push
+E10221,2025-01-17,voluntary,Career advancement,True,False,High Performer,181800.0,E13889,pull
+E10239,2024-10-13,voluntary,Compensation,True,False,High Performer,197000.0,E08033,push
+E10241,2024-08-16,voluntary,Career advancement,True,False,Below Expectations,85500.0,E01798,push
+E10246,2024-11-08,voluntary,Better opportunity,True,True,High Performer,136500.0,E00262,pull
+E10265,2024-04-30,voluntary,Career advancement,False,False,Below Expectations,69300.0,E02596,push
+E10267,2025-05-20,voluntary,Better opportunity,True,False,Below Expectations,139800.0,E01782,push
+E10274,2025-08-02,voluntary,Work-life balance,True,False,Meets Expectations,237100.0,E10156,push
+E10281,2025-01-03,voluntary,Career advancement,True,False,Meets Expectations,97800.0,E07985,push
+E10299,2025-03-07,voluntary,Career advancement,True,False,Meets Expectations,122200.0,E01121,push
+E10306,2024-05-31,voluntary,Career advancement,True,False,Meets Expectations,137100.0,E04782,push
+E10338,2025-03-02,involuntary,Involuntary - performance,True,False,Below Expectations,101600.0,E02439,push
+E10353,2025-05-27,voluntary,Better opportunity,True,True,Outstanding,85300.0,E09029,pull
+E10373,2025-09-30,voluntary,Career advancement,False,False,Meets Expectations,125600.0,E00798,push
+E10387,2024-09-06,voluntary,Career advancement,True,False,Meets Expectations,104300.0,E10828,pull
+E10394,2024-12-05,voluntary,Better opportunity,True,False,Unsatisfactory,202600.0,E05536,push
+E10435,2025-10-07,voluntary,Better opportunity,True,True,Outstanding,131200.0,E12251,pull
+E10440,2024-10-09,involuntary,Involuntary - performance,True,False,Below Expectations,116500.0,E02109,push
+E10452,2025-05-16,voluntary,Better opportunity,False,False,Below Expectations,90000.0,E00036,push
+E10454,2024-06-28,voluntary,Better opportunity,True,False,Meets Expectations,92900.0,E02293,pull
+E10455,2025-01-31,voluntary,Career advancement,True,False,Below Expectations,130900.0,E03364,push
+E10456,2025-11-28,voluntary,Career advancement,True,False,High Performer,117000.0,E03006,push
+E10474,2024-12-13,voluntary,Career advancement,True,False,Unsatisfactory,121600.0,E13936,push
+E10491,2025-10-10,voluntary,Career advancement,True,True,Outstanding,135900.0,E00177,push
+E10507,2025-04-14,involuntary,Involuntary - performance,False,False,Below Expectations,137400.0,E01177,push
+E10533,2025-09-19,voluntary,Career advancement,True,False,Meets Expectations,102500.0,E06210,pull
+E10552,2025-01-10,voluntary,Career advancement,True,True,High Performer,131600.0,E02554,pull
+E10562,2024-10-08,voluntary,Career advancement,True,False,Meets Expectations,157300.0,E01953,push
+E10584,2025-02-10,voluntary,Career advancement,True,False,Meets Expectations,100800.0,E11861,push
+E10603,2024-10-30,voluntary,Career advancement,True,False,Outstanding,77700.0,E03292,pull
+E10605,2025-03-03,voluntary,Better opportunity,True,False,High Performer,107200.0,E07012,pull
+E10619,2025-10-31,voluntary,Career advancement,True,False,Meets Expectations,169100.0,E11874,pull
+E10661,2024-07-31,voluntary,Role uncertainty / unclear future,False,False,Meets Expectations,250300.0,E12675,push
+E10663,2024-02-09,involuntary,Involuntary - performance,True,False,Unsatisfactory,108000.0,E06390,push
+E10665,2024-08-14,voluntary,Career advancement,True,False,Meets Expectations,66700.0,E01211,pull
+E10666,2025-05-13,voluntary,Compensation,True,False,Meets Expectations,59600.0,E01891,push
+E10691,2025-07-31,voluntary,Career advancement,False,False,Meets Expectations,82500.0,E02095,push
+E10705,2024-09-24,voluntary,Better opportunity,True,False,Meets Expectations,83800.0,E06080,push
+E10748,2024-07-31,voluntary,Career advancement,True,False,Below Expectations,103700.0,E00947,push
+E10753,2025-07-03,voluntary,Career advancement,True,False,Outstanding,55000.0,E02706,pull
+E10760,2024-10-02,voluntary,Career advancement,True,True,High Performer,80700.0,E02072,pull
+E10765,2025-05-22,voluntary,Career advancement,True,False,Below Expectations,137300.0,E05817,push
+E10774,2024-08-30,voluntary,Career advancement,True,False,Meets Expectations,110400.0,E01257,push
+E10791,2025-02-07,involuntary,Involuntary - performance,True,False,Below Expectations,130100.0,E10140,push
+E10825,2024-08-09,voluntary,Career advancement,True,False,Meets Expectations,128000.0,E00412,push
+E10827,2024-12-06,voluntary,Career advancement,True,False,High Performer,138600.0,E10673,push
+E10842,2024-06-28,voluntary,Career advancement,True,False,High Performer,134200.0,E01753,pull
+E10869,2025-08-02,voluntary,Career advancement,True,False,Below Expectations,127400.0,E02465,push
+E10894,2025-04-30,involuntary,Involuntary - performance,True,False,Unsatisfactory,177800.0,E13190,push
+E10905,2024-11-05,voluntary,Career advancement,False,False,Meets Expectations,84400.0,E12254,push
+E10910,2024-04-30,voluntary,Career advancement,False,False,High Performer,130700.0,E02503,push
+E10920,2024-09-27,voluntary,Work-life balance,True,False,Meets Expectations,139100.0,E11232,push
+E10922,2025-05-30,voluntary,Career advancement,False,False,Meets Expectations,117100.0,E03085,push
+E10933,2025-02-28,involuntary,Involuntary - performance,False,False,Below Expectations,81200.0,E06335,push
+E10940,2024-09-03,involuntary,Involuntary - performance,False,False,Unsatisfactory,123900.0,E02901,push
+E10947,2025-09-30,voluntary,Role uncertainty / unclear future,False,False,Meets Expectations,116700.0,E05579,push
+E10972,2024-10-04,voluntary,Career advancement,True,False,Below Expectations,105200.0,E02629,pull
+E10976,2024-09-08,voluntary,Career advancement,True,False,High Performer,76200.0,E13570,push
+E10990,2024-08-30,voluntary,Career advancement,True,False,Meets Expectations,110100.0,E02227,push
+E10995,2024-10-31,voluntary,Career advancement,True,False,Unsatisfactory,297100.0,E06643,push
+E11054,2025-05-09,voluntary,Better opportunity,False,False,High Performer,120700.0,E01456,pull
+E11058,2025-10-17,involuntary,Involuntary - performance,False,False,Meets Expectations,95900.0,E01445,push
+E11079,2025-06-13,voluntary,Career advancement,True,False,Meets Expectations,130200.0,E02966,push
+E11085,2025-07-11,voluntary,Career advancement,True,False,Meets Expectations,71100.0,E07759,pull
+E11105,2025-08-06,involuntary,Involuntary - restructure,True,False,Meets Expectations,140000.0,E07388,push
+E11111,2025-01-31,voluntary,Career advancement,True,True,High Performer,159100.0,E12587,pull
+E11117,2025-09-26,voluntary,Career advancement,False,False,Meets Expectations,80300.0,E02039,push
+E11133,2024-04-30,involuntary,Involuntary - performance,False,False,Below Expectations,134700.0,E14493,push
+E11164,2025-11-27,voluntary,Career advancement,True,False,High Performer,117900.0,E12810,pull
+E11183,2025-02-14,voluntary,Career advancement,True,False,Meets Expectations,119500.0,E03663,push
+E11188,2025-05-28,voluntary,Relocation,True,True,Outstanding,72500.0,E01691,push
+E11197,2025-04-11,voluntary,Career advancement,True,True,Meets Expectations,113400.0,E00360,pull
+E11212,2025-01-26,involuntary,Involuntary - performance,False,False,Below Expectations,160200.0,E03015,push
+E11228,2024-07-04,voluntary,Career advancement,True,False,Meets Expectations,137200.0,E03670,push
+E11255,2025-09-30,voluntary,Career advancement,True,False,High Performer,155800.0,E04856,push
+E11267,2024-06-28,voluntary,Compensation,True,False,Meets Expectations,145700.0,E06041,push
+E11280,2024-10-18,voluntary,Study/career change,True,False,Meets Expectations,136600.0,E08247,push
+E11285,2024-06-10,voluntary,Career advancement,True,False,Meets Expectations,67400.0,E08044,push
+E11299,2025-02-28,voluntary,Compensation,True,False,Meets Expectations,146300.0,E00397,push
+E11305,2024-06-29,voluntary,Better opportunity,True,False,Meets Expectations,98000.0,E07231,pull
+E11307,2025-09-12,voluntary,Work-life balance,True,False,High Performer,75800.0,E00500,push
+E11310,2024-06-07,voluntary,Career advancement,True,False,Outstanding,99700.0,E01695,pull
+E11325,2025-09-15,voluntary,Relocation,True,False,Meets Expectations,59800.0,E01781,push
+E11335,2025-07-25,voluntary,Career advancement,True,False,High Performer,71500.0,E02626,pull
+E11337,2025-10-10,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,152400.0,E00164,push
+E11344,2025-11-28,involuntary,Involuntary - conduct,False,False,High Performer,165600.0,E13961,push
+E11358,2024-09-30,voluntary,Career advancement,True,False,Below Expectations,62300.0,E02791,push
+E11366,2025-04-18,voluntary,Career advancement,False,False,Outstanding,206700.0,E04056,pull
+E11376,2024-06-16,voluntary,Better opportunity,False,False,Meets Expectations,321700.0,E08057,pull
+E11383,2024-06-24,involuntary,Involuntary - performance,True,False,Below Expectations,61000.0,E12254,push
+E11387,2024-11-08,voluntary,Career advancement,True,False,Meets Expectations,106200.0,E01125,push
+E11395,2025-09-28,voluntary,Career advancement,True,False,High Performer,144100.0,E02980,push
+E11397,2025-03-31,voluntary,Better opportunity,False,False,High Performer,67600.0,E07218,pull
+E11399,2025-06-26,involuntary,Involuntary - restructure,False,False,Meets Expectations,122500.0,E00152,push
+E11411,2025-02-04,involuntary,Involuntary - performance,False,False,Below Expectations,150600.0,E09304,push
+E11417,2024-06-14,involuntary,Involuntary - performance,True,False,Unsatisfactory,171500.0,E09086,push
+E11419,2025-02-24,involuntary,Involuntary - performance,False,False,Below Expectations,68400.0,E01089,push
+E11433,2024-06-20,voluntary,Personal reasons,True,False,Below Expectations,95400.0,E01797,push
+E11435,2025-10-03,voluntary,Relocation,True,False,Meets Expectations,118900.0,E10576,push
+E11446,2024-06-28,voluntary,Career advancement,True,False,High Performer,180300.0,E06085,pull
+E11447,2024-12-31,voluntary,Career advancement,False,False,Meets Expectations,62700.0,E02482,pull
+E11449,2024-06-21,voluntary,Career advancement,True,False,High Performer,79800.0,E05304,push
+E11452,2025-07-18,involuntary,Involuntary - restructure,False,False,Meets Expectations,152000.0,E01055,push
+E11463,2024-06-22,voluntary,Career advancement,True,False,Meets Expectations,76700.0,E13584,push
+E11464,2025-01-31,voluntary,Better opportunity,True,True,Outstanding,187100.0,E11737,pull
+E11466,2024-06-28,voluntary,Career advancement,True,False,Meets Expectations,106100.0,E11074,push
+E11469,2025-08-25,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,114200.0,E12138,push
+E11477,2025-01-17,voluntary,Career advancement,True,False,Below Expectations,100400.0,E04557,pull
+E11478,2025-11-13,voluntary,Better opportunity,True,True,Outstanding,65500.0,E10022,pull
+E11480,2025-03-06,voluntary,Career advancement,True,False,Below Expectations,191300.0,E10995,push
+E11485,2025-03-14,voluntary,Career advancement,True,False,High Performer,127000.0,E11503,push
+E11495,2024-06-28,voluntary,Career advancement,True,False,Unsatisfactory,210100.0,E11769,push
+E11507,2025-10-01,voluntary,Career advancement,True,False,Outstanding,135200.0,E02193,pull
+E11517,2025-04-30,voluntary,Better opportunity,True,True,High Performer,229100.0,E13593,pull
+E11520,2024-10-11,voluntary,Career advancement,True,False,Meets Expectations,64000.0,E01145,push
+E11525,2024-09-20,involuntary,Involuntary - performance,True,False,Below Expectations,102000.0,E00882,push
+E11528,2024-07-05,involuntary,Involuntary - restructure,False,False,High Performer,139800.0,E13841,push
+E11533,2025-02-20,voluntary,Career advancement,True,False,Meets Expectations,99000.0,E05183,push
+E11536,2024-08-02,voluntary,Career advancement,True,False,Below Expectations,137000.0,E10203,push
+E11539,2024-06-26,voluntary,Relocation,True,False,Meets Expectations,79000.0,E00597,push
+E11548,2024-06-28,involuntary,Involuntary - restructure,False,False,Meets Expectations,90400.0,E03169,push
+E11549,2024-10-04,voluntary,Career advancement,True,False,High Performer,68600.0,E13622,push
+E11555,2025-06-15,voluntary,Career advancement,True,True,Outstanding,131600.0,E02949,push
+E11559,2024-06-21,voluntary,Career advancement,True,False,Below Expectations,84700.0,E01019,push
+E11571,2024-11-30,voluntary,Career advancement,True,False,Meets Expectations,66700.0,E01890,push
+E11574,2025-10-12,voluntary,Career advancement,True,False,High Performer,92600.0,E00017,push
+E11589,2024-10-04,voluntary,Better opportunity,True,False,High Performer,125800.0,E00213,push
+E11605,2024-06-30,voluntary,Better opportunity,True,False,Meets Expectations,132500.0,E06499,pull
+E11615,2024-06-28,voluntary,Better opportunity,True,False,Meets Expectations,173900.0,E11769,pull
+E11617,2024-07-01,voluntary,Work-life balance,True,False,Below Expectations,56100.0,E03046,push
+E11621,2025-07-27,involuntary,Involuntary - performance,True,False,Unsatisfactory,353800.0,E01163,push
+E11628,2025-06-06,voluntary,Career advancement,True,False,Meets Expectations,106100.0,E01590,push
+E11631,2025-05-30,voluntary,Career advancement,True,False,High Performer,73400.0,E12549,push
+E11638,2024-07-02,involuntary,Involuntary - performance,True,False,Below Expectations,138300.0,E01639,push
+E11642,2025-04-30,voluntary,Career advancement,True,True,Outstanding,209400.0,E04056,pull
+E11648,2024-10-28,voluntary,Career advancement,True,False,Meets Expectations,123200.0,E14475,pull
+E11651,2024-07-29,voluntary,Better opportunity,True,False,High Performer,148400.0,E00692,pull
+E11652,2025-04-05,involuntary,Involuntary - performance,False,False,Below Expectations,60600.0,E12515,push
+E11660,2024-11-29,involuntary,Involuntary - performance,True,False,Below Expectations,111400.0,E03328,push
+E11662,2024-10-31,voluntary,Career advancement,True,False,Meets Expectations,113300.0,E06233,push
+E11664,2024-10-18,involuntary,Involuntary - performance,True,False,Meets Expectations,83400.0,E02769,push
+E11676,2024-07-05,voluntary,Relocation,True,False,High Performer,128400.0,E00909,push
+E11695,2025-01-16,voluntary,Role uncertainty / unclear future,True,False,High Performer,130700.0,E09703,push
+E11697,2024-10-19,voluntary,Career advancement,True,False,High Performer,61800.0,E02874,pull
+E11701,2024-07-05,voluntary,Career advancement,True,False,Meets Expectations,133700.0,E04337,push
+E11705,2025-04-18,voluntary,Career advancement,False,False,Below Expectations,72100.0,E02106,push
+E11713,2025-05-10,voluntary,Relocation,True,False,Meets Expectations,165800.0,E03293,push
+E11716,2024-07-07,voluntary,Better opportunity,True,False,High Performer,108200.0,E07725,pull
+E11717,2024-07-07,voluntary,Career advancement,True,False,Meets Expectations,74100.0,E01456,push
+E11727,2024-07-05,voluntary,Career advancement,True,True,High Performer,130900.0,E03106,pull
+E11730,2024-07-05,involuntary,Involuntary - performance,True,False,Unsatisfactory,81900.0,E02876,push
+E11737,2024-07-05,voluntary,Work-life balance,True,True,Meets Expectations,293200.0,E04595,push
+E11749,2024-07-05,voluntary,Relocation,True,False,Meets Expectations,140700.0,E00674,push
+E11763,2024-08-30,voluntary,Better opportunity,True,False,Below Expectations,92700.0,E03699,pull
+E11772,2025-10-17,voluntary,Better opportunity,True,False,Outstanding,175700.0,E07060,pull
+E11773,2024-07-11,involuntary,Involuntary - performance,False,False,Below Expectations,116200.0,E02468,push
+E11775,2024-07-05,voluntary,Study/career change,True,False,High Performer,57800.0,E07924,push
+E11779,2025-11-28,voluntary,Work-life balance,True,False,Meets Expectations,129400.0,E03349,push
+E11791,2025-09-03,involuntary,Involuntary - performance,False,False,Below Expectations,146000.0,E10211,push
+E11797,2025-09-05,voluntary,Career advancement,True,False,High Performer,124000.0,E01100,push
+E11803,2024-12-13,voluntary,Career advancement,True,False,Meets Expectations,119900.0,E03062,push
+E11828,2025-08-24,involuntary,Involuntary - performance,False,False,Unsatisfactory,80100.0,E00099,push
+E11833,2024-07-15,involuntary,Involuntary - performance,False,False,Unsatisfactory,124800.0,E02911,push
+E11846,2025-01-03,voluntary,Better opportunity,False,False,Meets Expectations,89200.0,E02773,pull
+E11857,2024-07-16,voluntary,Work-life balance,True,False,Below Expectations,90200.0,E01519,push
+E11858,2024-10-11,voluntary,Better opportunity,True,False,Meets Expectations,127100.0,E01685,pull
+E11863,2025-10-07,voluntary,Career advancement,True,False,Below Expectations,84200.0,E04239,push
+E11866,2024-07-12,voluntary,Career advancement,True,False,High Performer,97500.0,E02554,pull
+E11871,2024-11-29,voluntary,Compensation,False,False,High Performer,184100.0,E04184,push
+E11873,2024-08-30,involuntary,Involuntary - restructure,True,False,High Performer,78300.0,E02133,push
+E11879,2024-07-12,voluntary,Career advancement,True,False,Meets Expectations,152000.0,E00058,push
+E11881,2025-09-12,involuntary,Involuntary - restructure,False,False,Meets Expectations,135000.0,E08534,push
+E11885,2025-02-28,voluntary,Career advancement,True,False,Meets Expectations,116800.0,E02646,push
+E11896,2024-07-19,voluntary,Better opportunity,True,False,High Performer,91100.0,E03252,pull
+E11898,2025-01-01,voluntary,Career advancement,True,False,High Performer,67000.0,E02234,pull
+E11899,2024-07-31,voluntary,Career advancement,True,False,Below Expectations,77900.0,E06652,push
+E11902,2025-05-15,voluntary,Career advancement,True,False,Below Expectations,218600.0,E06779,pull
+E11904,2024-12-21,voluntary,Career advancement,True,False,Meets Expectations,76100.0,E11688,push
+E11905,2025-06-06,voluntary,Career advancement,True,True,Outstanding,140400.0,E02240,push
+E11919,2025-05-30,voluntary,Better opportunity,True,False,Meets Expectations,83700.0,E04014,pull
+E11923,2025-09-06,voluntary,Career advancement,True,False,Below Expectations,56600.0,E00911,push
+E11925,2024-07-19,voluntary,Personal reasons,True,True,Outstanding,106400.0,E04046,push
+E11933,2024-10-25,voluntary,Compensation,True,False,Meets Expectations,204700.0,E08051,push
+E11937,2025-05-30,involuntary,Involuntary - performance,True,False,Below Expectations,89600.0,E03173,push
+E11949,2025-09-30,voluntary,Career advancement,True,False,Meets Expectations,61700.0,E01073,push
+E11954,2025-08-31,involuntary,Involuntary - performance,True,False,Unsatisfactory,72400.0,E13115,push
+E11956,2024-07-31,voluntary,Career advancement,True,False,High Performer,183200.0,E09906,push
+E11958,2024-07-28,voluntary,Career advancement,False,False,Meets Expectations,101900.0,E06498,push
+E11970,2024-08-30,voluntary,Career advancement,True,True,High Performer,222100.0,E06513,pull
+E11981,2024-11-29,voluntary,Career advancement,True,True,Outstanding,136000.0,E02247,pull
+E11985,2025-04-18,involuntary,Involuntary - restructure,False,False,High Performer,84300.0,E02503,push
+E11988,2024-12-31,involuntary,Involuntary - performance,True,False,Unsatisfactory,127000.0,E00425,push
+E11997,2025-06-22,voluntary,Career advancement,True,False,Below Expectations,118600.0,E01083,push
+E12020,2025-01-10,voluntary,Relocation,True,False,High Performer,131900.0,E03214,push
+E12034,2024-07-28,voluntary,Career advancement,True,False,Below Expectations,57600.0,E00323,push
+E12036,2024-09-13,voluntary,Relocation,True,False,Meets Expectations,121700.0,E13086,push
+E12039,2024-12-07,voluntary,Compensation,True,False,Below Expectations,111000.0,E00596,push
+E12043,2025-05-30,involuntary,Involuntary - performance,False,False,Below Expectations,92300.0,E01573,push
+E12048,2025-06-06,involuntary,Involuntary - performance,True,False,Below Expectations,110600.0,E02863,push
+E12051,2024-11-25,voluntary,Better opportunity,True,False,High Performer,64800.0,E01675,pull
+E12065,2024-07-30,voluntary,Career advancement,True,False,Below Expectations,154300.0,E03286,push
+E12082,2025-05-30,voluntary,Career advancement,True,True,Outstanding,111600.0,E12897,pull
+E12087,2025-11-23,voluntary,Work-life balance,True,False,Meets Expectations,80000.0,E00550,push
+E12090,2025-09-17,voluntary,Better opportunity,True,False,High Performer,84300.0,E00618,pull
+E12100,2025-02-28,voluntary,Career advancement,True,False,Below Expectations,228700.0,E02652,push
+E12103,2024-08-30,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,233000.0,E04417,push
+E12114,2025-06-11,voluntary,Career advancement,True,True,Meets Expectations,84600.0,E02591,pull
+E12126,2024-09-30,voluntary,Work-life balance,True,False,Below Expectations,108200.0,E02597,push
+E12127,2025-10-03,voluntary,Better opportunity,True,False,Meets Expectations,61400.0,E03885,pull
+E12142,2025-03-28,involuntary,Involuntary - performance,False,False,Below Expectations,180300.0,E00367,push
+E12143,2024-09-06,voluntary,Relocation,True,False,Meets Expectations,75800.0,E09790,push
+E12145,2024-08-04,voluntary,Career advancement,True,False,Meets Expectations,66900.0,E02787,push
+E12151,2024-08-02,voluntary,Career advancement,False,True,High Performer,66600.0,E13584,pull
+E12155,2025-01-21,involuntary,Involuntary - performance,False,False,Unsatisfactory,100200.0,E01920,push
+E12161,2025-05-14,involuntary,Involuntary - performance,False,False,Below Expectations,140300.0,E01403,push
+E12173,2025-07-16,voluntary,Career advancement,True,False,Meets Expectations,63600.0,E00989,push
+E12179,2025-04-18,voluntary,Work-life balance,False,False,Meets Expectations,66700.0,E02476,push
+E12189,2025-07-12,involuntary,Involuntary - performance,True,False,Unsatisfactory,129700.0,E08075,push
+E12194,2025-04-09,involuntary,Involuntary - performance,True,False,Below Expectations,76000.0,E01436,push
+E12195,2025-02-28,voluntary,Personal reasons,False,False,Outstanding,229200.0,E06917,push
+E12202,2025-01-31,voluntary,Career advancement,True,False,High Performer,155200.0,E02099,pull
+E12206,2024-08-08,involuntary,Involuntary - performance,False,False,Below Expectations,140700.0,E07626,push
+E12214,2025-05-30,voluntary,Career advancement,True,False,Below Expectations,173900.0,E14134,push
+E12222,2025-10-31,voluntary,Better opportunity,True,False,High Performer,140000.0,E06699,pull
+E12241,2024-11-22,voluntary,Better opportunity,True,False,Outstanding,183500.0,E12947,pull
+E12258,2024-08-28,voluntary,Career advancement,True,False,High Performer,130100.0,E11133,pull
+E12265,2025-07-31,involuntary,Involuntary - performance,True,False,Unsatisfactory,108900.0,E03249,push
+E12266,2025-10-03,voluntary,Career advancement,True,False,Meets Expectations,123200.0,E08280,push
+E12284,2025-07-23,voluntary,Better opportunity,True,True,High Performer,74100.0,E00727,pull
+E12286,2024-08-13,voluntary,Career advancement,True,True,Outstanding,117400.0,E02616,push
+E12302,2024-08-30,involuntary,Involuntary - performance,True,False,Below Expectations,135700.0,E03045,push
+E12323,2024-08-15,voluntary,Career advancement,True,False,Below Expectations,213600.0,E12358,push
+E12331,2024-08-16,voluntary,Career advancement,True,False,Meets Expectations,147500.0,E00403,push
+E12332,2024-10-31,voluntary,Personal reasons,True,False,Meets Expectations,90400.0,E02910,push
+E12355,2025-08-19,voluntary,Compensation,False,False,Below Expectations,70300.0,E11256,push
+E12360,2025-04-03,voluntary,Better opportunity,False,False,High Performer,87000.0,E02186,pull
+E12374,2024-08-18,voluntary,Career advancement,True,True,Outstanding,177600.0,E05974,push
+E12381,2024-08-30,voluntary,Personal reasons,True,False,Meets Expectations,84200.0,E01007,push
+E12382,2024-11-03,voluntary,Career advancement,False,False,High Performer,65300.0,E05364,push
+E12385,2025-01-31,voluntary,Relocation,True,False,Meets Expectations,85100.0,E00904,push
+E12391,2024-08-30,voluntary,Career advancement,True,False,High Performer,73600.0,E01444,push
+E12400,2025-05-30,voluntary,Better opportunity,False,True,Outstanding,90500.0,E04788,pull
+E12403,2025-09-22,voluntary,Work-life balance,True,False,Below Expectations,96300.0,E00139,push
+E12405,2024-08-30,involuntary,Involuntary - performance,False,False,Below Expectations,134100.0,E02967,push
+E12408,2024-10-11,voluntary,Career advancement,True,False,Meets Expectations,124600.0,E13129,push
+E12424,2024-11-19,voluntary,Better opportunity,True,False,Meets Expectations,95300.0,E01802,pull
+E12428,2025-04-11,voluntary,Career advancement,True,False,Meets Expectations,136900.0,E02756,push
+E12431,2024-08-30,voluntary,Better opportunity,True,False,High Performer,103300.0,E08406,pull
+E12440,2024-11-07,voluntary,Career advancement,True,False,Meets Expectations,132000.0,E02097,push
+E12444,2024-11-09,voluntary,Compensation,True,False,Below Expectations,105400.0,E01965,push
+E12449,2024-08-16,voluntary,Better opportunity,False,True,Meets Expectations,181500.0,E00506,pull
+E12460,2024-10-21,voluntary,Better opportunity,True,False,High Performer,110800.0,E05584,pull
+E12469,2024-08-30,voluntary,Better opportunity,True,False,High Performer,164900.0,E03243,pull
+E12478,2024-08-23,involuntary,Involuntary - conduct,False,False,High Performer,125700.0,E01654,push
+E12494,2024-10-03,voluntary,Work-life balance,True,False,Meets Expectations,63500.0,E14127,push
+E12496,2024-11-22,voluntary,Work-life balance,True,False,Meets Expectations,65800.0,E03101,push
+E12499,2025-02-10,voluntary,Career advancement,True,False,Outstanding,125400.0,E05500,pull
+E12503,2025-09-18,voluntary,Personal reasons,True,False,High Performer,66200.0,E13294,push
+E12513,2024-08-26,voluntary,Career advancement,True,False,Meets Expectations,125700.0,E04240,push
+E12524,2024-08-23,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,105400.0,E01126,push
+E12528,2024-11-29,involuntary,Involuntary - performance,True,False,Unsatisfactory,137100.0,E01200,push
+E12533,2025-08-31,voluntary,Better opportunity,True,False,Outstanding,119800.0,E03812,push
+E12549,2024-10-12,voluntary,Better opportunity,True,False,High Performer,176600.0,E00599,pull
+E12557,2024-08-29,voluntary,Career advancement,True,False,Meets Expectations,70200.0,E03124,push
+E12565,2024-08-23,involuntary,Involuntary - performance,False,False,Below Expectations,142900.0,E07140,push
+E12568,2025-10-18,voluntary,Career advancement,True,False,High Performer,136500.0,E08932,push
+E12582,2024-08-30,voluntary,Career advancement,False,False,Meets Expectations,97200.0,E00350,push
+E12585,2024-08-30,voluntary,Better opportunity,True,False,Unsatisfactory,113200.0,E01292,push
+E12588,2025-03-31,involuntary,Involuntary - performance,False,False,Unsatisfactory,224700.0,E10871,push
+E12591,2024-08-30,involuntary,Involuntary - performance,False,False,Below Expectations,65500.0,E00904,push
+E12592,2024-11-29,involuntary,Involuntary - restructure,True,False,Meets Expectations,159700.0,E13863,push
+E12596,2025-07-31,voluntary,Career advancement,True,False,Meets Expectations,139100.0,E14463,pull
+E12599,2024-08-31,involuntary,Involuntary - performance,True,False,Below Expectations,98200.0,E12939,push
+E12602,2024-08-30,voluntary,Work-life balance,True,True,Outstanding,90100.0,E00064,push
+E12605,2024-08-30,voluntary,Compensation,True,False,High Performer,113500.0,E00618,push
+E12617,2024-09-01,voluntary,Personal reasons,True,False,Below Expectations,101500.0,E04135,push
+E12630,2025-03-07,voluntary,Career advancement,True,False,High Performer,60100.0,E03843,push
+E12639,2024-09-02,voluntary,Career advancement,True,False,High Performer,122200.0,E08672,push
+E12642,2025-10-31,voluntary,Career advancement,True,False,Below Expectations,129700.0,E03501,push
+E12657,2024-10-25,involuntary,Involuntary - performance,True,False,Meets Expectations,58400.0,E06167,push
+E12662,2024-08-30,voluntary,Career advancement,True,False,Below Expectations,90700.0,E09477,push
+E12666,2024-09-04,voluntary,Career advancement,True,False,Unsatisfactory,138100.0,E02885,push
+E12667,2024-08-30,voluntary,Career advancement,True,True,Outstanding,85000.0,E02004,pull
+E12668,2024-09-30,voluntary,Better opportunity,True,False,High Performer,63200.0,E01248,pull
+E12678,2025-04-11,voluntary,Career advancement,True,False,Meets Expectations,57600.0,E01126,push
+E12679,2025-11-14,voluntary,Career advancement,True,False,High Performer,180900.0,E05035,pull
+E12682,2024-12-05,involuntary,Involuntary - performance,False,False,Below Expectations,142400.0,E00072,push
+E12685,2025-06-19,voluntary,Career advancement,False,False,High Performer,115000.0,E02310,push
+E12695,2025-03-14,involuntary,Involuntary - performance,False,False,Meets Expectations,119500.0,E10284,push
+E12696,2025-01-24,voluntary,Role uncertainty / unclear future,True,False,High Performer,64300.0,E00492,push
+E12697,2024-12-31,voluntary,Career advancement,False,False,Meets Expectations,99400.0,E01667,pull
+E12704,2025-04-04,involuntary,Involuntary - conduct,False,False,Meets Expectations,100900.0,E12904,push
+E12706,2025-09-05,involuntary,Involuntary - performance,True,False,Unsatisfactory,248800.0,E00209,push
+E12709,2025-04-11,voluntary,Better opportunity,True,True,Outstanding,65300.0,E05804,pull
+E12711,2025-07-16,voluntary,Career advancement,True,False,Below Expectations,166600.0,E01441,pull
+E12718,2024-09-07,involuntary,Involuntary - performance,True,False,Unsatisfactory,142800.0,E02597,push
+E12721,2024-09-07,voluntary,Career advancement,True,False,Meets Expectations,58800.0,E10576,push
+E12730,2025-09-27,voluntary,Compensation,True,False,Meets Expectations,106500.0,E01287,push
+E12735,2025-04-25,voluntary,Role uncertainty / unclear future,False,False,Unsatisfactory,85300.0,E09451,push
+E12737,2024-09-06,involuntary,Involuntary - performance,False,False,Unsatisfactory,141900.0,E02756,push
+E12742,2024-09-08,voluntary,Career advancement,True,True,Outstanding,127300.0,E01678,push
+E12747,2025-01-28,voluntary,Career advancement,False,False,Meets Expectations,107000.0,E01536,pull
+E12768,2024-11-23,voluntary,Career advancement,True,False,High Performer,82900.0,E00956,pull
+E12769,2024-11-15,voluntary,Career advancement,False,False,High Performer,129300.0,E01202,pull
+E12775,2025-09-05,involuntary,Involuntary - performance,True,False,Below Expectations,125400.0,E02873,push
+E12807,2024-09-30,voluntary,Career advancement,True,False,Meets Expectations,140000.0,E03513,push
+E12816,2024-09-30,voluntary,Compensation,False,False,Below Expectations,74600.0,E00993,push
+E12825,2024-09-13,voluntary,Better opportunity,True,False,High Performer,65200.0,E01858,pull
+E12829,2025-01-17,involuntary,Involuntary - restructure,True,False,Meets Expectations,145400.0,E00042,push
+E12833,2025-03-14,voluntary,Career advancement,True,False,Meets Expectations,138400.0,E08223,push
+E12839,2025-08-16,voluntary,Better opportunity,True,False,High Performer,135000.0,E00959,pull
+E12842,2024-09-14,voluntary,Career advancement,True,False,Below Expectations,84900.0,E12896,push
+E12871,2024-09-13,voluntary,Work-life balance,True,False,High Performer,55000.0,E01630,push
+E12881,2024-09-13,voluntary,Career advancement,True,False,Meets Expectations,141100.0,E05434,push
+E12886,2025-07-31,involuntary,Involuntary - performance,True,False,Below Expectations,138000.0,E02262,push
+E12888,2024-12-07,voluntary,Career advancement,False,False,High Performer,124100.0,E01797,pull
+E12895,2024-11-29,voluntary,Career advancement,True,False,Meets Expectations,85000.0,E02224,push
+E12909,2024-09-13,voluntary,Better opportunity,True,False,Unsatisfactory,113200.0,E06721,push
+E12915,2025-06-20,voluntary,Personal reasons,True,False,High Performer,151400.0,E01799,push
+E12917,2025-10-03,voluntary,Better opportunity,True,False,Meets Expectations,83600.0,E05929,push
+E12928,2025-09-19,voluntary,Career advancement,True,False,High Performer,61400.0,E01880,push
+E12940,2024-09-20,voluntary,Career advancement,True,False,High Performer,228700.0,E11440,push
+E12941,2024-09-20,voluntary,Career advancement,True,False,High Performer,164300.0,E00851,push
+E12954,2024-09-21,involuntary,Involuntary - performance,False,False,Unsatisfactory,76700.0,E02822,push
+E12973,2025-05-30,voluntary,Career advancement,True,False,Meets Expectations,134000.0,E00068,pull
+E12974,2024-11-15,voluntary,Career advancement,True,False,High Performer,104900.0,E05926,push
+E12980,2025-09-12,voluntary,Study/career change,True,False,High Performer,98400.0,E02853,push
+E12983,2024-09-20,voluntary,Better opportunity,True,False,Meets Expectations,149500.0,E10147,push
+E13002,2025-02-20,voluntary,Personal reasons,True,False,Meets Expectations,193200.0,E01602,push
+E13006,2024-09-20,voluntary,Career advancement,True,False,Meets Expectations,117900.0,E06125,push
+E13008,2024-09-20,voluntary,Career advancement,True,False,Meets Expectations,104500.0,E02786,push
+E13012,2024-09-20,voluntary,Career advancement,True,False,Meets Expectations,87900.0,E00504,push
+E13015,2025-08-11,involuntary,Involuntary - performance,False,False,Unsatisfactory,140000.0,E11070,push
+E13017,2024-09-20,voluntary,Better opportunity,True,True,High Performer,117500.0,E02310,pull
+E13023,2025-05-03,voluntary,Career advancement,True,False,High Performer,90400.0,E08207,pull
+E13039,2025-11-02,voluntary,Career advancement,True,False,Meets Expectations,135800.0,E09889,pull
+E13041,2025-07-27,voluntary,Compensation,True,False,Meets Expectations,104700.0,E02307,push
+E13043,2025-02-09,voluntary,Role uncertainty / unclear future,True,False,High Performer,180300.0,E01129,push
+E13052,2025-01-31,voluntary,Career advancement,False,False,Meets Expectations,113400.0,E11597,pull
+E13054,2025-07-26,voluntary,Career advancement,True,False,Meets Expectations,98500.0,E01836,push
+E13055,2025-06-20,voluntary,Career advancement,True,True,Outstanding,144100.0,E02885,pull
+E13066,2025-09-13,voluntary,Career advancement,True,False,Meets Expectations,171500.0,E03948,push
+E13074,2025-08-30,voluntary,Career advancement,True,False,High Performer,128500.0,E11186,push
+E13076,2024-09-30,voluntary,Better opportunity,True,False,Meets Expectations,60500.0,E03353,pull
+E13087,2024-12-31,voluntary,Career advancement,True,False,Below Expectations,56000.0,E02472,pull
+E13113,2024-10-02,voluntary,Relocation,True,False,Unsatisfactory,64200.0,E13613,push
+E13114,2025-01-20,voluntary,Career advancement,True,False,High Performer,192400.0,E04315,push
+E13123,2024-09-27,voluntary,Career advancement,True,False,High Performer,141600.0,E10879,pull
+E13132,2024-10-03,voluntary,Better opportunity,True,True,High Performer,106700.0,E03208,pull
+E13133,2024-12-13,involuntary,Involuntary - conduct,True,False,Meets Expectations,121300.0,E02102,push
+E13140,2024-10-30,voluntary,Career advancement,True,False,Below Expectations,144000.0,E00489,push
+E13146,2024-10-04,involuntary,Involuntary - restructure,False,False,High Performer,105500.0,E02188,push
+E13157,2025-06-30,involuntary,Involuntary - restructure,True,False,Meets Expectations,120800.0,E00869,push
+E13159,2025-04-20,voluntary,Better opportunity,False,False,High Performer,144800.0,E11011,pull
+E13160,2025-06-27,voluntary,Career advancement,True,False,Below Expectations,119700.0,E04618,push
+E13170,2025-05-16,voluntary,Personal reasons,True,False,Meets Expectations,126300.0,E04125,push
+E13171,2025-02-20,voluntary,Career advancement,True,False,Meets Expectations,137000.0,E09181,push
+E13178,2025-05-02,voluntary,Better opportunity,True,True,Outstanding,67000.0,E01158,pull
+E13179,2024-10-31,voluntary,Career advancement,True,False,Below Expectations,146400.0,E02489,push
+E13181,2024-10-06,voluntary,Career advancement,True,False,Meets Expectations,178400.0,E09445,push
+E13191,2025-04-04,voluntary,Career advancement,True,True,Outstanding,205400.0,E14058,push
+E13205,2024-11-26,voluntary,Better opportunity,True,False,High Performer,122900.0,E03055,pull
+E13210,2025-08-29,voluntary,Career advancement,True,False,Meets Expectations,163700.0,E08201,push
+E13222,2025-09-30,voluntary,Better opportunity,True,True,Outstanding,79400.0,E08608,pull
+E13259,2025-01-06,involuntary,Involuntary - performance,False,False,Unsatisfactory,239600.0,E13190,push
+E13260,2025-10-05,voluntary,Compensation,True,False,Unsatisfactory,125300.0,E14174,push
+E13282,2025-02-28,voluntary,Career advancement,True,False,Meets Expectations,82400.0,E02501,push
+E13285,2025-02-28,voluntary,Better opportunity,True,True,Meets Expectations,116200.0,E01358,pull
+E13288,2025-08-22,voluntary,Career advancement,True,False,Meets Expectations,123700.0,E11080,push
+E13301,2025-03-24,voluntary,Career advancement,True,True,Meets Expectations,117700.0,E14461,push
+E13302,2025-11-01,voluntary,Career advancement,True,False,High Performer,106400.0,E02608,pull
+E13313,2025-04-16,involuntary,Involuntary - performance,False,False,Unsatisfactory,103600.0,E00362,push
+E13314,2025-04-11,voluntary,Career advancement,True,True,Outstanding,209400.0,E07493,pull
+E13317,2025-10-31,voluntary,Better opportunity,True,False,High Performer,110300.0,E12614,pull
+E13328,2025-05-02,voluntary,Compensation,False,False,Meets Expectations,116900.0,E10850,push
+E13330,2025-09-19,voluntary,Better opportunity,True,False,High Performer,55900.0,E00411,push
+E13365,2025-05-07,voluntary,Work-life balance,True,False,Meets Expectations,56300.0,E06371,push
+E13368,2025-05-30,voluntary,Career advancement,True,False,Meets Expectations,112400.0,E05580,push
+E13370,2025-05-02,voluntary,Better opportunity,True,True,Meets Expectations,134200.0,E00933,pull
+E13381,2025-05-30,voluntary,Career advancement,True,False,High Performer,101700.0,E02670,pull
+E13388,2025-05-08,voluntary,Better opportunity,True,True,Outstanding,136200.0,E07104,pull
+E13390,2025-05-30,voluntary,Career advancement,True,False,Below Expectations,192900.0,E11440,push
+E13416,2025-05-10,voluntary,Career advancement,True,False,Meets Expectations,118600.0,E06410,pull
+E13422,2025-05-30,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,103300.0,E04291,push
+E13424,2025-05-09,voluntary,Study/career change,True,False,Meets Expectations,126700.0,E03573,push
+E13428,2025-07-30,voluntary,Career advancement,True,False,Outstanding,102700.0,E01868,pull
+E13429,2025-06-13,voluntary,Career advancement,True,False,Below Expectations,78400.0,E00651,push
+E13437,2025-10-08,involuntary,Involuntary - performance,True,False,Below Expectations,154600.0,E01487,push
+E13446,2025-05-09,voluntary,Better opportunity,False,False,Meets Expectations,140100.0,E00039,push
+E13448,2025-11-03,voluntary,Better opportunity,True,True,Unsatisfactory,102000.0,E01725,pull
+E13465,2025-06-06,involuntary,Involuntary - performance,False,False,Unsatisfactory,117100.0,E04577,push
+E13477,2025-05-13,voluntary,Career advancement,False,False,Outstanding,67900.0,E03217,pull
+E13497,2025-05-15,voluntary,Career advancement,True,False,High Performer,59800.0,E09965,push
+E13512,2025-05-30,voluntary,Better opportunity,True,False,Meets Expectations,131000.0,E00864,pull
+E13523,2025-05-16,voluntary,Career advancement,True,False,Meets Expectations,144500.0,E09576,push
+E13528,2025-05-16,voluntary,Career advancement,False,False,High Performer,112100.0,E10906,pull
+E13535,2025-05-17,involuntary,Involuntary - conduct,True,False,Meets Expectations,75300.0,E00283,push
+E13543,2025-05-16,voluntary,Compensation,True,False,Unsatisfactory,106800.0,E01044,push
+E13554,2025-05-16,voluntary,Better opportunity,True,False,Meets Expectations,107200.0,E01065,pull
+E13556,2025-11-11,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,212000.0,E08985,push
+E13557,2025-05-16,voluntary,Better opportunity,True,False,Meets Expectations,86400.0,E03260,pull
+E13573,2025-05-30,voluntary,Better opportunity,True,False,Meets Expectations,62100.0,E03242,push
+E13576,2025-05-19,voluntary,Career advancement,True,False,Outstanding,125500.0,E00453,push
+E13585,2025-05-30,voluntary,Work-life balance,True,False,Meets Expectations,138800.0,E02612,push
+E13607,2025-08-06,voluntary,Compensation,True,False,High Performer,111900.0,E05929,push
+E13625,2025-05-22,voluntary,Better opportunity,False,False,Meets Expectations,67200.0,E01586,pull
+E13636,2025-05-23,voluntary,Career advancement,True,False,High Performer,131200.0,E00317,push
+E13641,2025-06-30,voluntary,Career advancement,False,False,Meets Expectations,139300.0,E07533,push
+E13648,2025-07-25,voluntary,Better opportunity,True,False,Meets Expectations,131000.0,E00146,push
+E13655,2025-05-30,voluntary,Career advancement,True,False,Meets Expectations,121000.0,E04397,pull
+E13717,2025-05-23,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,94300.0,E02986,push
+E13749,2025-05-23,involuntary,Involuntary - performance,False,False,Meets Expectations,142000.0,E04338,push
+E13750,2025-05-23,voluntary,Relocation,False,False,Below Expectations,84000.0,E00211,push
+E13782,2025-07-09,voluntary,Better opportunity,True,False,High Performer,58600.0,E09248,pull
+E13796,2025-05-31,voluntary,Career advancement,True,False,High Performer,128500.0,E02533,pull
+E13797,2025-05-30,voluntary,Career advancement,True,False,High Performer,109300.0,E00788,push
+E13801,2025-06-30,involuntary,Involuntary - restructure,False,False,Meets Expectations,55000.0,E13955,push
+E13805,2025-05-30,voluntary,Career advancement,True,False,High Performer,111300.0,E00409,push
+E13811,2025-06-01,voluntary,Better opportunity,True,False,High Performer,126100.0,E12471,pull
+E13817,2025-06-01,voluntary,Career advancement,True,False,High Performer,144600.0,E07514,push
+E13835,2025-06-03,voluntary,Compensation,True,False,Below Expectations,58200.0,E00350,push
+E13837,2025-05-30,voluntary,Career advancement,True,False,Unsatisfactory,124100.0,E02408,push
+E13838,2025-06-22,voluntary,Career advancement,True,False,High Performer,66300.0,E00110,push
+E13853,2025-05-30,voluntary,Better opportunity,True,True,High Performer,124700.0,E09167,pull
+E13857,2025-06-05,voluntary,Career advancement,False,False,Below Expectations,138800.0,E01942,push
+E13863,2025-05-30,voluntary,Career advancement,True,False,High Performer,181600.0,E11769,pull
+E13874,2025-06-30,involuntary,Involuntary - performance,True,False,Below Expectations,132000.0,E00318,push
+E13888,2025-06-07,voluntary,Better opportunity,True,False,Below Expectations,94600.0,E07944,pull
+E13921,2025-06-09,involuntary,Involuntary - performance,False,False,Unsatisfactory,145500.0,E10913,push
+E13957,2025-06-06,involuntary,Involuntary - performance,False,False,Below Expectations,68400.0,E01027,push
+E13975,2025-06-06,voluntary,Career advancement,True,False,Below Expectations,106100.0,E01938,push
+E13984,2025-08-29,voluntary,Compensation,True,False,High Performer,62500.0,E01158,push
+E14001,2025-06-13,voluntary,Career advancement,True,False,High Performer,107100.0,E06210,pull
+E14032,2025-06-30,voluntary,Personal reasons,False,False,Below Expectations,97400.0,E03089,push
+E14051,2025-09-06,voluntary,Better opportunity,True,False,Meets Expectations,83600.0,E08006,pull
+E14054,2025-06-17,voluntary,Better opportunity,True,False,Outstanding,127500.0,E00025,pull
+E14082,2025-08-01,voluntary,Career advancement,True,False,High Performer,167100.0,E08688,push
+E14087,2025-06-30,voluntary,Career advancement,True,False,Below Expectations,77600.0,E03201,push
+E14088,2025-06-13,voluntary,Career advancement,True,False,Meets Expectations,141700.0,E00988,push
+E14100,2025-06-13,voluntary,Better opportunity,True,False,High Performer,183200.0,E05025,pull
+E14108,2025-06-25,voluntary,Career advancement,False,False,High Performer,109600.0,E05903,pull
+E14111,2025-06-30,voluntary,Personal reasons,False,False,Below Expectations,88400.0,E00130,push
+E14114,2025-10-31,voluntary,Career advancement,False,False,Meets Expectations,96800.0,E03971,push
+E14117,2025-06-20,voluntary,Relocation,True,True,Outstanding,168100.0,E02113,push
+E14122,2025-06-20,voluntary,Career advancement,True,False,High Performer,197400.0,E00273,push
+E14128,2025-06-30,voluntary,Better opportunity,True,False,High Performer,68000.0,E02458,pull
+E14143,2025-06-21,voluntary,Career advancement,True,False,Meets Expectations,149200.0,E00620,pull
+E14155,2025-08-19,voluntary,Career advancement,True,True,High Performer,66900.0,E02552,pull
+E14190,2025-11-21,voluntary,Career advancement,False,False,Outstanding,75700.0,E00909,pull
+E14191,2025-06-20,voluntary,Better opportunity,True,False,Meets Expectations,112000.0,E08538,pull
+E14192,2025-06-25,voluntary,Career advancement,True,True,High Performer,91900.0,E07180,pull
+E14200,2025-06-25,voluntary,Career advancement,True,False,Below Expectations,198800.0,E08033,push
+E14201,2025-06-30,voluntary,Career advancement,False,False,Meets Expectations,173500.0,E07060,push
+E14206,2025-06-20,voluntary,Compensation,True,False,Meets Expectations,66100.0,E06621,push
+E14208,2025-06-20,voluntary,Compensation,False,False,Below Expectations,209500.0,E09391,push
+E14215,2025-06-26,involuntary,Involuntary - performance,True,False,Unsatisfactory,172800.0,E00257,push
+E14222,2025-10-10,voluntary,Better opportunity,True,False,Meets Expectations,146400.0,E10767,pull
+E14226,2025-06-26,voluntary,Career advancement,True,False,High Performer,174000.0,E11359,pull
+E14238,2025-06-27,voluntary,Better opportunity,True,False,High Performer,217000.0,E08985,pull
+E14241,2025-06-27,voluntary,Study/career change,False,False,High Performer,96200.0,E01559,push
+E14248,2025-06-30,voluntary,Better opportunity,True,False,High Performer,143200.0,E06915,pull
+E14273,2025-06-30,voluntary,Career advancement,True,False,High Performer,73800.0,E01124,pull
+E14274,2025-06-27,voluntary,Career advancement,True,False,Below Expectations,81500.0,E12748,pull
+E14285,2025-06-27,voluntary,Better opportunity,True,True,Meets Expectations,182000.0,E01633,pull
+E14288,2025-07-25,voluntary,Career advancement,True,False,Meets Expectations,305400.0,E05287,push
+E14300,2025-07-01,voluntary,Career advancement,True,True,Outstanding,63500.0,E07594,pull
+E14309,2025-07-31,voluntary,Career advancement,True,False,Meets Expectations,138400.0,E02856,push
+E14341,2025-07-03,voluntary,Career advancement,True,False,High Performer,141900.0,E02004,pull
+E14346,2025-07-03,voluntary,Better opportunity,True,True,Outstanding,235400.0,E05009,pull
+E14363,2025-07-04,voluntary,Better opportunity,True,False,Meets Expectations,111700.0,E03252,push
+E14366,2025-08-07,voluntary,Better opportunity,True,True,High Performer,116300.0,E13458,pull
+E14385,2025-08-29,voluntary,Career advancement,True,False,High Performer,119400.0,E02131,push
+E14413,2025-09-12,voluntary,Compensation,True,False,Unsatisfactory,102000.0,E00360,push
+E14416,2025-09-25,voluntary,Role uncertainty / unclear future,True,False,Meets Expectations,93400.0,E09923,push
+E14445,2025-11-16,voluntary,Career advancement,True,False,Meets Expectations,79300.0,E10709,push
+E14458,2025-11-28,voluntary,Compensation,True,False,Meets Expectations,148100.0,E07191,push
+E14465,2025-11-28,voluntary,Better opportunity,True,False,Meets Expectations,125100.0,E02308,push
+E14467,2025-12-03,voluntary,Career advancement,True,True,Outstanding,124700.0,E03136,pull
+E14470,2025-12-31,voluntary,Career advancement,True,False,High Performer,93000.0,E10412,push
+E14471,2025-12-31,voluntary,Better opportunity,True,False,Meets Expectations,163500.0,E00599,pull
+E14472,2025-12-08,voluntary,Career advancement,True,False,High Performer,296400.0,E04546,push
