@@ -3,3 +3,15 @@
 .venv/
 .venv-1
 .ipynb_checkpoints/
+
+# Devika branch's flat layout — superseded by this branch's notebooks/, data/raw/, outputs/figures/ structure
+/EDA.ipynb
+/NovaCorp_Annual_Report_FY2025.pdf
+/Student_Challenge_Guide.md
+/Week1_NovaCorp_Brief.md
+/attrition_log.csv
+/employees.csv
+/engagement.csv
+/performance.csv
+/figures/
+/week1_analysis.py
