@@ -762,6 +762,11 @@ expensive flight-risk segment: HiPo employees who go completely silent on engage
 at **{hipo_nonresp_rate_h:.1f}%** — {hnr_lift_firm:.1f}x the firm baseline of {overall_rate:.1f}% —
 and their departures are disproportionately regrettable (genuinely preventable, high-value losses).
 
+NovaCorp has a critical engagement visibility gap concentrated within Entity_C,
+where a disproportionately large share of high-potential employees never participate in engagement surveys. 
+This lack of engagement data is masking a high-value flight-risk segment, as HiPo employees who consistently do not respond to 
+surveys experience significantly higher attrition and a greater proportion of regrettable exits than the broader workforce.
+
 **Evidence supporting it:**
 - HiPo + Non-Responder attrition ({hipo_nonresp_rate_h:.1f}%, n={len(hipo_nonresp_h)}) is sharply
   above both the firm baseline ({overall_rate:.1f}%) and the HiPo-only baseline ({hipo_rate_h:.1f}%)
