@@ -44,11 +44,16 @@ FILTER_SPECS = [
     ("Performance Rating", "performance_rating"),
     ("Promotion Recommendation", "promotion_recommendation"),
     ("Exit Type", "exit_type"),
+    ("Exit Reason", "stated_exit_reason"),
     ("Regrettable Exit", "regrettable_flag"),
     ("Tenure Bucket", "tenure_bucket"),
     ("Age Bucket", "age_band"),
     ("Compa Ratio Bucket", "compa_bucket"),
 ]
+
+# Filters shown by default in the sidebar (reduces clutter); everything else
+# in FILTER_SPECS lives inside the "Advanced filters" expander.
+PRIMARY_FILTER_COLS = ["department", "legacy_entity_code", "hipo_flag", "status"]
 
 # label -> column, for "Group By" drill-down dropdowns. "rate" columns are
 # defined for the whole population (attrition rate by group); "count"
@@ -124,7 +129,7 @@ def build_full(emp, att, eng, perf):
     full = emp.merge(
         att[[
             "employee_id", "exit_type", "pathway", "regrettable_flag",
-            "stated_exit_reason", "performance_band_at_exit",
+            "stated_exit_reason", "performance_band_at_exit", "salary_at_exit",
         ]],
         on="employee_id", how="left",
     )
@@ -241,3 +246,10 @@ def nonresponder_lift(full, group_col):
     out = pd.DataFrame({"nonresponder_pct": nonresp_dist, "firmwide_pct": firm_dist}).fillna(0)
     out["lift"] = (out["nonresponder_pct"] / out["firmwide_pct"].replace(0, pd.NA)).astype(float)
     return out.sort_values("lift", ascending=False)
+
+
+def replacement_cost_range(df, low_mult=0.5, high_mult=2.0):
+    """Estimated replacement-cost range for a set of leavers, from
+    salary_at_exit -- industry rule of thumb is 50-200% of salary."""
+    total_salary = df["salary_at_exit"].sum()
+    return total_salary * low_mult, total_salary * high_mult

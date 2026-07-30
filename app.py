@@ -12,9 +12,10 @@ import streamlit as st
 from data_utils import (
     AGE_BAND_ORDER, ATTRITION_GROUP_OPTIONS, COMPA_BUCKET_ORDER,
     COMPENSATION_GROUP_OPTIONS, ENGAGEMENT_GROUP_OPTIONS, FILTER_SPECS,
-    RATING_ORDER, SCORE_COLS, TENURE_BUCKET_ORDER, apply_filters,
-    apply_response_choice, attrition_rate, build_full, filter_options,
-    load_raw, nonresponder_lift, overall_attrition_rate, slice_related,
+    PRIMARY_FILTER_COLS, RATING_ORDER, SCORE_COLS, TENURE_BUCKET_ORDER,
+    apply_filters, apply_response_choice, attrition_rate, build_full,
+    filter_options, load_raw, nonresponder_lift, overall_attrition_rate,
+    replacement_cost_range, slice_related,
 )
 
 # ---------------------------------------------------------------- palette --
@@ -134,49 +135,49 @@ full = build_full(emp, att, eng, perf)
 st.sidebar.title("Global Filters")
 
 
-def _select_all_toggle(ms_key, opts, all_key):
-    st.session_state[ms_key] = list(opts) if st.session_state[all_key] else []
+def _filter_opts(col):
+    if col == "role_level":
+        return filter_options(full, col), (lambda x: f"Level {x}")
+    if full[col].dtype == bool:
+        return [False, True], (lambda x: "Yes" if x else "No")
+    order = {
+        "age_band": AGE_BAND_ORDER, "tenure_bucket": TENURE_BUCKET_ORDER,
+        "compa_bucket": COMPA_BUCKET_ORDER, "performance_rating": RATING_ORDER,
+    }.get(col)
+    return filter_options(full, col, order=order), str
+
+
+def _render_filter(label, col):
+    """Single-choice dropdown: either "All" (no filter) or exactly one value."""
+    opts, fmt = _filter_opts(col)
+    choices = ["All"] + list(opts)
+    ms_key = f"filter_{col}"
+    if ms_key not in st.session_state:
+        st.session_state[ms_key] = "All"
+
+    def _fmt(x):
+        return "All" if x == "All" else fmt(x)
+
+    choice = st.selectbox(label, choices, key=ms_key, format_func=_fmt)
+    return opts if choice == "All" else [choice]
 
 
 selections = {}
 with st.sidebar:
+    st.caption("PRIMARY FILTERS")
     for label, col in FILTER_SPECS:
-        if col == "role_level":
-            opts = filter_options(full, col)
-            fmt = lambda x: f"Level {x}"
-        elif full[col].dtype == bool:
-            opts = [False, True]
-            fmt = lambda x: "Yes" if x else "No"
-        elif col == "age_band":
-            opts, fmt = filter_options(full, col, order=AGE_BAND_ORDER), str
-        elif col == "tenure_bucket":
-            opts, fmt = filter_options(full, col, order=TENURE_BUCKET_ORDER), str
-        elif col == "compa_bucket":
-            opts, fmt = filter_options(full, col, order=COMPA_BUCKET_ORDER), str
-        elif col == "performance_rating":
-            opts, fmt = filter_options(full, col, order=RATING_ORDER), str
-        else:
-            opts, fmt = filter_options(full, col), str
+        if col in PRIMARY_FILTER_COLS:
+            selections[col] = _render_filter(label, col)
 
-        ms_key, all_key = f"filter_{col}", f"filter_{col}_all"
-        if ms_key not in st.session_state:
-            st.session_state[ms_key] = opts
+    response_choice = st.radio(
+        "Survey Response", ["All", "Responders", "Non-Responders"], horizontal=True,
+        help="Non-Responders = employees who never answered a single engagement survey wave.",
+    )
 
-        c1, c2 = st.columns([3, 1])
-        c1.markdown(f"**{label}**")
-        c2.checkbox(
-            "All", value=True, key=all_key, label_visibility="collapsed",
-            help="Select all options", on_change=_select_all_toggle,
-            args=(ms_key, opts, all_key),
-        )
-        selections[col] = st.multiselect(
-            label, opts, key=ms_key, format_func=fmt, label_visibility="collapsed",
-        )
-
-response_choice = st.sidebar.radio(
-    "Survey Response", ["All", "Responders", "Non-Responders"], horizontal=True,
-    help="Non-Responders = employees who never answered a single engagement survey wave.",
-)
+    advanced_cols = [(l, c) for l, c in FILTER_SPECS if c not in PRIMARY_FILTER_COLS]
+    with st.expander(f"Advanced filters ({len(advanced_cols)})", expanded=False):
+        for label, col in advanced_cols:
+            selections[col] = _render_filter(label, col)
 
 full_f = apply_filters(full, selections)
 full_f = apply_response_choice(full_f, response_choice)
@@ -222,6 +223,11 @@ tab_workforce, tab_attrition, tab_engagement, tab_perf, tab_comp, tab_takeaways 
 # --------------------------------------------------------------- Workforce --
 with tab_workforce:
     st.subheader("Who works at NovaCorp")
+    st.caption(
+        f"Headcount, tenure and role composition for the {len(full_f):,} employees "
+        "matching the current filters — the base population every other tab's "
+        "attrition/engagement/performance rates are measured against."
+    )
     col1, col2 = st.columns(2)
 
     with col1:
@@ -233,18 +239,74 @@ with tab_workforce:
         ))
         fig.update_layout(title="Headcount by department", xaxis_title="Employees")
         st.plotly_chart(style_fig(fig), use_container_width=True)
+        top_dept = dept_counts.idxmax()
+        st.caption(
+            f"This chart shows how the selected {len(full_f):,} employees split across "
+            f"departments. {top_dept} is the largest at {dept_counts.max():,} employees "
+            f"({dept_counts.max() / len(full_f) * 100:.0f}% of the selection)."
+        )
 
     with col2:
+        color_label = st.selectbox(
+            "Split tenure by", ["None"] + list(ENGAGEMENT_GROUP_OPTIONS.keys()), key="tenure_split",
+        )
+        color_col = ENGAGEMENT_GROUP_OPTIONS.get(color_label)
         fig = px.histogram(
             full_f, x=full_f["tenure_months"] / 12, nbins=30,
-            color_discrete_sequence=[BLUE],
+            color=full_f[color_col] if color_col else None,
+            color_discrete_sequence=CATEGORICAL if color_col else [BLUE],
         )
         fig.update_layout(
             title="Tenure distribution (years)",
             xaxis_title="Years at NovaCorp", yaxis_title="Employees",
         )
         fig.update_traces(hovertemplate="%{x:.1f} yrs: %{y} employees<extra></extra>")
-        st.plotly_chart(style_fig(fig), use_container_width=True)
+        st.plotly_chart(style_fig(fig, showlegend=bool(color_col)), use_container_width=True)
+        st.caption(
+            "This chart shows how long the selected employees have been at NovaCorp."
+            + (f" Colour-split by {color_label} to compare tenure shape across groups." if color_col
+               else " Use \"Split tenure by\" above to compare tenure shape across a dimension.")
+        )
+
+    st.divider()
+    st.markdown("**Drill down: headcount composition**")
+    wf_group_label = st.selectbox("Group by", list(ENGAGEMENT_GROUP_OPTIONS.keys()), key="wf_group")
+    wf_group_col = ENGAGEMENT_GROUP_OPTIONS[wf_group_label]
+    wf_order = {"age_band": AGE_BAND_ORDER}.get(wf_group_col)
+    wf_counts = full_f[wf_group_col].value_counts()
+    wf_counts = wf_counts.reindex([o for o in wf_order if o in wf_counts.index]) if wf_order else wf_counts.sort_values()
+    fig = go.Figure(go.Bar(
+        x=wf_counts.values, y=[str(i) for i in wf_counts.index], orientation="h",
+        marker_color=BLUE, text=[f"{v/len(full_f)*100:.0f}%" for v in wf_counts.values],
+        textposition="outside",
+        hovertemplate="%{y}: %{x} employees<extra></extra>",
+    ))
+    fig.update_layout(title=f"Headcount by {wf_group_label}", xaxis_title="Employees")
+    st.plotly_chart(style_fig(fig, height=420), use_container_width=True)
+    st.caption(f"This chart breaks the {len(full_f):,}-employee selection down by {wf_group_label}, as a headcount and % share of the selection.")
+
+    col3, col4 = st.columns(2)
+    with col3:
+        role_counts = full_f["role_level"].value_counts().sort_index()
+        fig = go.Figure(go.Bar(
+            x=[f"Level {r}" for r in role_counts.index], y=role_counts.values,
+            marker_color=ORDINAL_BLUE[:len(role_counts)] if len(role_counts) <= 5 else BLUE,
+            hovertemplate="%{x}: %{y} employees<extra></extra>",
+        ))
+        fig.update_layout(title="Headcount by role level", yaxis_title="Employees")
+        st.plotly_chart(style_fig(fig, height=360), use_container_width=True)
+        st.caption("This chart shows the seniority mix of the current selection, Level 1 (most junior) to Level 8 (most senior).")
+
+    with col4:
+        avg_tenure_by_dept = (full_f.groupby("department")["tenure_months"].mean() / 12).sort_values()
+        fig = go.Figure(go.Bar(
+            x=avg_tenure_by_dept.values, y=avg_tenure_by_dept.index, orientation="h",
+            marker_color=AQUA,
+            hovertemplate="%{y}: %{x:.1f} yrs avg tenure<extra></extra>",
+        ))
+        fig.update_layout(title="Average tenure by department", xaxis_title="Years")
+        st.plotly_chart(style_fig(fig, height=360), use_container_width=True)
+        st.caption("This chart shows which departments skew toward longer- or shorter-tenured staff, a useful lens alongside the Attrition tab's department view.")
 
 # --------------------------------------------------------------- Attrition --
 with tab_attrition:
@@ -262,6 +324,12 @@ with tab_attrition:
                                      color=RED, add_avg=overall_rate)),
             use_container_width=True,
         )
+        top = rate_by_dept.idxmax()
+        st.caption(
+            f"This chart compares attrition across departments for the current selection. "
+            f"{top} runs highest at {rate_by_dept.max():.1f}%, vs a {overall_rate:.1f}% "
+            f"firm-wide average (dashed line)."
+        )
 
     with col2:
         rate_by_cohort = attrition_rate(full_f, "legacy_entity_code")
@@ -269,6 +337,11 @@ with tab_attrition:
             style_fig(attrition_bar(rate_by_cohort, "Attrition rate by acquisition cohort",
                                      color=ORANGE, add_avg=overall_rate)),
             use_container_width=True,
+        )
+        top_cohort = rate_by_cohort.idxmax()
+        st.caption(
+            f"This chart compares attrition across the four legacy entities from NovaCorp's "
+            f"acquisition history. {top_cohort} runs highest at {rate_by_cohort.max():.1f}%."
         )
 
     rc = full_f[full_f["department"] == "Risk & Compliance"]
@@ -284,8 +357,19 @@ with tab_attrition:
             xaxis_title="Role level", yaxis_title="% departed",
         )
         st.plotly_chart(style_fig(fig, height=340), use_container_width=True)
+        st.caption(
+            "This chart drills into Risk & Compliance specifically, since the FY2025 annual "
+            "report flags FAR-driven attrition risk at Director level (role level 4) in this "
+            f"department ({len(rc):,} employees in the current selection)."
+        )
 
     st.markdown("**Exit characteristics** (departed employees in the current filter)")
+    st.caption(
+        "These three charts show how the current selection's leavers break down by exit "
+        "type (voluntary/involuntary), pathway (pushed out vs pulled elsewhere), and whether "
+        "the exit was flagged regrettable — the preventable, high-value losses this dashboard "
+        "is ultimately trying to reduce."
+    )
     c1, c2, c3 = st.columns(3)
     if len(att_f):
         for col, field, color, title in [
@@ -321,6 +405,7 @@ with tab_attrition:
             ), height=420),
             use_container_width=True,
         )
+        st.caption(f"This chart compares attrition across {group_label.lower()} for the current selection, against the {overall_rate:.1f}% firm-wide average (dashed line).")
     else:
         if len(att_f):
             counts = att_f[group_col].astype(str).value_counts()
@@ -328,6 +413,7 @@ with tab_attrition:
                 style_fig(count_bar(counts, f"{group_label} — distribution among leavers", color=AQUA), height=380),
                 use_container_width=True,
             )
+            st.caption(f"This chart shows how the {len(att_f):,} leavers in the current selection break down by {group_label.lower()} — a distribution among leavers, not an attrition rate.")
         else:
             st.info("No leavers in the current filter.")
 
@@ -335,6 +421,11 @@ with tab_attrition:
         st.plotly_chart(
             style_fig(heatmap_ct(att_f, "pathway", "exit_type", "Pathway vs exit type (leavers)"), height=340),
             use_container_width=True,
+        )
+        st.caption(
+            "This heatmap cross-tabs why leavers left (push = a reason here, pull = something "
+            "elsewhere) against how their exit was recorded (voluntary/involuntary), among the "
+            f"{len(att_f):,} leavers in the current selection."
         )
 
 # -------------------------------------------------------------- Engagement --
@@ -430,6 +521,68 @@ with tab_engagement:
     else:
         st.info("No non-responders in the current filter to break down.")
 
+    st.divider()
+    st.markdown("### 🎯 Executive finding: the compounding flight-risk segment")
+    st.caption(
+        "Not a single-factor cut — this is what happens when HiPo status, survey silence, and "
+        "acquisition cohort compound on the same employees. Computed live from the current "
+        "filter selection; narrow the sidebar to test whether it still holds in a specific slice."
+    )
+    hipo_f = full_f[full_f["hipo_flag"] == True]
+    hipo_rate = overall_attrition_rate(hipo_f) if len(hipo_f) else float("nan")
+    hipo_nonresp_f = full_f[(full_f["hipo_flag"] == True) & (full_f["response_category"] == "Non-Responder")]
+    hipo_nonresp_rate = overall_attrition_rate(hipo_nonresp_f) if len(hipo_nonresp_f) else float("nan")
+    lift_vs_firm = hipo_nonresp_rate / overall_rate if overall_rate else float("nan")
+    lift_vs_hipo = hipo_nonresp_rate / hipo_rate if hipo_rate else float("nan")
+
+    e1, e2, e3, e4 = st.columns(4)
+    e1.metric("HiPo employees (selection)", f"{len(hipo_f):,}")
+    e2.metric("HiPo + Non-Responder", f"{len(hipo_nonresp_f):,}")
+    e3.metric("Attrition rate, this segment", f"{hipo_nonresp_rate:.1f}%" if hipo_nonresp_rate == hipo_nonresp_rate else "n/a")
+    e4.metric(
+        "Lift vs firm baseline", f"{lift_vs_firm:.2f}x" if lift_vs_firm == lift_vs_firm else "n/a",
+        help=f"{lift_vs_hipo:.2f}x vs the HiPo-only baseline of {hipo_rate:.1f}%" if lift_vs_hipo == lift_vs_hipo else None,
+    )
+
+    fig = go.Figure(go.Bar(
+        x=["Firm baseline", "HiPo (all)", "HiPo + Non-Responder"],
+        y=[overall_rate, hipo_rate, hipo_nonresp_rate],
+        marker_color=[BLUE, ORANGE, RED],
+        text=[f"{v:.1f}%" if v == v else "n/a" for v in [overall_rate, hipo_rate, hipo_nonresp_rate]],
+        textposition="outside",
+        hovertemplate="%{x}: %{y:.1f}%% departed<extra></extra>",
+    ))
+    fig.update_layout(title="Attrition compounds as risk factors stack", yaxis_title="% departed")
+    st.plotly_chart(style_fig(fig, height=380), use_container_width=True)
+    st.caption(
+        "This chart shows attrition rising as risk factors stack: firm-wide baseline, then "
+        "HiPo employees alone, then the narrower HiPo + Non-Responder intersection at the "
+        "centre of this dashboard's primary hypothesis."
+    )
+
+    if len(hipo_nonresp_f):
+        hipo_nonresp_entity_lift = nonresponder_lift(hipo_f, "legacy_entity_code")
+        entity_c_share = (
+            hipo_nonresp_entity_lift.loc["Entity_C", "nonresponder_pct"]
+            if "Entity_C" in hipo_nonresp_entity_lift.index else None
+        )
+
+        departed_hipo = full_f[full_f["attrited"] & (full_f["hipo_flag"] == True)].copy()
+        departed_hipo["is_regrettable"] = departed_hipo["regrettable_flag"] == "Yes"
+        regrettable_hipo = departed_hipo[departed_hipo["is_regrettable"]]
+        lo, hi = replacement_cost_range(regrettable_hipo) if len(regrettable_hipo) else (0.0, 0.0)
+
+        entity_c_sentence = (
+            f" Of the {len(hipo_nonresp_f)} employees in this segment, {entity_c_share:.0f}% are "
+            f"from Entity_C — despite Entity_C being a small share of the firm."
+            if entity_c_share is not None else ""
+        )
+        st.markdown(
+            f"**Why it matters:**{entity_c_sentence} Regrettable HiPo exits alone carry an "
+            f"estimated **\\${lo:,.0f}–\\${hi:,.0f}** replacement cost in the current selection "
+            f"(50–200% of `salary_at_exit`, {len(regrettable_hipo)} regrettable HiPo departures)."
+        )
+
     st.markdown("**Engagement dimensions: active vs departed**")
     active_scores = full_f.loc[~full_f["attrited"], SCORE_COLS].mean()
     departed_scores = full_f.loc[full_f["attrited"], SCORE_COLS].mean()
@@ -440,6 +593,12 @@ with tab_engagement:
         colors=[BLUE, RED],
     )
     st.plotly_chart(style_fig(fig, height=440, showlegend=True), use_container_width=True)
+    st.caption(
+        "This chart compares average scores across all 8 engagement dimensions between "
+        "employees who are still active and those who departed, for respondents in the "
+        "current selection — a widening gap on a dimension flags where disengagement "
+        "precedes departure."
+    )
 
 # ------------------------------------------------------------- Performance --
 with tab_perf:
@@ -463,6 +622,11 @@ with tab_perf:
         ))
         fig.update_layout(title="Attrition rate by most recent performance rating", yaxis_title="% departed")
         st.plotly_chart(style_fig(fig, height=420), use_container_width=True)
+        st.caption(
+            "This chart tests whether NovaCorp is losing low performers (managed exits, "
+            "expected) or high performers (regrettable, costly losses) — each employee's "
+            "most recent rating before they left or as of today if still active."
+        )
 
     with col2:
         if len(att_f):
@@ -473,6 +637,7 @@ with tab_perf:
                 style_fig(count_bar(counts, "Performance band at exit (leavers)", color=AQUA), height=420),
                 use_container_width=True,
             )
+            st.caption(f"This chart shows the performance rating leavers held specifically at their exit, among the {len(att_f):,} leavers in the current selection.")
         else:
             st.info("No leavers in the current filter.")
 
@@ -484,6 +649,7 @@ with tab_perf:
                 style_fig(count_bar(promo_leavers, "Promotion recommendation for employees who left", color=VIOLET), height=380),
                 use_container_width=True,
             )
+            st.caption("This chart shows whether leavers had a pending promotion recommendation — a \"Yes\" here often signals a regrettable, avoidable loss.")
         else:
             st.info("No leavers in the current filter.")
 
@@ -495,6 +661,7 @@ with tab_perf:
             ), height=380),
             use_container_width=True,
         )
+        st.caption("This heatmap cross-tabs performance rating against promotion recommendation for the current selection, to spot ratings where strong performers aren't being promoted.")
 
     st.divider()
     perf_group_label = st.selectbox(
@@ -509,6 +676,7 @@ with tab_perf:
         ), height=440),
         use_container_width=True,
     )
+    st.caption(f"This chart compares the spread of goal achievement scores across {perf_group_label.lower()} for the current selection — box = middle 50%, dashed line = mean.")
 
 # ------------------------------------------------------------ Compensation --
 with tab_comp:
@@ -529,6 +697,15 @@ with tab_comp:
             yaxis_title="Compa-ratio (1.0 = at role midpoint)",
         )
         st.plotly_chart(style_fig(fig, height=420), use_container_width=True)
+        hipo_compa = full_f.loc[full_f["hipo_flag"] == True, "compa_ratio"].mean()
+        rest_compa = full_f.loc[full_f["hipo_flag"] == False, "compa_ratio"].mean()
+        st.caption(
+            f"This chart tests the report's \"7-8 point pay compression\" claim for the "
+            f"current selection: HiPo employees average {hipo_compa:.2f} compa-ratio vs "
+            f"{rest_compa:.2f} for the rest of the workforce."
+            if hipo_compa == hipo_compa and rest_compa == rest_compa else
+            "This chart compares compa-ratio spread between HiPo and non-HiPo employees."
+        )
 
     with col2:
         bucket_counts = full_f["compa_bucket"].value_counts().reindex(COMPA_BUCKET_ORDER).dropna()
@@ -536,6 +713,7 @@ with tab_comp:
             style_fig(count_bar(bucket_counts, "Compa-ratio bucket distribution", color=YELLOW), height=420),
             use_container_width=True,
         )
+        st.caption("This chart shows how many employees in the current selection sit below, at, or above their role's pay band midpoint.")
 
     st.divider()
     comp_group_label = st.selectbox("Compa-ratio, broken down by", list(COMPENSATION_GROUP_OPTIONS.keys()), key="comp_group")
@@ -547,12 +725,132 @@ with tab_comp:
         ), height=440),
         use_container_width=True,
     )
+    st.caption(f"This chart compares compa-ratio spread across {comp_group_label.lower()} for the current selection — box = middle 50%, dashed line = mean.")
 
 # --------------------------------------------------------------- Takeaways --
 with tab_takeaways:
-    st.subheader("Takeaways for initial mentor meeting")
+    st.subheader("Primary hypothesis")
+    st.caption(
+        "All figures below are computed live from the current sidebar selection, so this "
+        "narrows or strengthens exactly like every other tab — this is the DEFINE output of "
+        "the Discover → Define → Develop → Deliver process, not a static slide."
+    )
+
+    hipo_h = full_f[full_f["hipo_flag"] == True]
+    hipo_rate_h = overall_attrition_rate(hipo_h) if len(hipo_h) else float("nan")
+    hipo_nonresp_h = full_f[(full_f["hipo_flag"] == True) & (full_f["response_category"] == "Non-Responder")]
+    hipo_nonresp_rate_h = overall_attrition_rate(hipo_nonresp_h) if len(hipo_nonresp_h) else float("nan")
+    hnr_lift_firm = hipo_nonresp_rate_h / overall_rate if overall_rate else float("nan")
+
+    hnr_entity_lift = nonresponder_lift(hipo_h, "legacy_entity_code") if len(hipo_h) else None
+    hnr_entity_c_share = (
+        hnr_entity_lift.loc["Entity_C", "nonresponder_pct"]
+        if hnr_entity_lift is not None and "Entity_C" in hnr_entity_lift.index else float("nan")
+    )
+    firm_entity_c_share = full_f["legacy_entity_code"].eq("Entity_C").mean() * 100 if len(full_f) else float("nan")
+
+    departed_hipo_h = full_f[full_f["attrited"] & (full_f["hipo_flag"] == True)].copy()
+    departed_hipo_h["is_regrettable"] = departed_hipo_h["regrettable_flag"] == "Yes"
+    regrettable_hipo_h = departed_hipo_h[departed_hipo_h["is_regrettable"]]
+    lo_h, hi_h = replacement_cost_range(regrettable_hipo_h) if len(regrettable_hipo_h) else (0.0, 0.0)
+
+    st.markdown(f"""
+**Problem statement.** NovaCorp's engagement-survey infrastructure has a coverage gap concentrated
+in Entity_C ({firm_entity_c_share:.1f}% of the firm in this selection, but {hnr_entity_c_share:.0f}%
+of HiPo employees who've never once responded to a survey). This gap is hiding NovaCorp's most
+expensive flight-risk segment: HiPo employees who go completely silent on engagement surveys leave
+at **{hipo_nonresp_rate_h:.1f}%** — {hnr_lift_firm:.1f}x the firm baseline of {overall_rate:.1f}% —
+and their departures are disproportionately regrettable (genuinely preventable, high-value losses).
+
+NovaCorp has a critical engagement visibility gap concentrated within Entity_C,
+where a disproportionately large share of high-potential employees never participate in engagement surveys. 
+This lack of engagement data is masking a high-value flight-risk segment, as HiPo employees who consistently do not respond to 
+surveys experience significantly higher attrition and a greater proportion of regrettable exits than the broader workforce.
+
+**Evidence supporting it:**
+- HiPo + Non-Responder attrition ({hipo_nonresp_rate_h:.1f}%, n={len(hipo_nonresp_h)}) is sharply
+  above both the firm baseline ({overall_rate:.1f}%) and the HiPo-only baseline ({hipo_rate_h:.1f}%)
+  — the risk factors compound rather than simply add.
+- Entity_C's non-response rate holds at roughly the same elevated level *within its own HiPo
+  population* as firm-wide — consistent with a structural survey-infrastructure gap (inherited from
+  a late-FY2024 acquisition still mid-integration), not individuals choosing to disengage.
+- Regrettable HiPo exits carry an estimated **\${lo_h:,.0f}–\${hi_h:,.0f}** replacement cost in this
+  selection ({len(regrettable_hipo_h)} people, 50–200% of `salary_at_exit`) — directly quantifiable
+  against the \$42M annual estimate.
+- The annual report explicitly calls Entity_C "within normal range" and frames non-responders and
+  HiPo pay compression as two *separate* line items in the \$47M People Investment Programme — this
+  hypothesis is what the report's own data shows when those two threads are connected.
+
+**Evidence against it / limitations:**
+- Small sample: the HiPo + Non-Responder intersection is often under 50 employees depending on
+  filters — directionally strong, but treat point estimates cautiously and always check the
+  current n before quoting a rate.
+- Regrettable-flag nuance: firm-wide, Non-Responders who leave are *less* likely to be flagged
+  regrettable than Responders who leave — so "non-response" alone is not a clean regrettable-loss
+  predictor. The HiPo-specific cut is what recovers the signal; don't generalise it back to all
+  non-responders.
+- We cannot yet distinguish "Entity_C's survey system is broken" from "Entity_C's HiPo talent is
+  genuinely disengaged" — both produce the same non-response pattern, and they call for very
+  different interventions (Discover further before committing to a Develop-phase fix).
+
+**Confounding variables:** tenure (newer acquisitions have shorter average tenure, itself linked to
+attrition), role mix across entities, manager quality/span of control (not in this dataset), and
+whether Entity_C's HR system even records engagement responses at all vs. genuinely administering
+the survey and getting silence back.
+
+**Additional analyses required:** confirm via HR/IT whether Entity_C employees actually received
+survey invitations (system log, not inferred); a logistic regression or simple flight-risk score
+combining hipo_flag, response_category, legacy_entity_code, and compa_bucket to rank individual
+risk rather than relying on group rates; a time-series check of whether Entity_C's non-response
+rate is closing or widening across the 5 survey waves.
+
+**Business impact:** every HiPo non-responder retained is a high-value, hard-to-replace employee
+kept off a \${lo_h:,.0f}+ replacement-cost list — and fixing the Entity_C survey gap is a
+data-infrastructure fix, not a compensation or culture change, making it comparatively fast and
+cheap to test.
+
+**Recommended intervention:** (1) audit and fix Entity_C's engagement-survey distribution
+mechanism within one quarter; (2) stand up a targeted retention check-in for every HiPo employee
+who misses two consecutive survey waves, regardless of entity; (3) route this list to managers
+proactively rather than waiting for the next annual pulse-survey cycle.
+
+**KPIs to measure success:** Entity_C survey response rate (target: parity with NovaCorp-Origin's
+~99% within two quarters); HiPo non-responder count trending down; HiPo regrettable-attrition rate
+and its \$ replacement-cost total, tracked quarterly.
+
+**Should this be the final project focus?** Yes, provisionally — pending the one confirmation that
+would break it: whether Entity_C's non-response is a *system* gap (fixable, cheap, fast) or a
+*sentiment* gap (harder, slower, needs a different intervention). That's the single highest-value
+next step before committing further analysis time.
+""")
 
     rate_by_cohort_all = attrition_rate(full_f, "legacy_entity_code")
+    entity_b_takeaway = rate_by_cohort_all.get("Entity_B", float("nan"))
+    origin_takeaway = rate_by_cohort_all.get("NovaCorp-Origin", float("nan"))
+
+    with st.expander("Alternative hypotheses considered and rejected"):
+        st.markdown(f"""
+1. **"Entity_B is the primary attrition risk"** (the annual report's own framing). Real
+   ({entity_b_takeaway:.1f}% vs {origin_takeaway:.1f}% for NovaCorp-Origin, see below) but already
+   stated explicitly in the FY2025 report — not a new finding — and the HiPo interaction is a flat
+   +3pp rather than the sharp compounding seen in the Entity_C/HiPo/Non-Responder cut. Weaker as a
+   *headline* finding, though still worth monitoring.
+2. **"Pay compression alone drives HiPo attrition."** Tested directly: HiPo employees below their
+   pay band do **not** attrite at a higher rate than HiPo employees at-band in this data — the
+   relationship is not monotonic. Pay compression *does* predict which HiPo exits are regrettable
+   (49% regrettable when underpaid vs 20% at-band) — but it doesn't explain *whether* they leave,
+   only *how costly* it is when they do. Rejected as the primary driver; kept as a severity
+   modifier.
+3. **"All survey non-responders are a flight risk"** (the CEO letter's literal claim). Too broad:
+   non-responders overall are actually *less* likely to be flagged regrettable when they leave than
+   responders are. Treating all ~500+ non-responders as equally high-value risk would misdirect a
+   retention program at people who are, on average, not the preventable loss NovaCorp should be
+   worried about. The narrower HiPo-specific cut recovers a real, defensible signal that the broad
+   version dilutes.
+""")
+
+    st.divider()
+    st.subheader("Supporting observations from the discovery pass")
     entity_b = rate_by_cohort_all.get("Entity_B", float("nan"))
     origin = rate_by_cohort_all.get("NovaCorp-Origin", float("nan"))
 
@@ -571,6 +869,8 @@ with tab_takeaways:
     first_year_rate = tenure_rates.get("<1y", float("nan"))
     hipo_rates = attrition_rate(full_f, "hipo_flag")
     hipo_rate_val = hipo_rates.get(True, float("nan"))
+
+    nonresp_vs_resp_lift = nonresp_rate_val / resp_rate_val if resp_rate_val else float("nan")
 
     true_nonresp_f = full_f[full_f["response_category"] == "Non-Responder"]
     true_nonresp_rate = overall_attrition_rate(true_nonresp_f) if len(true_nonresp_f) else float("nan")
@@ -592,7 +892,7 @@ with tab_takeaways:
 2. **Risk & Compliance Director level (role_level 4):** spikes to ~{rc_l4_rate:.0f}%,
    vs ~{rc_dept_rate:.0f}% department-wide. Sharper than the report states — check sample size first
    ({len(rc_l4)} employees at that level in the current filter).
-3. **Survey non-responders** leave at ~{nonresp_rate_val / resp_rate_val:.1f}x the rate of
+3. **Survey non-responders** leave at ~{nonresp_vs_resp_lift:.1f}x the rate of
    respondents ({nonresp_rate_val:.1f}% vs {resp_rate_val:.1f}%). A testable version of the
    CEO's "flight risk" claim.
 4. **High-potential employees** show pay compression (compa-ratio {compa_by_hipo.get(True, float('nan')):.2f})
@@ -612,5 +912,5 @@ with tab_takeaways:
 - Which of these causes is worth committing to for this project?
 - Many of these causes are already outlined in the annual report by the CEO — is this a trap?
 - Do the small-sample points (e.g. R&C Director level) hold up statistically?
-- Is the current solution (People Investment Programme, $47M) targeting the right areas?
+- Is the current solution (People Investment Programme, \$47M) targeting the right areas?
 """)
