@@ -18,7 +18,7 @@ from data_utils import (
     replacement_cost_range, slice_related,
 )
 
-from my_tabs import render_hypothesis_tab
+from hypothesis_tabs import render_hypothesis_tab
  
 # ---------------------------------------------------------------- palette --
 CATEGORICAL = [
