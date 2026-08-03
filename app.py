@@ -19,6 +19,7 @@ from data_utils import (
 )
 
 from hypothesis_tabs import render_hypothesis_tab
+from executive_story_tab import render_executive_story_tab
  
 # ---------------------------------------------------------------- palette --
 CATEGORICAL = [
@@ -218,9 +219,14 @@ k6.metric("Survey response rate", f"{avg_response_rate:.1f}%" if avg_response_ra
 k7.metric("Avg engagement score", f"{avg_engagement:.2f}" if avg_engagement == avg_engagement else "n/a")
 k8.metric("Avg goal achievement", f"{avg_goal_achievement:.1f}" if avg_goal_achievement == avg_goal_achievement else "n/a")
 
-tab_workforce, tab_attrition, tab_engagement, tab_perf, tab_comp, tab_takeaways, tab_hypothesis = st.tabs(
-    ["Workforce", "Attrition", "Engagement", "Performance", "Compensation", "Takeaways", "Hypothesis"]
+tab_exec, tab_workforce, tab_attrition, tab_engagement, tab_perf, tab_comp, tab_takeaways, tab_hypothesis = st.tabs(
+    ["Executive Story", "Workforce", "Attrition", "Engagement", "Performance", "Compensation", "Takeaways", "Hypothesis"]
 )
+
+# ---------------------------------------------------------- Executive Story --
+with tab_exec:
+    render_executive_story_tab(full, eng, style_fig, CATEGORICAL)
+
 # --------------------------------------------------------------- Workforce --
 with tab_workforce:
     st.subheader("Who works at NovaCorp")
