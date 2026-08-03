@@ -18,6 +18,8 @@ from data_utils import (
     replacement_cost_range, slice_related,
 )
 
+from hypothesis_tabs import render_hypothesis_tab
+ 
 # ---------------------------------------------------------------- palette --
 CATEGORICAL = [
     "#2a78d6", "#eb6834", "#1baf7a", "#eda100",
@@ -216,10 +218,9 @@ k6.metric("Survey response rate", f"{avg_response_rate:.1f}%" if avg_response_ra
 k7.metric("Avg engagement score", f"{avg_engagement:.2f}" if avg_engagement == avg_engagement else "n/a")
 k8.metric("Avg goal achievement", f"{avg_goal_achievement:.1f}" if avg_goal_achievement == avg_goal_achievement else "n/a")
 
-tab_workforce, tab_attrition, tab_engagement, tab_perf, tab_comp, tab_takeaways = st.tabs(
-    ["Workforce", "Attrition", "Engagement", "Performance", "Compensation", "Takeaways"]
+tab_workforce, tab_attrition, tab_engagement, tab_perf, tab_comp, tab_takeaways, tab_hypothesis = st.tabs(
+    ["Workforce", "Attrition", "Engagement", "Performance", "Compensation", "Takeaways", "Hypothesis"]
 )
-
 # --------------------------------------------------------------- Workforce --
 with tab_workforce:
     st.subheader("Who works at NovaCorp")
@@ -465,7 +466,7 @@ with tab_engagement:
         text=[f"{v:.1f}%" for v in attrition_by_responder.values],
         textposition="outside",
         hovertemplate="%{x}: %{y:.1f}%% departed<extra></extra>",
-    ))
+    )) 
     fig.update_layout(
         title="Attrition rate: survey responders vs low/non-responders (<50%)",
         yaxis_title="% departed",
@@ -914,3 +915,7 @@ next step before committing further analysis time.
 - Do the small-sample points (e.g. R&C Director level) hold up statistically?
 - Is the current solution (People Investment Programme, \$47M) targeting the right areas?
 """)
+
+#--------------------------------------------------------------- Hypothesis --
+with tab_hypothesis:
+    render_hypothesis_tab(full_f, eng_f, style_fig, grouped_bar, CATEGORICAL)
