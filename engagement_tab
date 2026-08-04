@@ -1,0 +1,208 @@
+"""Engagement signals tab — cleaned for clarity.
+
+Kept in its own module (like executive_story_tab.py and hypothesis_tabs.py).
+Data helpers are imported from data_utils; the two app-level helpers
+(style_fig, attrition_bar) are passed in to avoid a circular import.
+"""
+
+import plotly.graph_objects as go
+import streamlit as st
+
+from data_utils import (
+    AGE_BAND_ORDER,
+    ENGAGEMENT_GROUP_OPTIONS,
+    SCORE_COLS,
+    attrition_rate,
+    nonresponder_lift,
+    overall_attrition_rate,
+    replacement_cost_range,
+)
+
+# Palette (matches the constants in app.py)
+BLUE = "#2a78d6"
+ORANGE = "#eb6834"
+RED = "#e34948"
+AXIS = "#c3c2b7"
+MUTED = "#898781"
+
+
+def render_engagement_tab(full_f, eng_f, overall_rate, style_fig, attrition_bar):
+    st.subheader("Engagement signals")
+    st.caption(
+        'The CEO letter calls out survey non-responders as a population "our '
+        'data suggests is disproportionately at flight risk."'
+    )
+
+    # --- Which engagement dimensions moved most across survey waves ----------
+    trend = eng_f[eng_f["response_flag"]].groupby("wave_number")[SCORE_COLS].mean()
+    if len(trend) >= 2:
+        change = (trend.iloc[-1] - trend.iloc[0]).sort_values()
+        labels = [c.replace("_", " ").title() for c in change.index]
+        colors = [RED if v <= -0.4 else (ORANGE if v < -0.2 else MUTED) for v in change.values]
+        fig = go.Figure(go.Bar(
+            x=change.values, y=labels, orientation="h",
+            marker_color=colors,
+            text=[f"{v:+.1f}" for v in change.values],
+            textposition="outside",
+            hovertemplate="%{y}: %{x:+.2f} change<extra></extra>",
+        ))
+        fig.add_vline(x=0, line_color=AXIS)
+        fig.update_layout(
+            title=f"Which dimensions moved most (wave {int(trend.index.min())} → {int(trend.index.max())}, respondents)",
+            xaxis_title="Point change on the 1-5 scale",
+        )
+        st.plotly_chart(style_fig(fig, height=320), use_container_width=True)
+        st.caption("Sorted steepest decline to largest gain. Red = the drops to look at first.")
+    elif len(trend):
+        st.info("Only one survey wave in the current filter — no trend to show yet.")
+    else:
+        st.info("No engagement responses in the current filter.")
+
+    st.divider()
+
+    # --- Non-responder deep dive ---------------------------------------------
+    st.markdown("**Non-responder deep dive** — employees who never answered a single survey wave")
+    st.caption(
+        "\"Non-Responder\" = had surveys but always declined. Kept separate from "
+        "\"No Survey Data\" = never surveyed at all (a structural gap, not a behavioural signal)."
+    )
+    nonresp_f = full_f[full_f["response_category"] == "Non-Responder"]
+    no_survey_f = full_f[full_f["response_category"] == "No Survey Data"]
+    nonresp_rate = overall_attrition_rate(nonresp_f) if len(nonresp_f) else float("nan")
+    lift = nonresp_rate / overall_rate if overall_rate else float("nan")
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("True non-responders (selection)", f"{len(nonresp_f):,}")
+    c2.metric("Attrition rate among them", f"{nonresp_rate:.1f}%" if nonresp_rate == nonresp_rate else "n/a")
+    c3.metric("Lift vs firm baseline", f"{lift:.2f}x" if lift == lift else "n/a")
+    c4.metric("No survey data at all (selection)", f"{len(no_survey_f):,}")
+
+    st.plotly_chart(
+        style_fig(attrition_bar(
+            attrition_rate(full_f, "response_category"),
+            "Attrition rate by survey response category", color=RED, add_avg=overall_rate,
+            order=["No Survey Data", "Non-Responder", "Low Responder", "Responder"],
+        ), height=320),
+        use_container_width=True,
+    )
+
+    # --- Where non-responders concentrate (over/under-representation) ---------
+    eng_group_label = st.selectbox(
+        "Break down non-responder concentration by",
+        list(ENGAGEMENT_GROUP_OPTIONS.keys()), key="eng_group",
+    )
+    eng_group_col = ENGAGEMENT_GROUP_OPTIONS[eng_group_label]
+    lift_df = nonresponder_lift(full_f, eng_group_col)
+    if len(lift_df):
+        gap = (lift_df["nonresponder_pct"] - lift_df["firmwide_pct"]).sort_values()
+        order = {"age_band": AGE_BAND_ORDER}.get(eng_group_col)
+        if order:
+            gap = gap.reindex([c for c in order if c in gap.index])
+        colors = [RED if v > 0 else BLUE for v in gap.values]
+        fig = go.Figure(go.Bar(
+            x=gap.values, y=[str(c) for c in gap.index], orientation="h",
+            marker_color=colors,
+            text=[f"{v:+.1f}" for v in gap.values],
+            textposition="outside",
+            hovertemplate="%{y}: %{x:+.1f} pts vs firm-wide share<extra></extra>",
+        ))
+        fig.add_vline(x=0, line_color=AXIS)
+        fig.update_layout(
+            title=f"Non-responder over/under-representation, by {eng_group_label}",
+            xaxis_title="Points above (red) / below (blue) firm-wide share",
+        )
+        st.plotly_chart(style_fig(fig, height=360), use_container_width=True)
+        st.caption(
+            "Bars to the right = that group is over-represented among people who never "
+            "respond to surveys. The further right, the more concentrated the silence."
+        )
+    else:
+        st.info("No non-responders in the current filter to break down.")
+
+    st.divider()
+
+    # --- Executive finding: the compounding flight-risk segment --------------
+    st.markdown("### 🎯 Executive finding: the compounding flight-risk segment")
+    st.caption(
+        "Not a single-factor cut — this is what happens when HiPo status, survey silence, and "
+        "acquisition cohort compound on the same employees. Computed live from the current "
+        "filter selection; narrow the sidebar to test whether it still holds in a specific slice."
+    )
+    hipo_f = full_f[full_f["hipo_flag"] == True]
+    hipo_rate = overall_attrition_rate(hipo_f) if len(hipo_f) else float("nan")
+    hipo_nonresp_f = full_f[(full_f["hipo_flag"] == True) & (full_f["response_category"] == "Non-Responder")]
+    hipo_nonresp_rate = overall_attrition_rate(hipo_nonresp_f) if len(hipo_nonresp_f) else float("nan")
+    lift_vs_firm = hipo_nonresp_rate / overall_rate if overall_rate else float("nan")
+    lift_vs_hipo = hipo_nonresp_rate / hipo_rate if hipo_rate else float("nan")
+
+    e1, e2, e3, e4 = st.columns(4)
+    e1.metric("HiPo employees (selection)", f"{len(hipo_f):,}")
+    e2.metric("HiPo + Non-Responder", f"{len(hipo_nonresp_f):,}")
+    e3.metric("Attrition rate, this segment", f"{hipo_nonresp_rate:.1f}%" if hipo_nonresp_rate == hipo_nonresp_rate else "n/a")
+    e4.metric(
+        "Lift vs firm baseline", f"{lift_vs_firm:.2f}x" if lift_vs_firm == lift_vs_firm else "n/a",
+        help=f"{lift_vs_hipo:.2f}x vs the HiPo-only baseline of {hipo_rate:.1f}%" if lift_vs_hipo == lift_vs_hipo else None,
+    )
+
+    fig = go.Figure(go.Bar(
+        x=["Firm baseline", "HiPo (all)", "HiPo + Non-Responder"],
+        y=[overall_rate, hipo_rate, hipo_nonresp_rate],
+        marker_color=[BLUE, ORANGE, RED],
+        text=[f"{v:.1f}%" if v == v else "n/a" for v in [overall_rate, hipo_rate, hipo_nonresp_rate]],
+        textposition="outside",
+        hovertemplate="%{x}: %{y:.1f}%% departed<extra></extra>",
+    ))
+    fig.update_layout(title="Attrition compounds as risk factors stack", yaxis_title="% departed")
+    st.plotly_chart(style_fig(fig, height=320), use_container_width=True)
+    st.caption(
+        "This chart shows attrition rising as risk factors stack: firm-wide baseline, then "
+        "HiPo employees alone, then the narrower HiPo + Non-Responder intersection at the "
+        "centre of this dashboard's primary hypothesis."
+    )
+
+    if len(hipo_nonresp_f):
+        hipo_nonresp_entity_lift = nonresponder_lift(hipo_f, "legacy_entity_code")
+        entity_c_share = (
+            hipo_nonresp_entity_lift.loc["Entity_C", "nonresponder_pct"]
+            if "Entity_C" in hipo_nonresp_entity_lift.index else None
+        )
+
+        departed_hipo = full_f[full_f["attrited"] & (full_f["hipo_flag"] == True)].copy()
+        departed_hipo["is_regrettable"] = departed_hipo["regrettable_flag"] == "Yes"
+        regrettable_hipo = departed_hipo[departed_hipo["is_regrettable"]]
+        lo, hi = replacement_cost_range(regrettable_hipo) if len(regrettable_hipo) else (0.0, 0.0)
+
+        entity_c_sentence = (
+            f" Of the {len(hipo_nonresp_f)} employees in this segment, {entity_c_share:.0f}% are "
+            f"from Entity_C — despite Entity_C being a small share of the firm."
+            if entity_c_share is not None else ""
+        )
+        st.markdown(
+            f"**Why it matters:**{entity_c_sentence} Regrettable HiPo exits alone carry an "
+            f"estimated **\\${lo:,.0f}–\\${hi:,.0f}** replacement cost in the current selection "
+            f"(50–200% of `salary_at_exit`, {len(regrettable_hipo)} regrettable HiPo departures)."
+        )
+
+    # --- Where disengagement precedes departure (active minus departed) ------
+    st.markdown("**Where disengagement precedes departure**")
+    active_scores = full_f.loc[~full_f["attrited"], SCORE_COLS].mean()
+    departed_scores = full_f.loc[full_f["attrited"], SCORE_COLS].mean()
+    gap = (active_scores - departed_scores).sort_values()
+    labels = [c.replace("_", " ").title() for c in gap.index]
+    colors = [RED if v >= 0.15 else MUTED for v in gap.values]
+    fig = go.Figure(go.Bar(
+        x=gap.values, y=labels, orientation="h",
+        marker_color=colors,
+        text=[f"{v:+.2f}" for v in gap.values],
+        textposition="outside",
+        hovertemplate="%{y}: active score %{x:+.2f} vs departed<extra></extra>",
+    ))
+    fig.add_vline(x=0, line_color=AXIS)
+    fig.update_layout(
+        title="How much higher active employees score than leavers, by dimension",
+        xaxis_title="Gap in average score (positive = active are happier)",
+    )
+    st.plotly_chart(style_fig(fig, height=340), use_container_width=True)
+    st.caption(
+        "Each bar is how much higher still-active staff score than those who left, on that "
+        "dimension. The longest bars (red) are where disengagement most precedes exit."
+    )
