@@ -486,6 +486,15 @@ def render_executive_story_tab(full, eng, style_fig, CATEGORICAL):
         unsafe_allow_html=True,
     )
 
+    st.markdown(
+        '<div class="exec-callout">NovaCorp\'s highest-value attrition risk is concentrated among '
+        'HiPo employees. The Flight Risk Model identifies survey participation and tenure as the '
+        'earliest operational signals for identifying these employees before they leave, while '
+        'career progression and structural pay compression guide where retention interventions '
+        'should be prioritised.</div>',
+        unsafe_allow_html=True,
+    )
+
     # =======================================================================
     # STAGE 04 — DECISION (prescriptive: what NovaCorp should do next)
     # =======================================================================

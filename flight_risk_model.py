@@ -50,7 +50,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
-    accuracy_score, confusion_matrix, precision_score, recall_score, roc_auc_score,
+    accuracy_score, confusion_matrix, precision_score, recall_score, roc_auc_score, roc_curve,
 )
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
@@ -179,9 +179,11 @@ def main():
     active_scores = pd.DataFrame({
         "employee_id": active_ids.values,
         "department": df.loc[active_mask, "department"].values,
+        "legacy_entity_code": df.loc[active_mask, "legacy_entity_code"].values,
         "role_level": df.loc[active_mask, "role_level"].values,
         "hipo_flag": df.loc[active_mask, "hipo_flag"].values,
         "tenure_months": df.loc[active_mask, "tenure_months"].values,
+        "tenure_bucket": df.loc[active_mask, "tenure_bucket"].values,
         "survey_response_rate": df.loc[active_mask, "survey_response_rate"].values,
         # Decision Tree has the better ROC AUC (0.833 vs 0.698) so it drives
         # the official ranking; Logistic Regression probability and its
@@ -231,10 +233,23 @@ def main():
     active_scores.to_csv("outputs/flight_risk_scores.csv", index=False)
     print("\nSaved full active-employee ranking to outputs/flight_risk_scores.csv")
 
+    # ------------------------------------------------------------ ROC curve
+    # Saved as points (not recomputed live) for the same reason PERM_IMPORTANCE
+    # is hardcoded in executive_story_tab.py: this is a test-set evaluation
+    # artifact, not something that should retrain on every dashboard page load.
+    lr_fpr, lr_tpr, _ = roc_curve(y_test, lr_proba)
+    dt_fpr, dt_tpr, _ = roc_curve(y_test, dt_proba)
+    roc_df = pd.concat([
+        pd.DataFrame({"model": "Logistic Regression", "fpr": lr_fpr, "tpr": lr_tpr}),
+        pd.DataFrame({"model": "Decision Tree", "fpr": dt_fpr, "tpr": dt_tpr}),
+    ], ignore_index=True)
+    roc_df.to_csv("outputs/flight_risk_roc_curve.csv", index=False)
+    print("Saved ROC curve points to outputs/flight_risk_roc_curve.csv")
+
     return {
         "lr_result": lr_result, "dt_result": dt_result,
         "lr_odds": lr_odds, "dt_importance": dt_importance,
-        "active_scores": active_scores, "top20": top20,
+        "active_scores": active_scores, "top20": top20, "roc_df": roc_df,
     }
 
 
