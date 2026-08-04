@@ -5,6 +5,7 @@ notebook: headcount & tenure, attrition patterns, engagement / non-responder
 signals, and performance & compensation, all drillable through a shared set
 of global filters. Run locally with `streamlit run app.py`.
 """
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
