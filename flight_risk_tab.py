@@ -27,6 +27,14 @@ deliberately, since this tab is an operational tool for HR Business Partners
 who need to act on named individuals, unlike the Executive Story's
 board-level, aggregate-only framing. IDs only, never names or salaries,
 consistent with the rest of the app.
+
+FILTERS: every KPI, chart and the Watchlist itself reacts to the sidebar's
+global filters -- app.py passes full_f, and render_flight_risk_tab() filters
+the pre-scored population down to whichever employees match. What does NOT
+change with filters is each employee's own risk score and Risk Tier: those
+are fixed properties from the firm-wide-trained model, not recalculated
+per filter (see the function docstring below for why re-ranking within an
+arbitrary subset would be misleading).
 """
 import pandas as pd
 import plotly.graph_objects as go
@@ -144,17 +152,28 @@ def render_flight_risk_tab(full, style_fig, CATEGORICAL):
     `with tab:` block, immediately after the Executive Story tab.
 
     Args:
-        full: the UNFILTERED employee-level dataframe from app.py's build_full()
-            -- kept for signature symmetry; the Watchlist and charts here read
-            from the pre-scored outputs/flight_risk_scores.csv instead, since
-            that's the validated, already-ranked population.
+        full: the employee-level dataframe for the CURRENT sidebar selection
+            (app.py passes full_f). The model's scores and Risk Tiers are
+            pre-computed against the full firm-wide active population (see
+            _load_scores) and are NOT recalculated per filter -- re-ranking
+            "top 20%" within an arbitrary filtered subset would silently
+            change what the tier labels mean. Instead, the sidebar filter is
+            applied as a row filter (which of the already-scored employees
+            are in view), exactly like narrowing a spreadsheet, while each
+            employee's own score and tier stay fixed.
         style_fig: the existing style_fig() function from app.py.
         CATEGORICAL: the existing color palette list from app.py (unused --
             this tab defines its own small palette so filter/tier colours
             stay stable regardless of the shared app palette's order).
     """
     _inject_style()
-    scores = _load_scores()
+    all_scores = _load_scores()
+    scores = all_scores[all_scores["employee_id"].isin(full["employee_id"])]
+
+    if scores.empty:
+        st.info("No active employees match the current sidebar filters.")
+        return
+
     high_risk_n = int((scores["Risk Tier"] == "High").sum())
 
     # =======================================================================

@@ -229,11 +229,11 @@ tab_exec, tab_flight_risk, tab_overview, tab_hypothesis, tab_takeaways = st.tabs
 
 # ---------------------------------------------------------- Executive Story --
 with tab_exec:
-    render_executive_story_tab(full, eng, style_fig, CATEGORICAL)
+    render_executive_story_tab(full_f, eng_f, style_fig, CATEGORICAL)
   
 # ------------------------------------------------------- Flight Risk Model --
 with tab_flight_risk:
-    render_flight_risk_tab(full, style_fig, CATEGORICAL)
+    render_flight_risk_tab(full_f, style_fig, CATEGORICAL)
 
 # ------------------------------------------------------------------- Overview --
 with tab_overview:

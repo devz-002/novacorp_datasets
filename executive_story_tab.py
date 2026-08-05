@@ -5,8 +5,12 @@ Kept fully separate from app.py / data_utils.py / hypothesis_tabs.py so none
 of the existing tabs need to change. render_executive_story_tab() re-presents
 analysis already implemented in hypothesis_tabs.py, plus validated output
 from the Flight Risk Model (flight_risk_model.py / flight_risk_audit.py), as
-a single, always-on narrative that deliberately ignores the sidebar's global
-filters, so the story never changes shape underneath the audience mid-scroll.
+a single narrative. app.py passes the sidebar-filtered `full_f`/`eng_f`
+dataframes here (not the unfiltered `full`), so every number, chart and
+insight on this page reacts live to the sidebar's global filters. Every
+computation below is therefore written to degrade gracefully on a small or
+narrow filtered population (see the department/heatmap fallback logic)
+rather than assume firm-wide sample sizes.
 
 Narrative logic: structural pay compression does not independently predict
 who leaves -- it is a severity multiplier that raises the cost of losses
@@ -167,11 +171,12 @@ def render_executive_story_tab(full, eng, style_fig, CATEGORICAL):
     `with tab:` block.
 
     Args:
-        full: the UNFILTERED employee-level dataframe from app.py's build_full()
-            — deliberately not full_f, so this page ignores the sidebar filters.
-        eng: the UNFILTERED engagement dataframe (kept for signature symmetry
-            with the other tabs; unused after the early-warning section was
-            removed on statistical review).
+        full: the employee-level dataframe for the CURRENT sidebar selection
+            (app.py passes full_f) -- every stat on this page is computed
+            from whatever is passed in, so this page is filter-responsive.
+        eng: the engagement dataframe for the current selection (kept for
+            signature symmetry with the other tabs; unused after the
+            early-warning section was removed on statistical review).
         style_fig: the existing style_fig() function from app.py.
         CATEGORICAL: the existing color palette list from app.py.
     """
@@ -209,9 +214,11 @@ def render_executive_story_tab(full, eng, style_fig, CATEGORICAL):
     dept_hipo_total = hipo.groupby("department").size()
     dept_pull = hipo_pull.groupby("department").size().reindex(dept_hipo_total.index, fill_value=0)
     dept_pull_pct = (dept_pull / dept_hipo_total * 100).sort_values(ascending=False)
-    risk_dept_1, risk_dept_2 = dept_pull_pct.index[0], dept_pull_pct.index[1]
-    risk_pct_1, risk_pct_2 = dept_pull_pct.iloc[0], dept_pull_pct.iloc[1]
-    risk_n_1, risk_n_2 = dept_hipo_total[risk_dept_1], dept_hipo_total[risk_dept_2]
+    # Filters can narrow the population to a single department -- fall back
+    # to repeating it rather than indexing past the end of a 1-row series.
+    risk_dept_1 = dept_pull_pct.index[0]
+    risk_dept_2 = dept_pull_pct.index[1] if len(dept_pull_pct) > 1 else risk_dept_1
+    dept_phrase = risk_dept_1 if risk_dept_1 == risk_dept_2 else f"{risk_dept_1} and {risk_dept_2}"
 
     no_promo = hipo[hipo["promotion_recommendation"] == "No"]
     yes_promo = hipo[hipo["promotion_recommendation"] == "Yes"]
@@ -337,7 +344,9 @@ def render_executive_story_tab(full, eng, style_fig, CATEGORICAL):
         hovertemplate="%{y} · %{x}: %{z:.0f}%% lost to competitors (n=%{customdata})<extra></extra>",
     ))
     fig.update_layout(
-        title=f"{risk_dept_1} and {risk_dept_2} concentrate the highest HiPo losses to competitors.",
+        title=f"{dept_phrase} concentrate the highest HiPo losses to competitors."
+        if risk_dept_1 != risk_dept_2 else
+        f"{dept_phrase} concentrates the highest HiPo losses to competitors.",
     )
     st.plotly_chart(style_fig(fig, height=440), use_container_width=True)
     st.caption("Cells with fewer than 5 HiPo employees are left blank.")
