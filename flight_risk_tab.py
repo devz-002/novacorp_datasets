@@ -409,6 +409,6 @@ def render_flight_risk_tab(full, style_fig, CATEGORICAL):
             "for interpretability, shown above."
         )
         st.caption(
-            "Full feature audit, correlation/VIF analysis and backward-elimination results are in "
+            "Full feature audit, correlation analysis and backward-elimination results are in "
             "flight_risk_audit.py and outputs/feature_audit.csv."
         )
