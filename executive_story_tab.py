@@ -3,14 +3,36 @@ the CEO, CHRO and the Accenture judging panel.
 
 Kept fully separate from app.py / data_utils.py / hypothesis_tabs.py so none
 of the existing tabs need to change. render_executive_story_tab() re-presents
-analysis already implemented in hypothesis_tabs.py as a single, always-on
-narrative that deliberately ignores the sidebar's global filters, so the
-story never changes shape underneath the audience mid-scroll.
+analysis already implemented in hypothesis_tabs.py, plus validated output
+from the Flight Risk Model (flight_risk_model.py / flight_risk_audit.py), as
+a single, always-on narrative that deliberately ignores the sidebar's global
+filters, so the story never changes shape underneath the audience mid-scroll.
 
-Narrative logic (revised after statistical review): structural pay
-compression does not independently predict who leaves. It is presented here
-as a severity multiplier that raises the cost of losses driven by career
-progression gaps and department concentration, not as the trigger itself.
+Narrative logic: structural pay compression does not independently predict
+who leaves -- it is a severity multiplier that raises the cost of losses
+driven by career progression gaps and department concentration, not the
+trigger itself. The Flight Risk Model operationalises this: it independently
+confirmed survey participation and tenure as the strongest predictors of
+who to monitor, confirmed HiPo status as a real driver after controlling
+for other factors, and confirmed compa ratio adds no independent predictive
+power (consistent with the business-explanation finding above).
+
+BUSINESS EXPLANATION vs PREDICTIVE SIGNALS -- kept deliberately separate:
+"business explanation" (pay, career progression, department) answers why
+these departures are strategically expensive; "predictive signals" (survey
+participation, tenure, HiPo) answer which employees HR should monitor next.
+They are not the same claim and this file never conflates them.
+
+PERM_IMPORTANCE below is not recomputed on every page load: retraining and
+permutation-testing two models on ~13k rows on every Streamlit render would
+be slow and would make scikit-learn/statsmodels hard runtime dependencies of
+the interactive dashboard. The values are copied from flight_risk_audit.py's
+validated, reproducible output (run `python flight_risk_audit.py` to
+regenerate them) -- the same pattern already used for the 50-200%
+replacement-cost multiplier below, a cited assumption rather than a live
+computation. ROC AUC, confusion matrices, precision/recall and the model
+comparison live in flight_risk_model.py / flight_risk_audit.py and their
+outputs/ artifacts -- this page shows business interpretation only.
 """
 import plotly.graph_objects as go
 import streamlit as st
@@ -19,6 +41,21 @@ from data_utils import replacement_cost_range
 
 MUTED = "#898781"
 SURFACE_TINT = "#f5f4ef"
+
+# From flight_risk_audit.py Part 3 (permutation importance, ROC AUC drop,
+# Decision Tree, test set n=3,351). HiPo's tree-based importance is ~0 even
+# though it is independently significant in the Logistic Regression
+# (OR=1.60, 95% CI 1.26-2.03, p<0.001) -- the two models capture different
+# aspects of risk, and the chart below annotates that explicitly rather than
+# hiding it.
+PERM_IMPORTANCE = [
+    ("Survey Participation", 0.1995),
+    ("Tenure", 0.0908),
+    ("HiPo", 0.0000),
+    ("Legacy Entity", 0.0209),
+    ("Compa Ratio", 0.0000),
+    ("Promotion Recommendation", 0.0000),
+]
 
 
 def _hex_to_rgba(hex_color, alpha):
@@ -42,8 +79,22 @@ def _inject_style(accent):
         border-left: 2px solid {accent}; padding: 0.2rem 0 0.2rem 1.1rem;
         font-size: 1.05rem; line-height: 1.55; margin: 0 0 2.6rem 0; max-width: 780px;
     }}
+    .exec-stage {{
+        font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+        color: {MUTED}; margin: 4.2rem 0 0.5rem 0;
+    }}
+    .exec-stage-num {{
+        color: {accent}; font-weight: 700; margin-right: 0.5rem;
+    }}
     .exec-section-q {{
-        font-size: 1.5rem; font-weight: 700; margin: 4.2rem 0 0.5rem 0;
+        font-size: 1.5rem; font-weight: 700; margin: 0.2rem 0 0.5rem 0;
+    }}
+    .exec-section-q.decision {{
+        font-size: 1.85rem; color: {accent};
+    }}
+    .exec-closer {{
+        font-size: 1.6rem; font-weight: 700; line-height: 1.3; margin: 3rem 0 1rem 0;
+        max-width: 700px;
     }}
     .exec-subhead {{
         font-size: 1.05rem; font-weight: 700; margin: 2.6rem 0 0.6rem 0; color: #4b4a45;
@@ -73,8 +124,42 @@ def _inject_style(accent):
         font-size: 0.78rem; color: {MUTED}; margin-top: 0.8rem; line-height: 1.45;
         max-width: 720px;
     }}
+    .exec-window {{
+        border-top: 2px solid {MUTED}; padding: 0.7rem 0 0 0; height: 100%;
+    }}
+    .exec-window h4 {{
+        margin: 0 0 0.3rem 0; font-size: 0.78rem; letter-spacing: 0.06em;
+        text-transform: uppercase; color: {MUTED};
+    }}
+    .exec-window .stat {{
+        font-size: 2rem; font-weight: 700; color: {accent}; margin: 0 0 0.3rem 0;
+    }}
+    .exec-window p {{
+        margin: 0; font-size: 0.92rem; color: #4b4a45; line-height: 1.45;
+    }}
+    .exec-flow-step {{
+        border: 1px solid #d8d6cd; border-radius: 4px; padding: 0.6rem 1rem;
+        max-width: 480px; margin: 0 auto; text-align: center; font-size: 0.95rem;
+        font-weight: 500;
+    }}
+    .exec-flow-step.decision {{
+        border-style: dashed; font-style: italic; color: #4b4a45; font-weight: 400;
+    }}
+    .exec-flow-step.action {{
+        border-color: {accent}; font-weight: 600;
+    }}
+    .exec-flow-arrow {{
+        text-align: center; color: {MUTED}; font-size: 1.1rem; line-height: 1;
+        margin: 0.25rem auto;
+    }}
     </style>
     """, unsafe_allow_html=True)
+
+
+def _flow_step(text, kind="normal"):
+    cls = f"exec-flow-step {kind}".strip()
+    st.markdown(f'<div class="{cls}">{text}</div>', unsafe_allow_html=True)
+    st.markdown('<div class="exec-flow-arrow">↓</div>', unsafe_allow_html=True)
 
 
 def render_executive_story_tab(full, eng, style_fig, CATEGORICAL):
@@ -140,17 +225,27 @@ def render_executive_story_tab(full, eng, style_fig, CATEGORICAL):
 
     below_090_active = hipo_active[hipo_active["compa_ratio"] < 0.90]
 
+    # tenure windows (bucketed observed rates, not the LR coefficient -- see
+    # module docstring / flight_risk_audit.py Part 1 for why)
+    window1 = full[full["tenure_bucket"] == "<1y"]
+    window1_rate = window1["attrited"].mean() * 100
+    window2 = full[(full["tenure_months"] >= 60) & (full["low_responder"])]
+    window2_rate = window2["attrited"].mean() * 100
+    baseline_5y = full[full["tenure_months"] >= 60]
+    baseline_5y_rate = baseline_5y["attrited"].mean() * 100
+    window2_lift = window2_rate / baseline_5y_rate if baseline_5y_rate else float("nan")
+
     # =======================================================================
     # SECTION 1 — Executive Hook
     # =======================================================================
     st.markdown('<div class="exec-eyebrow">Primary hypothesis</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="exec-hero-title">We are losing the employees NovaCorp can least afford to lose.</div>',
+        '<div class="exec-hero-title">NovaCorp\'s most expensive talent losses are concentrated, not widespread.</div>',
         unsafe_allow_html=True,
     )
     st.markdown(
-        '<div class="exec-callout">High-potential employees earn structurally below market. '
-        'This raises the cost when competitors poach them.</div>',
+        '<div class="exec-callout">High-potential employees earn below market. '
+        'Losing them to competitors costs more as a result.</div>',
         unsafe_allow_html=True,
     )
 
@@ -161,8 +256,9 @@ def render_executive_story_tab(full, eng, style_fig, CATEGORICAL):
     k4.metric("Regrettable HiPo exits", f"{len(regrettable_hipo)}", help=f"Estimated ${lo/1e6:.1f}M-${hi/1e6:.1f}M replacement cost.")
 
     # =======================================================================
-    # SECTION 2 — Who are we losing?
+    # STAGE 01 — PROBLEM (descriptive: what happened)
     # =======================================================================
+    st.markdown('<div class="exec-stage"><span class="exec-stage-num">01</span>Problem</div>', unsafe_allow_html=True)
     st.markdown('<div class="exec-section-q">Who are we losing?</div>', unsafe_allow_html=True)
 
     fig = go.Figure()
@@ -180,19 +276,20 @@ def render_executive_story_tab(full, eng, style_fig, CATEGORICAL):
             showlegend=False, hovertemplate=f"{cat}: %{{x:.1f}}%% departed<extra></extra>",
         ))
     fig.update_layout(
-        title="HiPo employees leave 1.5 times more often than the rest of the workforce.",
+        title=f"HiPo employees leave {attrition_ratio:.1f} times more often than the rest of the workforce.",
         xaxis_title="% departed", xaxis=dict(range=[0, max(vals) * 1.35]),
     )
     st.plotly_chart(style_fig(fig, height=280), use_container_width=True)
     st.markdown(
-        f'<div class="exec-insight">HiPo employees leave at {attrition_ratio:.1f} times the rate of the '
-        f'rest of the workforce.</div>',
+        '<div class="exec-insight">NovaCorp loses hard-to-replace talent faster than the rest of '
+        'the business.</div>',
         unsafe_allow_html=True,
     )
 
     # =======================================================================
-    # SECTION 3 — How are they different?
+    # STAGE 02 — BUSINESS EXPLANATION (diagnostic: why it matters strategically)
     # =======================================================================
+    st.markdown('<div class="exec-stage"><span class="exec-stage-num">02</span>Business explanation</div>', unsafe_allow_html=True)
     st.markdown('<div class="exec-section-q">How are they different?</div>', unsafe_allow_html=True)
 
     fig = go.Figure()
@@ -210,14 +307,11 @@ def render_executive_story_tab(full, eng, style_fig, CATEGORICAL):
     )
     st.plotly_chart(style_fig(fig, height=420, showlegend=True), use_container_width=True)
     st.markdown(
-        f'<div class="exec-insight">HiPo employees average a {avg_hipo_compa:.2f} compa ratio. '
-        f'The rest of the workforce averages {avg_nonhipo_compa:.2f}.</div>',
+        f'<div class="exec-insight">HiPo employees average a {avg_hipo_compa:.2f} compa ratio versus '
+        f'{avg_nonhipo_compa:.2f} for peers. That gap widens the cost of every departure.</div>',
         unsafe_allow_html=True,
     )
 
-    # =======================================================================
-    # SECTION 4 — Where is the problem concentrated?
-    # =======================================================================
     st.markdown('<div class="exec-section-q">Where is the problem concentrated?</div>', unsafe_allow_html=True)
 
     hipo_total_dl = hipo.groupby(["department", "role_level"]).size()
@@ -253,14 +347,11 @@ def render_executive_story_tab(full, eng, style_fig, CATEGORICAL):
     top_val = valid.loc[top_dept, top_level]
     top_n = n_pivot.loc[top_dept, top_level]
     st.markdown(
-        f'<div class="exec-insight">{top_dept} Level {top_level} shows the highest concentration of HiPo '
-        f'losses. {top_val:.0f}% of its HiPo employees leave for competitors (n={top_n}).</div>',
+        f'<div class="exec-insight">{top_dept} Level {top_level} loses {top_val:.0f}% of its HiPo talent '
+        f'to competitors (n={top_n}). Retention effort here returns the most.</div>',
         unsafe_allow_html=True,
     )
 
-    # =======================================================================
-    # SECTION 5 — What makes these losses expensive?
-    # =======================================================================
     st.markdown('<div class="exec-section-q">What makes these losses expensive?</div>', unsafe_allow_html=True)
 
     if no_total and yes_total:
@@ -288,18 +379,14 @@ def render_executive_story_tab(full, eng, style_fig, CATEGORICAL):
             ),
         ))
         fig.update_layout(
-            title="Employees denied promotion leave more often, especially to competitors.",
+            title="Employees denied promotion leave more often than those recommended.",
             font=dict(size=13),
         )
         st.plotly_chart(style_fig(fig, height=380), use_container_width=True)
         st.markdown(
-            f'<div class="exec-insight">HiPo employees denied promotion leave more often, '
-            f'{no_rate:.0f}% versus {yes_rate:.0f}% (n={no_total}, n={yes_total}).</div>',
-            unsafe_allow_html=True,
-        )
-        st.markdown(
-            f'<div class="exec-insight">Competitors poached {len(pull_not_promoted)} of {len(hipo_pull)} '
-            f'HiPo employees denied promotion first.</div>',
+            f'<div class="exec-insight">Denied promotion, HiPo employees leave at {no_rate:.0f}% versus '
+            f'{yes_rate:.0f}% (n={no_total}, n={yes_total}). Competitors poached {len(pull_not_promoted)} '
+            f'of {len(hipo_pull)} of them first.</div>',
             unsafe_allow_html=True,
         )
 
@@ -317,37 +404,145 @@ def render_executive_story_tab(full, eng, style_fig, CATEGORICAL):
     )
 
     # =======================================================================
-    # SECTION 6 — Decision for NovaCorp
+    # STAGE 03 — OPERATIONAL PREDICTION (predictive: who should HR monitor)
     # =======================================================================
-    st.markdown('<div class="exec-section-q">Decision for NovaCorp</div>', unsafe_allow_html=True)
+    st.markdown('<div class="exec-stage"><span class="exec-stage-num">03</span>Operational prediction</div>', unsafe_allow_html=True)
+    st.markdown('<div class="exec-section-q">Who should HR monitor first?</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="exec-insight">An independent model tested which signals predict departure. '
+        'Some confirm the hypothesis. Others do not.</div>',
+        unsafe_allow_html=True,
+    )
+
+    labels_perm = [p[0] for p in PERM_IMPORTANCE][::-1]
+    values_perm = [p[1] for p in PERM_IMPORTANCE][::-1]
+    bar_colors = [RED if v > 0 else "#d8d6cd" for v in values_perm]
+    fig = go.Figure(go.Bar(
+        x=values_perm, y=labels_perm, orientation="h",
+        marker_color=bar_colors,
+        text=[f"{v:.3f}" for v in values_perm], textposition="outside",
+        hovertemplate="%{y}: %{x:.3f} ROC AUC drop<extra></extra>",
+    ))
+    fig.add_annotation(
+        x=0.06, y="HiPo", text="significant in regression, p<0.001", showarrow=False,
+        font=dict(size=11, color=MUTED), xanchor="left",
+    )
+    fig.update_layout(
+        title="Survey participation and tenure predict departure more than pay or promotion.",
+        xaxis_title="Permutation importance (ROC AUC drop)",
+    )
+    st.plotly_chart(style_fig(fig, height=340), use_container_width=True)
+    st.markdown(
+        '<div class="exec-insight">Compa ratio and promotion recommendation add almost nothing to '
+        'prediction. They remain business explanations, not monitoring triggers.</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        '<div class="exec-insight">HiPo shows low tree-based importance but stays significant in '
+        'regression, even after every control.</div>',
+        unsafe_allow_html=True,
+    )
+
+    st.markdown('<div class="exec-subhead">Two tenure windows, not one</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="exec-insight">Tenure does not simply fall as risk falls. The data shows two '
+        'separate danger windows.</div>',
+        unsafe_allow_html=True,
+    )
+
+    tw1, tw2 = st.columns(2)
+    with tw1:
+        st.markdown(
+            f'<div class="exec-window"><h4>Window 1 · First year</h4>'
+            f'<div class="stat">{window1_rate:.1f}%</div>'
+            f'<p>Attrition among employees under 12 months tenure (n={len(window1):,}). '
+            f'An onboarding and role-fit problem.</p></div>',
+            unsafe_allow_html=True,
+        )
+    with tw2:
+        st.markdown(
+            f'<div class="exec-window"><h4>Window 2 · 5+ years, disengaging</h4>'
+            f'<div class="stat">{window2_rate:.1f}%</div>'
+            f'<p>Attrition among 5+ year employees with declining survey participation '
+            f'(n={len(window2):,}), {window2_lift:.1f}x the 5+ year baseline. A long-term '
+            f'disengagement problem, not onboarding.</p></div>',
+            unsafe_allow_html=True,
+        )
+
+    st.markdown('<div class="exec-subhead">Survey participation is a signal, not a cause</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="exec-insight">Participation measures whether employees respond, not how they '
+        'feel. It differs from engagement score.</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        '<div class="exec-insight">Participation may not cause attrition. It is simply the earliest '
+        'signal available before departure.</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        '<div class="exec-insight">HR should treat declining participation as a trigger for a '
+        'proactive retention conversation.</div>',
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        '<div class="exec-callout">NovaCorp\'s highest-value attrition risk is concentrated among '
+        'HiPo employees. The Flight Risk Model identifies survey participation and tenure as the '
+        'earliest operational signals for identifying these employees before they leave, while '
+        'career progression and structural pay compression guide where retention interventions '
+        'should be prioritised.</div>',
+        unsafe_allow_html=True,
+    )
+
+    # =======================================================================
+    # STAGE 04 — DECISION (prescriptive: what NovaCorp should do next)
+    # =======================================================================
+    st.markdown('<div class="exec-stage"><span class="exec-stage-num">04</span>Decision</div>', unsafe_allow_html=True)
+    st.markdown('<div class="exec-section-q decision">Decision for NovaCorp</div>', unsafe_allow_html=True)
 
     c1, c2, c3 = st.columns(3)
     with c1:
         st.markdown(
-            f'<div class="exec-card"><h4>Act now</h4>'
-            f'<p>Target {risk_dept_1} and {risk_dept_2} for immediate HiPo retention reviews.</p>'
-            f'<p class="why">These two departments lose {risk_pct_1:.0f}% (n={risk_n_1}) and '
-            f'{risk_pct_2:.0f}% (n={risk_n_2}) of HiPo talent to competitors.</p>'
-            f'</div>',
+            '<div class="exec-card"><h4>Immediate · 0-12 months tenure</h4>'
+            '<p>Strengthen onboarding, manager check-ins and role-fit reviews for new HiPo hires.</p>'
+            '<p class="why">First-year attrition reaches '
+            f'{window1_rate:.1f}%. Early intervention addresses the largest single risk window.</p>'
+            '</div>',
             unsafe_allow_html=True,
         )
     with c2:
         st.markdown(
-            f'<div class="exec-card"><h4>Improve career progression</h4>'
-            f'<p>Introduce mandatory promotion reviews for HiPo employees before external offers '
-            f'become attractive.</p>'
-            f'<p class="why">Employees denied promotion leave more often, and most poached HiPo '
-            f'employees were denied promotion first.</p>'
-            f'</div>',
+            '<div class="exec-card"><h4>Medium term · critical career stage</h4>'
+            '<p>Use survey participation, tenure and HiPo status to trigger career and retention '
+            'conversations.</p>'
+            '<p class="why">Act before employees start looking externally, not after they receive '
+            'an offer.</p>'
+            '</div>',
             unsafe_allow_html=True,
         )
     with c3:
         st.markdown(
-            f'<div class="exec-card"><h4>Strengthen compensation governance</h4>'
-            f'<p>Review pay for {len(below_090_active)} active HiPo employees below a 0.90 compa ratio '
-            f'this cycle.</p>'
-            f'<p class="why">Compensation raises the cost of regrettable departures rather than '
-            f'independently predicting them.</p>'
-            f'</div>',
+            '<div class="exec-card"><h4>Long term · governance</h4>'
+            '<p>Integrate compensation benchmarking, career reviews, succession planning and the '
+            'Flight Risk Model into annual talent governance.</p>'
+            '<p class="why">No single lever fixes this. Governance ties pay, career and prediction '
+            'together.</p>'
+            '</div>',
             unsafe_allow_html=True,
         )
+
+    st.markdown('<div class="exec-subhead">How HR acts on a flagged employee</div>', unsafe_allow_html=True)
+    _flow_step("Flight Risk Model flags an employee", "action")
+    _flow_step("Is the employee HiPo?", "decision")
+    _flow_step("Is survey participation declining?", "decision")
+    _flow_step("Are they in a critical tenure window?", "decision")
+    _flow_step("Manager holds a retention discussion", "action")
+    _flow_step("Career progression review", "action")
+    _flow_step("Compensation review, if appropriate", "action")
+    st.markdown('<div class="exec-flow-step action">Retention plan agreed</div>', unsafe_allow_html=True)
+
+    st.markdown(
+        '<div class="exec-closer">The fix is narrow. The payoff is not.</div>',
+        unsafe_allow_html=True,
+    )
