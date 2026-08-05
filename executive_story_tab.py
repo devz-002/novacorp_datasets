@@ -534,7 +534,7 @@ def render_executive_story_tab(full, eng, style_fig, CATEGORICAL):
 
     st.markdown('<div class="exec-subhead">How HR acts on a flagged employee</div>', unsafe_allow_html=True)
     _flow_step("Flight Risk Model flags an employee", "action")
-    _flow_step("Top 20% ?", "decision")
+    _flow_step("Top 20% ?", "action")
     _flow_step("Is the employee HiPo?", "decision")
     _flow_step("Is survey participation declining?", "decision")
     _flow_step("Are they in a critical tenure window?", "decision")
