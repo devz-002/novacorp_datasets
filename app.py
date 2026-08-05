@@ -236,13 +236,13 @@ with tab_flight_risk:
     render_flight_risk_tab(full, style_fig, CATEGORICAL)
 
 # ------------------------------------------------------------------- Overview --
-# with tab_overview:
-#     sub_workforce, sub_attrition, sub_engagement, sub_perf, sub_comp = st.tabs(
-#         ["Workforce", "Attrition", "Engagement", "Performance", "Compensation"]
+with tab_overview:
+    sub_workforce, sub_attrition, sub_engagement, sub_perf, sub_comp = st.tabs(
+        ["Workforce", "Attrition", "Engagement", "Performance", "Compensation"]
 
 
 # --------------------------------------------------------------- Workforce --
-with tab_workforce:
+with tab_overview:
     st.subheader("Who works at NovaCorp")
     st.caption(
         f"Headcount, tenure and role composition for the {len(full_f):,} employees "
