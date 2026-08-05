@@ -1,12 +1,18 @@
 """Flight Risk Model tab -- an operational decision-support tool for HR
 Business Partners, separate from the Executive Story.
 
-The Executive Story answers WHY NovaCorp has a regrettable-attrition
-problem. This tab answers WHO to act on and HOW to find them -- its
-centrepiece is the HR Watchlist (Section 3), a filterable, exportable,
-ranked employee list. Nothing on this page repeats the Executive Story's
-recommendations or its "how HR acts on a flagged employee" workflow --
-that content lives there and only there.
+Three questions, three places, never mixed:
+  Executive Story    -> WHY those employees matter (business explanation)
+  Flight Risk Model   -> WHO to monitor next (this file, executive-language)
+  Technical Details   -> HOW the model works (expander at the bottom of this
+                          file -- every statistical term lives there and only
+                          there: ROC, precision/recall, confusion matrix,
+                          permutation importance, regression, odds ratios,
+                          confidence intervals, p-values, model comparison)
+
+The main body of this page is written in plain operational language on
+purpose. If a sentence needs a statistics term to make sense, it belongs in
+the Technical Details expander, not here.
 
 ARCHITECTURE: this page reads pre-computed artifacts from outputs/ rather
 than retraining scikit-learn/statsmodels models on every Streamlit page
@@ -14,15 +20,13 @@ load. That keeps the interactive dashboard's dependencies to
 pandas/streamlit/plotly (the only import here) and keeps this page fast.
 The artifacts are produced by flight_risk_model.py and flight_risk_audit.py
 -- run `python flight_risk_model.py && python flight_risk_audit.py` to
-regenerate them if the underlying data changes. Single headline numbers
-(accuracy, precision, recall, ROC AUC, Gini/permutation importance) are
-copied from that validated output as module-level constants below.
+regenerate them if the underlying data changes.
 
-The Watchlist (Section 3) is the one place on this page that shows
-employee_id -- deliberately, since this tab is an operational tool for HR
-Business Partners who need to act on named individuals, unlike the
-Executive Story's board-level, aggregate-only framing. IDs only, never
-names or salaries, consistent with the rest of the app.
+The Watchlist is the one place on this page that shows employee_id --
+deliberately, since this tab is an operational tool for HR Business Partners
+who need to act on named individuals, unlike the Executive Story's
+board-level, aggregate-only framing. IDs only, never names or salaries,
+consistent with the rest of the app.
 """
 import pandas as pd
 import plotly.graph_objects as go
@@ -48,11 +52,7 @@ MODEL_METRICS = {
     },
 }
 
-# Four signals this page highlights (Compa Ratio and Promotion Recommendation
-# are intentionally excluded from the chart -- near-zero permutation
-# importance, they explain WHY not WHO, and stay in the Executive Story).
 SIGNAL_FEATURES = ["Survey Participation", "Tenure", "HiPo", "Legacy Entity"]
-GINI_BY_SIGNAL = {"Survey Participation": 0.478, "Tenure": 0.359, "HiPo": 0.000, "Legacy Entity": 0.059}
 PERM_BY_SIGNAL = {"Survey Participation": 0.1995, "Tenure": 0.0908, "HiPo": 0.0000, "Legacy Entity": 0.0209}
 PERM_OTHER = {"Compa Ratio": 0.0000, "Promotion Recommendation": 0.0000}
 
@@ -110,18 +110,33 @@ def _inject_style():
     .frm-signal-card {{
         border-top: 2px solid {ACCENT}; padding: 0.7rem 0.9rem 0.9rem 0; height: 100%;
     }}
-    .frm-signal-card h4 {{
-        margin: 0 0 0.3rem 0; font-size: 0.92rem; font-weight: 700;
-    }}
     .frm-signal-card p {{
-        margin: 0; font-size: 0.88rem; color: #4b4a45; line-height: 1.45;
+        margin: 0; font-size: 0.92rem; color: #0b0b0b; line-height: 1.5; font-weight: 500;
     }}
     .frm-driver-box {{
         border-left: 2px solid {MUTED}; padding: 0.2rem 0 0.2rem 1rem; margin: 1.2rem 0 0 0;
         max-width: 780px; font-size: 0.9rem; color: #4b4a45; line-height: 1.5;
     }}
+    .frm-note {{
+        border-left: 2px solid {ACCENT}; padding: 0.2rem 0 0.2rem 1rem; margin: 1rem 0 1.6rem 0;
+        max-width: 780px; font-size: 0.98rem; line-height: 1.5;
+    }}
+    .frm-flow-step {{
+        border: 1px solid #d8d6cd; border-radius: 4px; padding: 0.55rem 1rem;
+        max-width: 480px; margin: 0 auto; text-align: center; font-size: 0.92rem;
+        font-weight: 600; border-color: {ACCENT};
+    }}
+    .frm-flow-arrow {{
+        text-align: center; color: {MUTED}; font-size: 1.05rem; line-height: 1;
+        margin: 0.2rem auto;
+    }}
     </style>
     """, unsafe_allow_html=True)
+
+
+def _flow_step(text):
+    st.markdown(f'<div class="frm-flow-step">{text}</div>', unsafe_allow_html=True)
+    st.markdown('<div class="frm-flow-arrow">↓</div>', unsafe_allow_html=True)
 
 
 def render_flight_risk_tab(full, style_fig, CATEGORICAL):
@@ -140,82 +155,87 @@ def render_flight_risk_tab(full, style_fig, CATEGORICAL):
     """
     _inject_style()
     scores = _load_scores()
+    high_risk_n = int((scores["Risk Tier"] == "High").sum())
 
     # =======================================================================
-    # SECTION 1 -- Executive Summary
+    # Executive summary
     # =======================================================================
     st.markdown('<div class="frm-hero">From Insight to Action</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="frm-sub">The Executive Story explains why NovaCorp loses employees. '
-        'The Flight Risk Model shows HR who to prioritise next.</div>',
+        '<div class="frm-sub">The Executive Story explains why. The Flight Risk Model '
+        'shows who to prioritise next.</div>',
         unsafe_allow_html=True,
     )
     k1, k2 = st.columns(2)
     k1.metric("Active employees scored", f"{len(scores):,}")
-    k2.metric("High risk employees", f"{(scores['Risk Tier'] == 'High').sum():,}")
+    k2.metric("High risk employees", f"{high_risk_n:,}")
 
     # =======================================================================
-    # SECTION 2 -- What predicts flight risk?
+    # What should HR monitor first?
     # =======================================================================
-    st.markdown('<div class="frm-section">What predicts flight risk?</div>', unsafe_allow_html=True)
+    st.markdown('<div class="frm-section">What should HR monitor first?</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="frm-caption">These signals show who to watch. They do not explain '
-        'why people leave.</div>',
+        '<div class="frm-caption">The Flight Risk Model identifies the earliest operational '
+        'signals of employee departure.</div>',
         unsafe_allow_html=True,
     )
 
-    fig = go.Figure()
-    fig.add_trace(go.Bar(
-        x=SIGNAL_FEATURES, y=[GINI_BY_SIGNAL[f] for f in SIGNAL_FEATURES],
-        name="Gini importance", marker_color=MUTED,
-        hovertemplate="%{x}: %{y:.3f}<extra>Gini</extra>",
+    values = [PERM_BY_SIGNAL[f] for f in SIGNAL_FEATURES][::-1]
+    labels = SIGNAL_FEATURES[::-1]
+    fig = go.Figure(go.Bar(
+        x=values, y=labels, orientation="h", marker_color=ACCENT,
+        hovertemplate="%{y}<extra></extra>",
     ))
-    fig.add_trace(go.Bar(
-        x=SIGNAL_FEATURES, y=[PERM_BY_SIGNAL[f] for f in SIGNAL_FEATURES],
-        name="Permutation importance", marker_color=ACCENT,
-        hovertemplate="%{x}: %{y:.3f}<extra>Permutation</extra>",
-    ))
-    fig.update_layout(title="Two ways to measure predictive strength agree", yaxis_title="Importance", barmode="group")
-    st.plotly_chart(style_fig(fig, height=320, showlegend=True), use_container_width=True)
+    fig.add_annotation(
+        x=0.05, y="HiPo", text="risk confirmed by deeper analysis", showarrow=False,
+        font=dict(size=11, color=MUTED), xanchor="left",
+    )
+    fig.update_layout(title="Signal strength", xaxis_title="How strongly this predicts risk", xaxis_showticklabels=False)
+    st.plotly_chart(style_fig(fig, height=300), use_container_width=True)
 
-    s1, s2, s3, s4 = st.columns(4)
-    with s1:
+    i1, i2, i3 = st.columns(3)
+    with i1:
         st.markdown(
-            '<div class="frm-signal-card"><h4>Survey Participation</h4>'
-            '<p>Flag employees whose survey response rate is dropping.</p></div>',
+            '<div class="frm-signal-card"><p>Survey participation is the strongest early '
+            'indicator of attrition risk.</p></div>',
             unsafe_allow_html=True,
         )
-    with s2:
+    with i2:
         st.markdown(
-            '<div class="frm-signal-card"><h4>Tenure</h4>'
-            '<p>Watch new hires (26.9% leave) and 5+ year disengaged staff (48.0%).</p></div>',
+            '<div class="frm-signal-card"><p>Tenure risk peaks twice: new hires, then '
+            'long-serving disengaged staff.</p></div>',
             unsafe_allow_html=True,
         )
-    with s3:
+    with i3:
         st.markdown(
-            '<div class="frm-signal-card"><h4>HiPo</h4>'
-            '<p>Prioritise HiPo employees. Their departure costs the most.</p></div>',
-            unsafe_allow_html=True,
-        )
-    with s4:
-        st.markdown(
-            '<div class="frm-signal-card"><h4>Legacy Entity</h4>'
-            '<p>Deprioritise Entity_C, consistently low risk. Focus on Entity_B instead.</p></div>',
+            '<div class="frm-signal-card"><p>HiPo employees carry higher risk even after '
+            'other factors are considered.</p></div>',
             unsafe_allow_html=True,
         )
 
     st.markdown(
-        '<div class="frm-driver-box">Compa ratio and promotion recommendation explain WHY, '
-        'not WHO. See the Executive Story.</div>',
+        '<div class="frm-driver-box">Pay and promotion history explain why departures '
+        'cost more. See the Executive Story.</div>',
         unsafe_allow_html=True,
     )
 
     # =======================================================================
-    # SECTION 3 -- HR Watchlist (the operational output)
+    # Top 20% population
+    # =======================================================================
+    st.markdown(
+        '<div class="frm-note">The model does not flag every employee. It prioritises the '
+        'highest-risk 20% only, so HR can focus limited retention resources where they are '
+        'most likely to have impact.</div>',
+        unsafe_allow_html=True,
+    )
+
+    # =======================================================================
+    # HR Watchlist (the operational output)
     # =======================================================================
     st.markdown('<div class="frm-section">HR Watchlist</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="frm-caption">Filter, search and export employees to act on today.</div>',
+        '<div class="frm-caption">Every active employee already has a risk score. Filter, '
+        'search and act now.</div>',
         unsafe_allow_html=True,
     )
 
@@ -277,6 +297,19 @@ def render_flight_risk_tab(full, style_fig, CATEGORICAL):
     )
 
     # =======================================================================
+    # Operational workflow
+    # =======================================================================
+    st.markdown('<div class="frm-section">How HR uses this list</div>', unsafe_allow_html=True)
+    _flow_step("Flight Risk Model scores all active employees")
+    _flow_step("Top 20% highest-risk employees identified")
+    _flow_step("HR reviews employee profile")
+    _flow_step("Manager retention discussion")
+    _flow_step("Career progression review")
+    _flow_step("Compensation review, where appropriate")
+    _flow_step("Retention action agreed")
+    st.markdown('<div class="frm-flow-step">Monitor employee over the next review cycle</div>', unsafe_allow_html=True)
+
+    # =======================================================================
     # Responsible AI Considerations
     # =======================================================================
     st.markdown("<div style='margin-top: 2.5rem;'></div>", unsafe_allow_html=True)
@@ -289,9 +322,9 @@ def render_flight_risk_tab(full, style_fig, CATEGORICAL):
 """)
 
     # =======================================================================
-    # SECTION 4 -- Model Performance (technical detail, collapsed by default)
+    # Technical Details -- every statistical term lives here, and only here
     # =======================================================================
-    with st.expander("Model Performance (technical detail)"):
+    with st.expander("Technical Details"):
         st.markdown("**Evaluation metrics** (25% holdout test set, n=3,351)")
         mcol1, mcol2 = st.columns(2)
         for col, (name, m) in zip([mcol1, mcol2], MODEL_METRICS.items()):
@@ -368,6 +401,12 @@ def render_flight_risk_tab(full, style_fig, CATEGORICAL):
             f"({', '.join(FINAL_FEATURES)}) after backward elimination, achieving "
             f"{FINAL_FEATURES_AUC:.3f} ROC AUC versus {FULL_FEATURES_AUC:.3f} for all 16 raw "
             f"features. No accuracy is lost by dropping the rest."
+        )
+        st.markdown("**Model comparison**")
+        st.markdown(
+            "Decision Tree was selected as the operational model (ROC AUC 0.833) over "
+            "Logistic Regression (ROC AUC 0.698). Logistic Regression coefficients are kept "
+            "for interpretability, shown above."
         )
         st.caption(
             "Full feature audit, correlation/VIF analysis and backward-elimination results are in "
