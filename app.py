@@ -239,8 +239,7 @@ with tab_flight_risk:
 with tab_overview:
     sub_workforce, sub_attrition, sub_engagement, sub_perf, sub_comp = st.tabs(
         ["Workforce", "Attrition", "Engagement", "Performance", "Compensation"]
-
-
+    )
 # --------------------------------------------------------------- Workforce --
 with tab_overview:
     st.subheader("Who works at NovaCorp")
