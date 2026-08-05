@@ -123,6 +123,7 @@ def get_feature_names(preprocessor):
 def main():
     emp, att, eng, perf = load_raw()
     full = build_full(emp, att, eng, perf)
+    print(f"Full table: {len(full):,} employees, {full['attrited'].mean()*100:.1f}% attrited")
     X, y, df = build_model_table(full)
 
     X_train, X_test, y_train, y_test, idx_train, idx_test = train_test_split(

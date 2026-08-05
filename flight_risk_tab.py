@@ -359,7 +359,7 @@ def render_flight_risk_tab(full, style_fig, CATEGORICAL):
         fig.update_layout(title="ROC curve", xaxis_title="False positive rate", yaxis_title="True positive rate")
         st.plotly_chart(style_fig(fig, height=380, showlegend=True), use_container_width=True)
 
-        st.markdown("**Feature importance — Gini (Decision Tree)**")
+        st.markdown("**Feature importance: Gini (Decision Tree)**")
         gini_labels = [g[0] for g in GINI_IMPORTANCE_FULL][::-1]
         gini_values = [g[1] for g in GINI_IMPORTANCE_FULL][::-1]
         fig = go.Figure(go.Bar(x=gini_values, y=gini_labels, orientation="h", marker_color=ACCENT,
@@ -367,7 +367,7 @@ def render_flight_risk_tab(full, style_fig, CATEGORICAL):
         fig.update_layout(title="Gini importance", xaxis_title="Importance")
         st.plotly_chart(style_fig(fig, height=280), use_container_width=True)
 
-        st.markdown("**Permutation importance — all features tested**")
+        st.markdown("**Permutation importance: all features tested**")
         perm_all = {**PERM_BY_SIGNAL, **PERM_OTHER}
         perm_labels = list(perm_all.keys())[::-1]
         perm_values = list(perm_all.values())[::-1]
@@ -376,7 +376,7 @@ def render_flight_risk_tab(full, style_fig, CATEGORICAL):
         fig.update_layout(title="Permutation importance (ROC AUC drop)", xaxis_title="Importance")
         st.plotly_chart(style_fig(fig, height=280), use_container_width=True)
 
-        st.markdown("**Logistic Regression — odds ratios, 95% confidence intervals**")
+        st.markdown("**Logistic Regression: odds ratios, 95% confidence intervals**")
         lr_table = _load_lr_coefficients()
         sig = lr_table[lr_table["significant_95"]].sort_values("odds_ratio")
         fig = go.Figure()
